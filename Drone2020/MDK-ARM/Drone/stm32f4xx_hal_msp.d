@@ -1,4 +1,4 @@
-drone\stm32f4xx_hal_msp.o: ../Src/stm32f4xx_hal_msp.c
+drone\stm32f4xx_hal_msp.o: ..\Src\stm32f4xx_hal_msp.c
 drone\stm32f4xx_hal_msp.o: ../Inc/main.h
 drone\stm32f4xx_hal_msp.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 drone\stm32f4xx_hal_msp.o: ../Inc/stm32f4xx_hal_conf.h

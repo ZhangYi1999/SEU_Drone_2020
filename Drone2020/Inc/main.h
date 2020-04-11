@@ -78,6 +78,8 @@ void Error_Handler(void);
 #define JetsonTX2_RX_GPIO_Port GPIOG
 #define CAN1_TX_Pin GPIO_PIN_1
 #define CAN1_TX_GPIO_Port GPIOD
+#define CampInput_Pin GPIO_PIN_0
+#define CampInput_GPIO_Port GPIOF
 #define FricMotor_Left_Power_Pin GPIO_PIN_4
 #define FricMotor_Left_Power_GPIO_Port GPIOH
 #define FricMotor_Right_Power_Pin GPIO_PIN_5

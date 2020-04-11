@@ -1,4 +1,4 @@
-drone\stm32f4xx_hal_timebase_tim.o: ../Src/stm32f4xx_hal_timebase_tim.c
+drone\stm32f4xx_hal_timebase_tim.o: ..\Src\stm32f4xx_hal_timebase_tim.c
 drone\stm32f4xx_hal_timebase_tim.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 drone\stm32f4xx_hal_timebase_tim.o: ../Inc/stm32f4xx_hal_conf.h
 drone\stm32f4xx_hal_timebase_tim.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h

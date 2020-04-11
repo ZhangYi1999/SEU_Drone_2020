@@ -48,8 +48,8 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2|GPIO_PIN_3|FricMotor_Left_Power_Pin|FricMotor_Right_Power_Pin, GPIO_PIN_RESET);
@@ -66,6 +66,12 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(Normal_Status_GPIO_Port, Normal_Status_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = CampInput_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(CampInput_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PH2 PH3 PHPin PHPin */
   GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3|FricMotor_Left_Power_Pin|FricMotor_Right_Power_Pin;

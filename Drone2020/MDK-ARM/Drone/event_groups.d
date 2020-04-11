@@ -1,4 +1,4 @@
-drone\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
+drone\event_groups.o: ..\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c
 drone\event_groups.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 drone\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\event_groups.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

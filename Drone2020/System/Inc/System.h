@@ -31,6 +31,7 @@ extern TaskHandle_t TaskGimbal_Handle;
 extern TaskHandle_t TaskShoot_Handle;
 extern TaskHandle_t TaskDebug_Handle;
 extern TaskHandle_t TaskLED_Handle;
+extern TaskHandle_t UI_TASK_Handle;
 
 void Task_Protect(void *parameters);
 void Task_CanComm(void *parameters);

@@ -151,14 +151,23 @@ void Gimbal_Control(void)
 			PID_Calculation(&YawMotor);
 			
 		}
-		else if(Gimbal.control_mode == ControlMode_Auto)
+		
+		else if(Gimbal.control_mode == ControlMode_PC)
 		{	
-			YawMotor.TargetAngle += 0.01f * (Get_Mouse_Speed(&RC_ReceiveData, MOUSE_X));
-			PitchMotor.TargetAngle -= 0.01f * (Get_Mouse_Speed(&RC_ReceiveData, MOUSE_Y));
-
+			if (Gimbal.aim_mode == AimMode_Manual)
+			{
+				YawMotor.TargetAngle += 0.01f * (Get_Mouse_Speed(&RC_ReceiveData, MOUSE_X));
+				PitchMotor.TargetAngle -= 0.01f * (Get_Mouse_Speed(&RC_ReceiveData, MOUSE_Y));
+			}
+			else if (Gimbal.aim_mode == AimMode_PC)
+			{
+				YawMotor.TargetAngle = Desire_Angle_Yaw;
+				PitchMotor.TargetAngle = Desire_Angle_Pitch;
+			}
+			
 			if(PitchMotor.TargetAngle > PitchAngle_Uplimit)
 				PitchMotor.TargetAngle = PitchAngle_Uplimit;
-			else if(PitchMotor.TargetAngle<PitchAngle_Downlimit)
+			else if(PitchMotor.TargetAngle < PitchAngle_Downlimit)
 				PitchMotor.TargetAngle = PitchAngle_Downlimit;
 			
 			if(YawMotor.TargetAngle > 155)
@@ -168,9 +177,8 @@ void Gimbal_Control(void)
 			
 			PID_Calculation(&PitchMotor);
 			PID_Calculation(&YawMotor);
-				/* To be writen */
-			
 		}
+
 		else if(Gimbal.control_mode == ControlMode_Protect)
 		{
 			PitchMotor.TargetAngle = Gimbal.position.PitchAngle;

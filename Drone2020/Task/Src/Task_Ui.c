@@ -1,9 +1,14 @@
 #include "Task_Ui.h"
 #include "Task_Judge.h"
 
-//需要一个数组记录当前有多少图形要画！！！！！ 3.15晚上
+static uint8_t send_seq = 0;
 
-TaskHandle_t UI_TASK_Handle;
+union 
+{
+	UiFrame_t Frame;
+	uint8_t UiFrameBuffer[128];
+}UiFrame;
+
 void Task_Ui(void *parameters)
 {
     InitPeripheral_UI();
@@ -16,28 +21,22 @@ void Task_Ui(void *parameters)
     }
 }
 
-/* --------------------------   变量定义    ----------------------------------*/
-ext_student_interactive_header_data_t header_data;
-/*
-typedef __packed struct 
-{   
-  uint16_t data_cmd_id;    
-  uint16_t sender_ID;    
-  uint16_t receiver_ID; 
-}ext_student_interactive_header_data_t;
-*/
-robot_interactive_data_t robot_interactive_data;
-/*
-typedef __packed struct 
-{ 
-  uint8_t* data;
-} robot_interactive_data_t;//交互数据
-*/
-ext_client_custom_character_t custom_character;
-graphic_data_struct_t graphic_data[GRAPHIC_NUM];
-
-static uint8_t send_seq; //包序号
-
+/**
+ * @brief  判断当前哪个graphic为被使用
+ * @note   
+ * @retval 当前第一个空的graphic
+ */
+uint8_t check_empty_graphic(void)
+{
+    for(int i = 0; i < GRAPHIC_NUM; i++)
+    {
+        if(graphic_data[i].operate_tpye == OPERATE_NULL)
+        {
+            return i;
+        }
+    }
+    return GRAPHIC_NUM;
+}
 /**
  * @brief  判断是否为红方队伍
  * @note   
@@ -233,6 +232,238 @@ uint8_t draw_rect(uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_
     }   
 		return 1;
 }
+/**
+ * @brief  画圆
+ * @note   调用该函数画圆(没检查坐标)
+ * @param  start_x: 圆心x坐标
+ * @param  start_y: 圆心y坐标
+ * @param  radius: 半径
+ * @param  name:  图形名字(必须3个uint8_t，不够记得补零)
+ * @param  width: 线宽
+ * @param  layer: 图层
+ * @param  color: 颜色
+ * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
+ */
+uint8_t draw_circle(uint32_t start_x,uint32_t start_y,uint32_t radius,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
+{
+    uint8_t index;
+    index = check_empty_graphic();
+
+    if(index >= GRAPHIC_NUM)
+    {
+        return 0;
+    }
+
+    graphic_data[index].graphic_name[0] = name[0];
+    graphic_data[index].graphic_name[1] = name[1];
+    graphic_data[index].graphic_name[2] = name[2];
+
+    graphic_data[index].width = width;
+    graphic_data[index].operate_tpye = OPERATE_ADD;
+    graphic_data[index].graphic_tpye = GRAPHIC_CIRCLE;
+    
+    graphic_data[index].start_x = start_x;
+    graphic_data[index].start_y = start_y;
+    graphic_data[index].radius = radius;
+
+    if(layer > LAYER_NUM)
+    {
+        return 3;
+    }
+    else
+    {
+        graphic_data[index].layer = layer;
+    }
+        
+    if(color >= COLOR_NUM)
+    {
+        return 4;
+    }
+    else
+    {
+        graphic_data[index].color = color;
+    }   
+		return 1;
+}
+
+/**
+ * @brief  画椭圆
+ * @note   调用该函数画椭圆(没检查坐标)
+ * @param  start_x: 圆心x坐标
+ * @param  start_y: 圆心y坐标
+ * @param  end_x: x半轴长
+ * @param  end_y: y半轴长
+ * @param  name:  图形名字(必须3个uint8_t，不够记得补零，实在懒得写判断了....)
+ * @param  width: 线宽
+ * @param  layer: 图层
+ * @param  color: 颜色
+ * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
+ */
+uint8_t draw_ellipse(uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
+{
+    uint8_t index;
+    index = check_empty_graphic();
+
+    if(index >= GRAPHIC_NUM)
+    {
+        return 0;
+    }
+
+    graphic_data[index].graphic_name[0] = name[0];
+    graphic_data[index].graphic_name[1] = name[1];
+    graphic_data[index].graphic_name[2] = name[2];
+
+    graphic_data[index].width = width;
+    graphic_data[index].operate_tpye = OPERATE_ADD;
+    graphic_data[index].graphic_tpye = GRAPHIC_ELLIPSE;
+    
+    graphic_data[index].start_x = start_x;
+    graphic_data[index].start_y = start_y;
+    graphic_data[index].end_x = end_x;
+    graphic_data[index].end_y = end_y;
+
+    if(layer > LAYER_NUM)
+    {
+        return 3;
+    }
+    else
+    {
+        graphic_data[index].layer = layer;
+    }
+        
+    if(color >= COLOR_NUM)
+    {
+        return 4;
+    }
+    else
+    {
+        graphic_data[index].color = color;
+    }   
+		return 1;
+}
+
+/**
+ * @brief  画弧
+ * @note   调用该函数画弧(没检查坐标)
+ * @param  start_x: 圆心x坐标
+ * @param  start_y: 圆心y坐标
+ * @param  end_x: x半轴长
+ * @param  end_y: y半轴长
+ * @param  start_angle: 起始角度
+ * @param  end_angle: 停止角度
+ * @param  name:  图形名字(必须3个uint8_t，不够记得补零，实在懒得写判断了....)
+ * @param  width: 线宽
+ * @param  layer: 图层
+ * @param  color: 颜色
+ * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
+ */
+uint8_t draw_arc(uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint32_t start_angle,uint32_t end_angle,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
+{
+    uint8_t index;
+    index = check_empty_graphic();
+
+    if(index >= GRAPHIC_NUM)
+    {
+        return 0;
+    }
+
+    graphic_data[index].graphic_name[0] = name[0];
+    graphic_data[index].graphic_name[1] = name[1];
+    graphic_data[index].graphic_name[2] = name[2];
+
+    graphic_data[index].width = width;
+    graphic_data[index].operate_tpye = OPERATE_ADD;
+    graphic_data[index].graphic_tpye = GRAPHIC_ELLIPSE;
+    
+    graphic_data[index].start_x = start_x;
+    graphic_data[index].start_y = start_y;
+    graphic_data[index].end_x = end_x;
+    graphic_data[index].end_y = end_y;
+    graphic_data[index].start_angle = start_angle;
+    graphic_data[index].end_angle = end_angle;
+
+    if(layer > LAYER_NUM)
+    {
+        return 3;
+    }
+    else
+    {
+        graphic_data[index].layer = layer;
+    }
+        
+    if(color >= COLOR_NUM)
+    {
+        return 4;
+    }
+    else
+    {
+        graphic_data[index].color = color;
+    }   
+		return 1;
+}
+
+/**
+ * @brief  画字符
+ * @note   调用该函数画字符(没检查坐标)
+ * @param  start_x: 左顶点x坐标
+ * @param  start_y: 左顶点y坐标
+ * @param  radius: 字体大小
+ * @param  text_lenght: 字符长度
+ * @param  text[]: 字符
+ * @param  name:  图形名字(必须3个uint8_t，不够记得补零)
+ * @param  width: 线宽
+ * @param  layer: 图层
+ * @param  color: 颜色
+ * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
+ */
+uint8_t draw_text(uint32_t start_x,uint32_t start_y,uint32_t radius,uint32_t text_lenght,uint8_t text[],uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
+{
+    uint8_t index;
+    index = check_empty_graphic();
+
+    if(index >= GRAPHIC_NUM)
+    {
+        return 0;
+    }
+
+    custom_character.graphic_name[0] = name[0];
+    custom_character.graphic_name[1] = name[1];
+    custom_character.graphic_name[2] = name[2];
+
+    custom_character.width = width;
+    custom_character.operate_tpye = OPERATE_ADD;
+    custom_character.graphic_tpye = GRAPHIC_CIRCLE;
+    
+    custom_character.start_x = start_x;
+    custom_character.start_y = start_y;
+    custom_character.radius = radius;
+    custom_character.text_lenght = text_lenght;
+		int i=0;
+		while(i<30)
+		{
+			custom_character.text_data[i]= text[i];
+			i++;
+		}
+
+    if(layer > LAYER_NUM)
+    {
+        return 3;
+    }
+    else
+    {
+        graphic_data[index].layer = layer;
+    }
+        
+    if(color >= COLOR_NUM)
+    {
+        return 4;
+    }
+    else
+    {
+        graphic_data[index].color = color;
+    }   
+		return 1;
+}
 
 /**
  * @brief  
@@ -290,19 +521,3 @@ uint8_t send_graphic(void)
 		return 1;
 }
 
-/**
- * @brief  判断当前哪个graphic为被使用
- * @note   
- * @retval 当前第一个空的graphic
- */
-uint8_t check_empty_graphic(void)
-{
-    for(int i = 0; i < GRAPHIC_NUM; i++)
-    {
-        if(graphic_data[i].operate_tpye == OPERATE_NULL)
-        {
-            return i;
-        }
-    }
-    return GRAPHIC_NUM;
-}

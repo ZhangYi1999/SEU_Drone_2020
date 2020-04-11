@@ -1,4 +1,4 @@
-drone\can.o: ../Src/can.c
+drone\can.o: ..\Src\can.c
 drone\can.o: ../Inc/can.h
 drone\can.o: ../Inc/main.h
 drone\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

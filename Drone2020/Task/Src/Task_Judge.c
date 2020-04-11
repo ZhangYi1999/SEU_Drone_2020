@@ -1,4 +1,3 @@
-
 #include "Task_Judge.h"
 
 void Task_Judge(void *parameters)
@@ -8,25 +7,6 @@ void Task_Judge(void *parameters)
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 	}
 }
-
-
-ext_game_state_t ext_game_state;
-ext_game_result_t ext_game_result;
-ext_game_robot_HP_t ext_game_robot_HP;
-ext_dart_status_t ext_dart_status;
-ext_event_data_t ext_event_data;
-ext_supply_projectile_action_t ext_supply_projectile_action;
-ext_referee_warning_t ext_referee_warning;
-ext_dart_remaining_time_t ext_dart_remaining_time;
-ext_game_robot_state_t ext_game_robot_state;
-ext_power_heat_data_t ext_power_heat_data;
-ext_game_robot_pos_t ext_game_robot_pos;
-ext_buff_musk_t ext_buff_musk;
-aerial_robot_energy_t aerial_robot_energy;
-ext_robot_hurt_t ext_robot_hurt;
-ext_shoot_data_t ext_shoot_data;
-ext_bullet_remaining_t ext_bullet_remaining;
-ext_rfid_status_t ext_rfid_status;
 
 /**
   * @brief  USART的空闲中断
@@ -206,8 +186,6 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     }
     }
 }
-
-
 
 /*------------------------------------------------------DJI校验程序--------------------------------------------------------------*/
 //crc8 generator polynomial:G(x)=x8+x5+x4+1

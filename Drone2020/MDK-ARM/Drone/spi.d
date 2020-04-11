@@ -1,4 +1,4 @@
-drone\spi.o: ../Src/spi.c
+drone\spi.o: ..\Src\spi.c
 drone\spi.o: ../Inc/spi.h
 drone\spi.o: ../Inc/main.h
 drone\spi.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

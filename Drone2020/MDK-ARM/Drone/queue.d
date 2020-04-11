@@ -1,4 +1,4 @@
-drone\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/queue.c
+drone\queue.o: ..\Middlewares\Third_Party\FreeRTOS\Source\queue.c
 drone\queue.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 drone\queue.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 drone\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h

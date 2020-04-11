@@ -37,10 +37,12 @@ drone\task_ui.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 drone\task_ui.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 drone\task_ui.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 drone\task_ui.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+drone\task_ui.o: C:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h
+drone\task_ui.o: C:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
+drone\task_ui.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+drone\task_ui.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 drone\task_ui.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 drone\task_ui.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-drone\task_ui.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-drone\task_ui.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 drone\task_ui.o: ../Inc/main.h
 drone\task_ui.o: ../Inc/can.h
 drone\task_ui.o: ../Inc/dma.h

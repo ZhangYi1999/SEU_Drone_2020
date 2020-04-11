@@ -1,4 +1,4 @@
-drone\gpio.o: ../Src/gpio.c
+drone\gpio.o: ..\Src\gpio.c
 drone\gpio.o: ../Inc/gpio.h
 drone\gpio.o: ../Inc/main.h
 drone\gpio.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

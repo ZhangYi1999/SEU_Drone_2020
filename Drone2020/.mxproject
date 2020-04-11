@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=E:/µç¿Ø/Drone2020.3.17/Inc
+HeaderPath=E:/Drone2020/Drone2020/Inc
 HeaderFiles=gpio.h;can.h;dma.h;sys.h;usart.h;stm32f4xx_it.h;stm32f4xx_hal_conf.h;main.h;FreeRTOSConfig.h;tim.h;spi.h;
-SourcePath=E:/µç¿Ø/Drone2020.3.17/Src
+SourcePath=E:/Drone2020/Drone2020/Src
 SourceFiles=gpio.c;can.c;dma.c;sys.c;usart.c;stm32f4xx_it.c;stm32f4xx_hal_msp.c;main.c;freertos.c;tim.c;spi.c;stm32f4xx_hal_timebase_tim.c;
 
 [PreviousLibFiles]

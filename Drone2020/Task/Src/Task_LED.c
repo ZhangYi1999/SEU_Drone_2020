@@ -21,7 +21,7 @@ void Task_LED(void *parameters)
 		{
 			System_Protect_LED;
 		}
-		else if(Gimbal.control_mode == ControlMode_Auto)
+		else if(Gimbal.control_mode == ControlMode_PC)
 		{
 			AutoAim_Work_LED;
 		}

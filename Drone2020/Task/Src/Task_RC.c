@@ -1,6 +1,5 @@
 #include "Task_RC.h"
 
-
 void Task_RC(void *parameters)
 {
 	RC_InitConfig();

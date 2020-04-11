@@ -1,3 +1,5 @@
+#ifndef _TASK_POSITION_H__
+#define _TASK_POSITION_H__
 #include "System.h"
 
 void PositionInit(void);
@@ -6,4 +8,4 @@ void Gimbal_PositionSet(void);
 float CharsToFloat(uint8_t* s);
 float LowFilter(float last_value,float current_value);
 float AverageFilter(float current_value);
-
+#endif

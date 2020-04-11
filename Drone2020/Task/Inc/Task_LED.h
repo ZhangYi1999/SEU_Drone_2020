@@ -1,3 +1,5 @@
+#ifndef _TASK_LED_H__
+#define _TASK_LED_H__
 #include "System.h"
 
 #define System_Work_LED            HAL_GPIO_TogglePin(Normal_Status_GPIO_Port,Normal_Status_Pin)
@@ -20,3 +22,4 @@
 #define ShootPermission_LED        HAL_GPIO_WritePin(ShootPermission_Status_GPIO_Port,ShootPermission_Status_Pin,GPIO_PIN_RESET)
 #define GyroOnline_LED						 HAL_GPIO_WritePin(GYRO_Status_GPIO_Port,GYRO_Status_Pin,GPIO_PIN_RESET)
 #define GyroOffline_LED						 HAL_GPIO_WritePin(GYRO_Status_GPIO_Port,GYRO_Status_Pin,GPIO_PIN_SET)
+#endif

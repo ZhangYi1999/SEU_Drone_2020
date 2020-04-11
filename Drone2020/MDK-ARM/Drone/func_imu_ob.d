@@ -38,10 +38,12 @@ drone\func_imu_ob.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 drone\func_imu_ob.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 drone\func_imu_ob.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 drone\func_imu_ob.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+drone\func_imu_ob.o: ..\Mathlib\Include\arm_math.h
+drone\func_imu_ob.o: ..\Mathlib\Include\core_cm4.h
+drone\func_imu_ob.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+drone\func_imu_ob.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 drone\func_imu_ob.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 drone\func_imu_ob.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-drone\func_imu_ob.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-drone\func_imu_ob.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 drone\func_imu_ob.o: ../Inc/main.h
 drone\func_imu_ob.o: ../Inc/can.h
 drone\func_imu_ob.o: ../Inc/dma.h

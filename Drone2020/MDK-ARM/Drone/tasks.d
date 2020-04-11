@@ -1,4 +1,4 @@
-drone\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+drone\tasks.o: ..\Middlewares\Third_Party\FreeRTOS\Source\tasks.c
 drone\tasks.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 drone\tasks.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 drone\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h

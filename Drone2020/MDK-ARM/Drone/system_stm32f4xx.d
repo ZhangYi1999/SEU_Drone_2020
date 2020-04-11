@@ -1,4 +1,4 @@
-drone\system_stm32f4xx.o: ../Src/system_stm32f4xx.c
+drone\system_stm32f4xx.o: ..\Src\system_stm32f4xx.c
 drone\system_stm32f4xx.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 drone\system_stm32f4xx.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
 drone\system_stm32f4xx.o: ../Drivers/CMSIS/Include/core_cm4.h

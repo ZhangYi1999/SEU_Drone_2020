@@ -10,19 +10,19 @@ void Task_Position(void *parameters)
 	while(1)
 	{
 #ifdef PERSONALGYRO_USED
-		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);		
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		Personal_GYRO_Receive(&GYRO);
 #endif
 #ifdef ONBOARDIMU_USED
 		vTaskDelayUntil(&xLastWakeUpTime, 2);
 		mpu_get_data();
-    imu_ahrs_update();
-    imu_attitude_update();
-    imu_temp_ctrl();
+		imu_ahrs_update();
+		imu_attitude_update();
+		imu_temp_ctrl();
 #endif
 		Present_Time = xTaskGetTickCount();
 		if(Present_Time - Start_Time > 10000)    //陀螺仪上电10s后，自动较准完成
-			GYRO.comm_status.link_status = online;
+		GYRO.comm_status.link_status = online;
 		Gimbal_PositionSet();
 	}
 }
@@ -69,7 +69,7 @@ void Gimbal_PositionSet(void)
 #endif
 #ifdef ONBOARDIMU_USED
 	float last_pit=0,last_yaw=0;
-	Gimbal.position.PitchAngle =	(6754 - PitchMotor.MechanicalAngle) * 0.044f;
+	Gimbal.position.PitchAngle = (6754 - PitchMotor.MechanicalAngle) * 0.044f;
 	last_pit = imu.pit;
 	Gimbal.position.RollAngle = imu.rol;
 	if(YawMotor.MechanicalAngle < 7568)

@@ -1,4 +1,4 @@
-drone\tim.o: ../Src/tim.c
+drone\tim.o: ..\Src\tim.c
 drone\tim.o: ../Inc/tim.h
 drone\tim.o: ../Inc/main.h
 drone\tim.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

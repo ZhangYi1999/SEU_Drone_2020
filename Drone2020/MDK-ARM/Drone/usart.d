@@ -1,4 +1,4 @@
-drone\usart.o: ../Src/usart.c
+drone\usart.o: ..\Src\usart.c
 drone\usart.o: ../Inc/usart.h
 drone\usart.o: ../Inc/main.h
 drone\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

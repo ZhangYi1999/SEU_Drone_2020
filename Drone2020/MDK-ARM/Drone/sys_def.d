@@ -1,4 +1,4 @@
-drone\sys_def.o: ..\System\Src\Sys_Def.c
+drone\sys_def.o: e:\Drone2020\Drone2020\MDK-ARM\..\System\Src\Sys_Def.c
 drone\sys_def.o: ..\System\Inc\Sys_Def.h
 drone\sys_def.o: ..\System\Inc\Sys_Config.h
 drone\sys_def.o: ..\System\Inc\Sys_Def.h
@@ -35,3 +35,7 @@ drone\sys_def.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 drone\sys_def.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 drone\sys_def.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 drone\sys_def.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+drone\sys_def.o: C:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h
+drone\sys_def.o: C:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
+drone\sys_def.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+drone\sys_def.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

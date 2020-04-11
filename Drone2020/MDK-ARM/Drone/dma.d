@@ -1,4 +1,4 @@
-drone\dma.o: ../Src/dma.c
+drone\dma.o: ..\Src\dma.c
 drone\dma.o: ../Inc/dma.h
 drone\dma.o: ../Inc/main.h
 drone\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

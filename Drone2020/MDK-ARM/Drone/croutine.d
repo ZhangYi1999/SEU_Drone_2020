@@ -1,4 +1,4 @@
-drone\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+drone\croutine.o: ..\Middlewares\Third_Party\FreeRTOS\Source\croutine.c
 drone\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\croutine.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 drone\croutine.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

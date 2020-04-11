@@ -12,6 +12,7 @@ TaskHandle_t TaskGimbal_Handle;
 TaskHandle_t TaskShoot_Handle;
 TaskHandle_t TaskDebug_Handle;
 TaskHandle_t TaskLED_Handle;
+TaskHandle_t UI_TASK_Handle;
 
 void Task_Init_Config(void const * argument)
 {
@@ -20,8 +21,8 @@ void Task_Init_Config(void const * argument)
 	DMAInit(NULL);
 	TIMInit(NULL);
 	mpu_device_init();
-  init_quaternion();
-  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);
+	init_quaternion();
+	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);
 	__HAL_TIM_SET_COMPARE(&htim3,IMU_HEATING_Pin,HEAT_MID);	
 	
 	

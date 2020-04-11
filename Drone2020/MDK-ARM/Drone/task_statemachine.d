@@ -37,10 +37,12 @@ drone\task_statemachine.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi
 drone\task_statemachine.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 drone\task_statemachine.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 drone\task_statemachine.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+drone\task_statemachine.o: C:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h
+drone\task_statemachine.o: C:\Program Files (x86)\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
+drone\task_statemachine.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+drone\task_statemachine.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 drone\task_statemachine.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 drone\task_statemachine.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-drone\task_statemachine.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-drone\task_statemachine.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 drone\task_statemachine.o: ../Inc/main.h
 drone\task_statemachine.o: ../Inc/can.h
 drone\task_statemachine.o: ../Inc/dma.h
@@ -63,4 +65,5 @@ drone\task_statemachine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/qu
 drone\task_statemachine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 drone\task_statemachine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 drone\task_statemachine.o: ../Inc/stm32f4xx_it.h
+drone\task_statemachine.o: ..\Task\Inc\Task_JetsonComm.h
 drone\task_statemachine.o: ..\Task\Inc\Task_RC.h
