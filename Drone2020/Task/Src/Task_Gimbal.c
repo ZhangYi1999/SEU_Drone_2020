@@ -1,9 +1,12 @@
 #include "Task_Gimbal.h"
 #include "Task_RC.h"
 
-float test_speed = 0;
-float test_angle = -15;
-int16_t test_output = 0;
+/*
+云台控制逻辑
+首先init
+然后在setposition中将陀螺仪的角度赋给电机真实角度,即电机通过陀螺仪得知真实角度,以避免由于安装造成需要修改代码
+再然后在control中通过对电机的target angle进行赋值,然后PID计算使得电机转至目标角度
+*/
 
 void Task_Gimbal(void *parameters)
 {
@@ -113,6 +116,7 @@ void Gimbal_SetPosition(void)
 	}
 	PitchMotor.RealAngle = Gimbal.position.PitchAngle;
 	PitchMotor.RealSpeed = Gimbal.position.PitchSpeed;
+
 	YawMotor.RealAngle = Gimbal.position.YawAngle;
 	YawMotor.RealSpeed = Gimbal.position.YawSpeed;
 }
@@ -159,12 +163,22 @@ void Gimbal_Control(void)
 				YawMotor.TargetAngle += 0.01f * (Get_Mouse_Speed(&RC_ReceiveData, MOUSE_X));
 				PitchMotor.TargetAngle -= 0.01f * (Get_Mouse_Speed(&RC_ReceiveData, MOUSE_Y));
 			}
-			else if (Gimbal.aim_mode == AimMode_PC)
+			else if (Gimbal.aim_mode == AimMode_Auto)
 			{
 				YawMotor.TargetAngle = Desire_Angle_Yaw;
 				PitchMotor.TargetAngle = Desire_Angle_Pitch;
 			}
-			
+			else if (Gimbal.aim_mode == AimMode_Outpost)
+			{
+				YawMotor.TargetAngle = Outpost_Angle_Yaw;
+				PitchMotor.TargetAngle = Outpost_Angle_Pitch;
+			}
+			else if (Gimbal.aim_mode == AimMode_Base)
+			{
+				YawMotor.TargetAngle = Base_Angle_Yaw
+				PitchMotor.TargetAngle = Base_Angle_Pitch;
+			}
+			/*限制幅度*/
 			if(PitchMotor.TargetAngle > PitchAngle_Uplimit)
 				PitchMotor.TargetAngle = PitchAngle_Uplimit;
 			else if(PitchMotor.TargetAngle < PitchAngle_Downlimit)

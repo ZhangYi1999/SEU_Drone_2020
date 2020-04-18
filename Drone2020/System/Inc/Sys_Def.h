@@ -75,7 +75,9 @@ typedef enum
 {
 	AimMode_Protect=0,            
 	AimMode_Manual,
-	AimMode_PC,
+	AimMode_Auto,
+    AimMode_Outpost,
+    AimMode_Base,
 }AimMode_Enum;
 
 typedef enum

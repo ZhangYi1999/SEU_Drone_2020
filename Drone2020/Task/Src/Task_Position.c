@@ -69,14 +69,17 @@ void Gimbal_PositionSet(void)
 #endif
 #ifdef ONBOARDIMU_USED
 	float last_pit=0,last_yaw=0;
+
 	Gimbal.position.PitchAngle = (6754 - PitchMotor.MechanicalAngle) * 0.044f;
 	last_pit = imu.pit;
+
 	Gimbal.position.RollAngle = imu.rol;
 	if(YawMotor.MechanicalAngle < 7568)
 		Gimbal.position.YawAngle = (YawMotor.MechanicalAngle - 3472) * 0.044f;
 	else
 		Gimbal.position.YawAngle = (YawMotor.MechanicalAngle - 3472 - 8191) * 0.044f;
 	last_yaw = imu.yaw;
+
 	Gimbal.position.PitchSpeed = imu.wy * 57.3f;
 	Gimbal.position.YawSpeed = imu.wz * -57.3f;
 	Gimbal.position.RollSpeed = imu.wx * 57.3f;
@@ -149,7 +152,7 @@ float LowFilter(float last_value,float current_value)
 #define N 30   
 float value_buf[N];
 uint8_t i=0;  
-float AverageFilter(float current_value)  
+float AverageFilter(float current_value)
 {  
    uint8_t count;  
 	 uint8_t n,m;

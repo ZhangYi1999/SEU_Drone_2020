@@ -65,6 +65,11 @@
 #define YawMotor_AnglePID_DeadBand   					0
 #define YawMotor_AnglePID_Maximum_Integration               	10000
 
+#define Outpost_Angle_Pitch -19
+#define Outpost_Angle_Yaw 0
+
+#define Base_Angle_Pitch 0
+#define Base_Angle_Yaw 36
 /*以上是我们主要调的参数,以下是一些名称定义*/
 
 /*串口缓存区*/
