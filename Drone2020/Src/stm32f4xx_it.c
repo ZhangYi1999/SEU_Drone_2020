@@ -337,7 +337,7 @@ void USART6_IRQHandler(void)
   /* USER CODE END USART6_IRQn 0 */
   HAL_UART_IRQHandler(&huart6);
   /* USER CODE BEGIN USART6_IRQn 1 */
-
+	JetsonCommUart_ReConfig_In_IRQHandler(&huart6);
   /* USER CODE END USART6_IRQn 1 */
 }
 

@@ -69,6 +69,8 @@ void UART7_IRQHandler(void);
 void UART8_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 void RC_UART_IRQHandler(UART_HandleTypeDef *huart);
+void Referee_IDLECallback(UART_HandleTypeDef *huart);
+void JetsonCommUart_ReConfig_In_IRQHandler(UART_HandleTypeDef *huart);
 void Uart_Config_In_IRQHandle(UART_HandleTypeDef *huart);
 /* USER CODE END EFP */
 

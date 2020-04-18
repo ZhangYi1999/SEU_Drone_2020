@@ -68,7 +68,7 @@ void Gimbal_PositionSet(void)
 	Gimbal.position.RollSpeed = GYRO.Gyro_X;
 #endif
 #ifdef ONBOARDIMU_USED
-	float last_pit=0,last_yaw=0;
+	float last_pit = 0,last_yaw = 0;
 
 	Gimbal.position.PitchAngle = (6754 - PitchMotor.MechanicalAngle) * 0.044f;
 	last_pit = imu.pit;
@@ -155,8 +155,8 @@ uint8_t i=0;
 float AverageFilter(float current_value)
 {  
    uint8_t count;  
-	 uint8_t n,m;
-   float  sum=0.0f,temp=0;  
+	 //uint8_t n,m;
+   float  sum=0.0f;//,temp=0;
    value_buf[i++] = current_value;  
    if ( i == N )   i = 0;  
    for ( count=0;count<N;count++)  

@@ -65,25 +65,25 @@ ext_rfid_status_t ext_rfid_status;
 
 /*-------------------------------- 与算法相关外部变量定义开始----------------------------------- */
 float Desire_Angle_Pitch;
-float Desire_Angle_Yaw;                 /*Pitch与Yaw的目标角*/
-float Jetson_Angle_Pitch = 0.0;			/*Pitch轴角度变量*/
-float Jetson_Angle_Yaw = 0.0;			/*Yaw轴角度变量*/
-float Jetson_Speed_Pitch = 0.0;		    /*Pitch轴角速度变量*/
-float Jetson_Speed_Yaw = 0.0;			/*Yaw轴角速度变量*/
-float Jetson_Acceleration_Pitch = 0.0;	/*Pitch轴角加速度变量*/
+float Desire_Angle_Yaw;           		/*Pitch与Yaw的目标角*/
+float Jetson_Angle_Pitch = 0.0;				/*Pitch轴角度变量*/
+float Jetson_Angle_Yaw = 0.0;					/*Yaw轴角度变量*/
+float Jetson_Speed_Pitch = 0.0;				/*Pitch轴角速度变量*/
+float Jetson_Speed_Yaw = 0.0;					/*Yaw轴角速度变量*/
+float Jetson_Acceleration_Pitch = 0.0;/*Pitch轴角加速度变量*/
 float Jetson_Acceleration_Yaw = 0.0;	/*Yaw轴角加速度变量*/
-float Pre_Speed_Pitch = 0.0;			/*Pitch轴上次角速度变量*/
-float Pre_Speed_Yaw = 0.0;			    /*Yaw轴上次角度变量*/
+float Pre_Speed_Pitch = 0.0;					/*Pitch轴上次角速度变量*/
+float Pre_Speed_Yaw = 0.0;			    	/*Yaw轴上次角度变量*/
 /*卡尔曼滤波变量设置*/
 kalman_filter_t KF_Gimbal_Pitch, KF_Gimbal_Yaw;
 kalman_filter_init_t KF_Gimbal_Pitch_init, KF_Gimbal_Yaw_init;
 
 JetsonFlag_Struct JetsonFlag[JETSONFLAG_LEN]; 								/*16个结构体用来克服延迟，用于记录数据*/
-																			/*凯哥说,JetsonFlag的的作用如下:
-																			算法计算并返回给我们的是当前角度与目标角度的差值,即Target_Angle
-																			同时因为算法对图像的处理是有延迟的,当JetSon处理完图像之后,可能这时的云台已经指向另一个角度了
-																			那如果还用JetSon结算出来的差值角度,显然是不对的,所以我们要将图像被处理时所对应的角度保存起来
-																			等JetSon结算完成后,再加上当时记录的角度,就得到了最终想要的角度,再赋值给Desire_Angle*/
+/*凯哥说,JetsonFlag的的作用如下:
+算法计算并返回给我们的是当前角度与目标角度的差值,即Target_Angle
+同时因为算法对图像的处理是有延迟的,当JetSon处理完图像之后,可能这时的云台已经指向另一个角度了
+那如果还用JetSon结算出来的差值角度,显然是不对的,所以我们要将图像被处理时所对应的角度保存起来
+等JetSon结算完成后,再加上当时记录的角度,就得到了最终想要的角度,再赋值给Desire_Angle*/
 																			
 JetsonToSTM_Struct DataRecFromJetson_Temp, DataRecFromJetson;               /*两个变量克服某些可能覆盖的错误*/
 STMToJetson_Struct DataSendToJetson = {   			                		/*发送给Jetson的裁判系统数据*/

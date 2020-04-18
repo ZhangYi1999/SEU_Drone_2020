@@ -3,6 +3,20 @@
 
 #include "System.h"
 
+/*--------------偏移位置----------------*/
+//接收数据
+#define JUDGE_SOF_OFFSET (0)
+#define JUDGE_DATALENGTH_OFFSET (1)
+#define JUDGE_SEQ_OFFSET (3)
+#define JUDGE_CRC8_OFFSET (4)
+#define JUDGE_CMDID_OFFSET (5)
+#define JUDGE_DATA_OFFSET (7)
+#define JUDGE_CRC16_OFFSET(n) (n + JUDGE_DATA_OFFSET)
+//发送数据
+#define TRAMSINIT_LENGTH 128
+#define TRAMSINIT_HEAD_OFFSET 0
+#define TRAMSINIT_SENDID_OFFSET 2
+#define TRAMSINIT_CLIENT_OFFSET 4
 
 //CmdID(2-Byte)
 #define GAME_STATE              0X0001          //比赛状态数据，1Hz 周期发送
@@ -81,7 +95,6 @@ uint32_t Verify_CRC16_Check_Sum(uint8_t *pchMessage, uint32_t dwLength);
 void Append_CRC16_Check_Sum(uint8_t *pchMessage, uint32_t dwLength);
 /*--------------------------------------------------校验函数--------------------------------------------------*/
 
-void Referee_IDLECallback(UART_HandleTypeDef *huart);
 void RefereeReceive(uint8_t JudgeReceive_Counter);
 void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID);
 

@@ -175,7 +175,7 @@ void Gimbal_Control(void)
 			}
 			else if (Gimbal.aim_mode == AimMode_Base)
 			{
-				YawMotor.TargetAngle = Base_Angle_Yaw
+				YawMotor.TargetAngle = Base_Angle_Yaw;
 				PitchMotor.TargetAngle = Base_Angle_Pitch;
 			}
 			/*限制幅度*/
