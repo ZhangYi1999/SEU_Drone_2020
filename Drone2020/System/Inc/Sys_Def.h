@@ -225,6 +225,42 @@ extern uint8_t GYROBuffer[2][PersonalGYRO_rx_len],GYROBuffer2[2][PersonalGYRO_rx
 extern uint8_t GYRO_Rx_Mem,GYRO_Rx_Mem2;
 /*-------------------------------- 基本变量外部声明结束-------------------------------- */
 
+/*-------------------------------- 与裁判系统相关枚举定义开始-------------------------------- */
+typedef enum
+{
+  OPERATE_NULL = 0,
+  OPERATE_ADD,
+  OPERATE_CHANGE,
+  OPERATE_DELETE,
+}OPERATE_TYPE;
+
+//图形类型，英文能看懂
+typedef enum
+{
+  GRAPHIC_LINE = 0,
+  GRAPHIC_RECT,
+  GRAPHIC_CIRCLE,
+  GRAPHIC_ELLIPSE,
+  GRAPHIC_ARC,//圆弧，我翻译搜的，你懂就行
+  GRAPHIC_FLOAT,
+  GRAPHIC_INT,
+  GRAPHIC_CHAR,
+}GRAPHIC_TYPE;
+
+typedef enum
+{
+  COLOR_TEAM = 0,
+  COLOR_YELLOW,
+  COLOR_GREEN,
+  COLOR_ORANGE,
+  COLOR_AMARANTH, //紫红色
+  COLOR_PINK,
+  COLOR_CYAN,
+  COLOR_BLACK,
+  COLOR_WHITE,
+  COLOR_NUM,
+}COLOR_TYPE;
+
 /*-------------------------------- 与裁判系统相关结构体定义开始-------------------------------- */
 typedef __packed struct 
 {
@@ -253,22 +289,12 @@ typedef __packed struct
     uint32_t radius:10;
     uint32_t end_x:11;
     uint32_t end_y:11;
-    uint32_t text_lenght:10;
 }graphic_data_struct_t;
 
 typedef __packed struct
 { 
-	uint8_t graphic_name[3];
-    uint32_t operate_tpye:3;
-    uint32_t graphic_tpye:3;
-    uint32_t layer:4;
-    uint32_t color:4;
-	uint32_t width:10;
-	uint32_t start_x:11;
-    uint32_t start_y:11;
-    uint32_t radius:10;
-	uint32_t text_lenght:10;
-    uint8_t text_data[30]; 
+	  graphic_data_struct_t graphic_data_struct;
+    uint8_t data[30]; 
 } ext_client_custom_character_t;
 
 typedef __packed struct 
@@ -690,6 +716,8 @@ extern ext_robot_hurt_t ext_robot_hurt;
 extern ext_shoot_data_t ext_shoot_data;
 extern ext_bullet_remaining_t ext_bullet_remaining;
 extern ext_rfid_status_t ext_rfid_status;
+
+extern uint32_t bullet_max;
 /*-------------------------------- 与裁判系统相关外部变量声明结束-------------------------------- */
 
 /*-------------------------------- 与算法通信所用到的结构体定义开始-------------------------------- */
@@ -740,6 +768,7 @@ typedef struct
     float Gimbal_Yaw;
     uint8_t EoF;
 } STMToJetson_Struct_Gyro;
+
 typedef struct
 {
     uint16_t team;

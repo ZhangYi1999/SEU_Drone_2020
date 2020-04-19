@@ -51,7 +51,7 @@ void StatusMachine_Update(void)
 	static uint8_t FricHighChange = 1;
 	static uint8_t AutoShootChange = 1;
 	switch (Gimbal.control_mode)
-    {
+  {
 		case ControlMode_Manual:
 		{
 			if (Get_Switch_Val(&RC_ReceiveData, RC_SW_Left) == RC_SW_UP)
@@ -97,7 +97,7 @@ void StatusMachine_Update(void)
 					if(FricHighChange)
 					{
 						FricHighChange = 0;
-						if(Gimbal.fric_status != ShootStatus_Stop)
+						if(Gimbal.shoot_status != ShootStatus_Stop)
 							Gimbal.fric_status = FricStatus_Working;
 						else
 							Gimbal.fric_status = FricStatus_Stop;
@@ -173,5 +173,5 @@ void StatusMachine_Update(void)
 			Gimbal.shoot_status = ShootStatus_Stop;
 			break;
 		}
-    }
+  }
 }

@@ -36,14 +36,14 @@ void JetsonComm_Control(UART_HandleTypeDef *huart)
     {
         HAL_Delay(10);
         /*设定当前红蓝方及相关裁判系统信息*/
-        if (WeAreRedTeam)
+        if (ext_game_robot_state.robot_id < 10)
         {
             CommStatus.team = RedTeam;//这里并没有发送CommStatus
             DataSendToJetson.Seq++;
             DataSendToJetson.NeedMode = (uint8_t)(RedTeam >> 8);
             DataSendToJetson.ShootSpeed = (uint8_t)(RedTeam);
         }
-        else if (WeAreBlueTeam)
+        else if (ext_game_robot_state.robot_id > 100)
         {
             CommStatus.team = BlueTeam;
             DataSendToJetson.Seq++;

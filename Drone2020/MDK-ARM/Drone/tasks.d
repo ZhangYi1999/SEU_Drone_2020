@@ -4,7 +4,7 @@ drone\tasks.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 drone\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\tasks.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 drone\tasks.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-drone\tasks.o: ../Inc/FreeRTOSConfig.h
+drone\tasks.o: ..\Inc\FreeRTOSConfig.h
 drone\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 drone\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 drone\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

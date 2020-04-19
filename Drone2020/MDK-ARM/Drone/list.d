@@ -3,7 +3,7 @@ drone\list.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 drone\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\list.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 drone\list.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-drone\list.o: ../Inc/FreeRTOSConfig.h
+drone\list.o: ..\Inc\FreeRTOSConfig.h
 drone\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 drone\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 drone\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

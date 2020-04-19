@@ -3,7 +3,7 @@ drone\event_groups.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\st
 drone\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\event_groups.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 drone\event_groups.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-drone\event_groups.o: ../Inc/FreeRTOSConfig.h
+drone\event_groups.o: ..\Inc\FreeRTOSConfig.h
 drone\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 drone\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 drone\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

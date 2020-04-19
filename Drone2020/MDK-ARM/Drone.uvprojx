@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F427xx,USE_STDPERIPH_DRIVER,ARM_MATH_CM4,__CC_ARM,ARM_MATH_M</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;..\Task\Inc;..\System\Inc;..\OnboardMPU\Inc;..\Mathlib</IncludePath>
+              <IncludePath>..\Inc;..\Drivers\STM32F4xx_HAL_Driver\Inc;..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;..\Task\Inc;..\System\Inc;..\OnboardMPU\Inc;..\Mathlib;..\System\Src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -533,22 +533,22 @@
             <File>
               <FileName>Sys_Def.h</FileName>
               <FileType>5</FileType>
-              <FilePath>e:\Drone2020\Drone2020\MDK-ARM\..\System\Inc\Sys_Def.h</FilePath>
-            </File>
-            <File>
-              <FileName>Sys_Def.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>e:\Drone2020\Drone2020\MDK-ARM\..\System\Src\Sys_Def.c</FilePath>
+              <FilePath>..\System\Inc\Sys_Def.h</FilePath>
             </File>
             <File>
               <FileName>System.h</FileName>
               <FileType>5</FileType>
-              <FilePath>e:\Drone2020\Drone2020\MDK-ARM\..\System\Inc\System.h</FilePath>
+              <FilePath>..\System\Inc\System.h</FilePath>
+            </File>
+            <File>
+              <FileName>Sys_Def.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\System\Src\Sys_Def.c</FilePath>
             </File>
             <File>
               <FileName>System.c</FileName>
               <FileType>1</FileType>
-              <FilePath>e:\Drone2020\Drone2020\MDK-ARM\..\System\Src\System.c</FilePath>
+              <FilePath>..\System\Src\System.c</FilePath>
             </File>
           </Files>
         </Group>

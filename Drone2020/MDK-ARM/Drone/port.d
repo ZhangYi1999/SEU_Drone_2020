@@ -2,7 +2,7 @@ drone\port.o: ..\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\
 drone\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\port.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 drone\port.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-drone\port.o: ../Inc/FreeRTOSConfig.h
+drone\port.o: ..\Inc\FreeRTOSConfig.h
 drone\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 drone\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 drone\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

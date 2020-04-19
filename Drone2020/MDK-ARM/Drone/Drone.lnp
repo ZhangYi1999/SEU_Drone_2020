@@ -45,7 +45,7 @@
 "drone\stm32f4xx_hal_gpio.o"
 "drone\stm32f4xx_hal_pwr_ex.o"
 "drone\stm32f4xx_hal_spi.o"
-"drone\system_stm32f4xx_1.o"
+"drone\system_stm32f4xx.o"
 "drone\croutine.o"
 "drone\event_groups.o"
 "drone\list.o"

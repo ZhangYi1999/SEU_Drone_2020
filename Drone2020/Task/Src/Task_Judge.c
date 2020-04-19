@@ -1,5 +1,11 @@
 #include "Task_Judge.h"
 
+/*----------变量定义---------*/
+uint16_t bullet_remaining_num;
+uint32_t bullet_max = 0;//判断是否是第一次发射，用于设置弹量上限是250还是500
+uint16_t last_energy_point = 0;
+
+/*----------函数定义---------*/
 void Task_Judge(void *parameters)
 {
 	while(1)
@@ -161,7 +167,18 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     }
     case AERIAL_ROBOT_ENERGY:
     {
+				last_energy_point  = aerial_robot_energy.energy_point;
+			
         memcpy(&aerial_robot_energy, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), AERIAL_ROBOT_ENERGY_DATA_SIZE);
+			
+			  if(bullet_max == 0 || bullet_max == 250)
+				{
+					if(bullet_max == 0 && last_energy_point == 300 && aerial_robot_energy.energy_point <300)//第一次发射
+						bullet_max = 250;
+					if(bullet_max == 250 && last_energy_point == 300 && aerial_robot_energy.energy_point <300)//第二次发射
+						bullet_max = 500;
+				}
+				
         break;
     }
     case ROBOT_HURT:
@@ -177,7 +194,10 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     case REMAIN_BULLET:
     {
         memcpy(&ext_bullet_remaining, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), REMAIN_BULLET_DATA_SIZE);
-        break;
+        
+				bullet_remaining_num = ext_bullet_remaining.bullet_remaining_num;
+			
+				break;
     }
     case RFID_STATE:
     {
