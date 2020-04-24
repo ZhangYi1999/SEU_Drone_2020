@@ -24,7 +24,7 @@ void Task_Init_Config(void const * argument)
 	init_quaternion();
 	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);
 	__HAL_TIM_SET_COMPARE(&htim3,IMU_HEATING_Pin,HEAT_MID);	
-	
+	FlashInit(); 
 	
 	Queue_CANSend = xQueueCreate(20,sizeof(CanSend_type));
 	xTaskCreate(Task_Protect, "Task_Protect", 256, NULL, 6, &TaskProtect_Handle);
@@ -124,3 +124,12 @@ void TIMInit(void *parameters)
 {
 }
 
+void FlashInit(void)
+{
+  uint32_t Address = FLASH_USER_START_ADDR;
+  __IO uint32_t data32 = 0;
+	data32 = *(__IO uint32_t*)Address;
+  Wild_Change_Angle_Pitch.FLOAT = data32;
+  Address = Address + 4;
+  Wild_Change_Angle_Yaw.FLOAT = data32;
+}

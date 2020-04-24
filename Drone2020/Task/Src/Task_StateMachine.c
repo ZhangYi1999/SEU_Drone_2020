@@ -1,7 +1,7 @@
 #include "Task_StateMachine.h"
 #include "Task_JetsonComm.h"
 #include "Task_RC.h"
-
+#include "Task_Flash.h"
 void Task_StateMachine(void *parameters)
 {
 	StatusMachine_Init();
@@ -50,6 +50,7 @@ void StatusMachine_Update(void)
 	/*按键切换变量，使得每个按键动作执行一次*/
 	static uint8_t FricHighChange = 1;
 	static uint8_t AutoShootChange = 1;
+	static uint8_t HaveWildChange = 0;
 	switch (Gimbal.control_mode)
   {
 		case ControlMode_Manual:
@@ -150,6 +151,23 @@ void StatusMachine_Update(void)
 					{
 						Version_Init();						/*卡尔曼滤波初始化，防止爆炸*/
 						AutoShootChange = 0;				/*只进入一次*/
+					}
+					if(KEY_WILD_CHANGE)//必须要在按着shift键的情况下才能打开微调模式,担心会误触
+					{
+						HaveWildChange = 1;
+						if(KEY_WILD_CHANGE_LEFT) Wild_Change_Angle_Yaw.FLOAT -= (float)0.5;
+						else if(KEY_WILD_CHANGE_RIGHT) Wild_Change_Angle_Yaw.FLOAT += (float)0.5;
+						else if(KEY_WILD_CHANGE_UP) Wild_Change_Angle_Pitch.FLOAT -= (float)0.5;
+						else if(KEY_WILD_CHANGE_DOWN) Wild_Change_Angle_Pitch.FLOAT += (float)0.5;
+					}
+					else//此时没有按着shift
+					{
+						if(HaveWildChange)//此时已经微调完了
+						{
+							HaveWildChange = 0;
+							FlashWrite();//Flash写入条件:首先是要没有按着Shift,其次是要松开了Shift,这个时候 HaveWildChange 置1,
+										//才可以写入,写入后接着置0,防止下次循环的时候再次写入
+						}
 					}
 				}
 				/*-------------------------------打前哨站切换-----------------------------------*/

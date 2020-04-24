@@ -49,4 +49,9 @@ void Motor_SetOutput(Motor_type* motor,int16_t output);
 void Motor_CanSend(Motor_type* motor);
 void Motor_CanSend_Gimbal(Motor_type* Pitch,Motor_type* Yaw);
 void Motor_CanSend_Shoot(Motor_type* FricMotor_Left,Motor_type* FricMotor_Right,Motor_type* StirMotor);
+
+
+
+void PID_Calculation(Motor_type* motor);
+
 #endif

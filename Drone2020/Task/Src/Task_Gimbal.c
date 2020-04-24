@@ -165,8 +165,9 @@ void Gimbal_Control(void)
 			}
 			else if (Gimbal.aim_mode == AimMode_Auto)
 			{
-				YawMotor.TargetAngle = Desire_Angle_Yaw;
-				PitchMotor.TargetAngle = Desire_Angle_Pitch;
+				YawMotor.TargetAngle = Desire_Angle_Yaw + Wild_Change_Angle_Pitch.FLOAT;
+				PitchMotor.TargetAngle = Desire_Angle_Pitch + Wild_Change_Angle_Yaw.FLOAT; 
+				
 			}
 			else if (Gimbal.aim_mode == AimMode_Outpost)
 			{

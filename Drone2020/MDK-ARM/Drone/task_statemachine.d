@@ -67,3 +67,4 @@ drone\task_statemachine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/ev
 drone\task_statemachine.o: ..\Inc\stm32f4xx_it.h
 drone\task_statemachine.o: ..\Task\Inc\Task_JetsonComm.h
 drone\task_statemachine.o: ..\Task\Inc\Task_RC.h
+drone\task_statemachine.o: ..\Task\Inc\Task_Flash.h

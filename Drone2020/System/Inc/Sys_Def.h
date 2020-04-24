@@ -839,6 +839,8 @@ extern STMToJetson_Struct_Gyro DataSendToJetson_gyro;
 extern CommStatus_Struct CommStatus;
 /*-------------------------------- 与算法的通信所需外部变量结束-------------------------------- */
 
-void PID_Calculation(Motor_type* motor);
+union Wild_Change{float FLOAT;uint32_t INT;};
+
+extern union Wild_Change Wild_Change_Angle_Pitch,Wild_Change_Angle_Yaw;
 
 #endif
