@@ -1,7 +1,7 @@
 drone\freertos.o: ..\Src\freertos.c
 drone\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-drone\freertos.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-drone\freertos.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+drone\freertos.o: E:\School Software\ARM\ARMCC\Bin\..\include\stddef.h
+drone\freertos.o: E:\School Software\ARM\ARMCC\Bin\..\include\stdint.h
 drone\freertos.o: ..\Inc\FreeRTOSConfig.h
 drone\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 drone\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -38,6 +38,8 @@ drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h
 drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h
 drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h
 drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h
+drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h
+drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h
 drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h
 drone\freertos.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h

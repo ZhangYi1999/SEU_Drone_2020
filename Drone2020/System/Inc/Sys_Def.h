@@ -718,6 +718,8 @@ extern ext_bullet_remaining_t ext_bullet_remaining;
 extern ext_rfid_status_t ext_rfid_status;
 
 extern uint32_t bullet_max;
+extern uint8_t pos_update;
+extern float robot_pos[3];
 /*-------------------------------- 与裁判系统相关外部变量声明结束-------------------------------- */
 
 /*-------------------------------- 与算法通信所用到的结构体定义开始-------------------------------- */

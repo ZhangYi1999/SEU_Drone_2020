@@ -1,8 +1,8 @@
 drone\stream_buffer.o: ..\Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c
-drone\stream_buffer.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-drone\stream_buffer.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+drone\stream_buffer.o: E:\School Software\ARM\ARMCC\Bin\..\include\stdint.h
+drone\stream_buffer.o: E:\School Software\ARM\ARMCC\Bin\..\include\string.h
 drone\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-drone\stream_buffer.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+drone\stream_buffer.o: E:\School Software\ARM\ARMCC\Bin\..\include\stddef.h
 drone\stream_buffer.o: ..\Inc\FreeRTOSConfig.h
 drone\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 drone\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

@@ -4,6 +4,9 @@
 uint16_t bullet_remaining_num;
 uint32_t bullet_max = 0;//判断是否是第一次发射，用于设置弹量上限是250还是500
 uint16_t last_energy_point = 0;
+uint8_t pos_update = 0;//判断距离上一次SD卡写入无人机位置信息后，无人机位置信息是否更新
+float robot_pos[3];//FATFs好像不支持访问typedef __packed struct，所以用数组保存无人机的位置信息，三个元素顺序为x,y,z
+
 
 /*----------函数定义---------*/
 void Task_Judge(void *parameters)
@@ -158,6 +161,10 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     case GAME_ROBOT_POS:
     {
         memcpy(&ext_game_robot_pos, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), GAME_ROBOT_POS_DATA_SIZE);
+				robot_pos[0] = ext_game_robot_pos.x;
+				robot_pos[1] = ext_game_robot_pos.y;
+				robot_pos[2] = ext_game_robot_pos.z;
+				pos_update = 1;//无人机位置信息已更新，SD卡可进行写入
         break;
     }
     case BUFF_MUSK:

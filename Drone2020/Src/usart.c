@@ -377,7 +377,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     __HAL_LINKDMA(uartHandle,hdmarx,hdma_usart6_rx);
 
     /* USART6_TX Init */
-    hdma_usart6_tx.Instance = DMA2_Stream6;
+    hdma_usart6_tx.Instance = DMA2_Stream7;
     hdma_usart6_tx.Init.Channel = DMA_CHANNEL_5;
     hdma_usart6_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
     hdma_usart6_tx.Init.PeriphInc = DMA_PINC_DISABLE;

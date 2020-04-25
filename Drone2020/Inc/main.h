@@ -29,6 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -66,6 +67,8 @@ void Error_Handler(void);
 #define IMU_HEATING_GPIO_Port GPIOB
 #define JetsonTX2_TX_Pin GPIO_PIN_14
 #define JetsonTX2_TX_GPIO_Port GPIOG
+#define SD_CLK_Pin GPIO_PIN_12
+#define SD_CLK_GPIO_Port GPIOC
 #define SWDCLK_Pin GPIO_PIN_14
 #define SWDCLK_GPIO_Port GPIOA
 #define SWDIO_Pin GPIO_PIN_13
@@ -74,12 +77,22 @@ void Error_Handler(void);
 #define DR16_RX_GPIO_Port GPIOB
 #define CAN1_RX_Pin GPIO_PIN_0
 #define CAN1_RX_GPIO_Port GPIOD
+#define SD_DATA3_Pin GPIO_PIN_11
+#define SD_DATA3_GPIO_Port GPIOC
+#define SD_DATA2_Pin GPIO_PIN_10
+#define SD_DATA2_GPIO_Port GPIOC
 #define JetsonTX2_RX_Pin GPIO_PIN_9
 #define JetsonTX2_RX_GPIO_Port GPIOG
 #define CAN1_TX_Pin GPIO_PIN_1
 #define CAN1_TX_GPIO_Port GPIOD
+#define SD_CMD_Pin GPIO_PIN_2
+#define SD_CMD_GPIO_Port GPIOD
 #define CampInput_Pin GPIO_PIN_0
 #define CampInput_GPIO_Port GPIOF
+#define SD_DATA1_Pin GPIO_PIN_9
+#define SD_DATA1_GPIO_Port GPIOC
+#define SD_DATA0_Pin GPIO_PIN_8
+#define SD_DATA0_GPIO_Port GPIOC
 #define FricMotor_Left_Power_Pin GPIO_PIN_4
 #define FricMotor_Left_Power_GPIO_Port GPIOH
 #define FricMotor_Right_Power_Pin GPIO_PIN_5

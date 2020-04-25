@@ -12,7 +12,8 @@ TaskHandle_t TaskGimbal_Handle;
 TaskHandle_t TaskShoot_Handle;
 TaskHandle_t TaskDebug_Handle;
 TaskHandle_t TaskLED_Handle;
-TaskHandle_t UI_TASK_Handle;
+TaskHandle_t TaskUi_Handle;
+TaskHandle_t TaskSDIO_Handle;
 
 void Task_Init_Config(void const * argument)
 {
@@ -36,8 +37,10 @@ void Task_Init_Config(void const * argument)
 	xTaskCreate(Task_StateMachine, "Task_StateMachine", 256, NULL, 3, &TaskStateMachine_Handle);
 	xTaskCreate(Task_Gimbal, "Task_Gimbal", 256, NULL, 2, &TaskGimbal_Handle);
 	xTaskCreate(Task_Shoot, "Task_Shoot", 256, NULL, 2, &TaskShoot_Handle);
+	xTaskCreate(Task_Ui, "Task_Ui", 256, NULL, 2, &TaskUi_Handle);
 	xTaskCreate(Task_Debug, "Task_Debug", 125, NULL, 2, &TaskDebug_Handle);
 	xTaskCreate(Task_LED, "Task_LED", 125, NULL, 1, &TaskLED_Handle);
+	xTaskCreate(Task_SDIO, "Task_SDIO", 256, NULL, 1, &TaskSDIO_Handle);
 
 	vTaskDelete(NULL);
 	taskEXIT_CRITICAL();
