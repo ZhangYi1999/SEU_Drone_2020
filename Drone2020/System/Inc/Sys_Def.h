@@ -127,6 +127,10 @@ typedef struct
 	float PitchSpeed;
 	float YawSpeed;
 	float RollSpeed;
+    float x;
+    float y;
+    float z;
+    float Height;
 }Gimbal_Position;
 
 typedef struct
@@ -223,6 +227,8 @@ extern GYRO_type PersonalGYRO,PersonalGYRO2;
 extern GYRO_type GYRO;
 extern uint8_t GYROBuffer[2][PersonalGYRO_rx_len],GYROBuffer2[2][PersonalGYRO_rx_len];
 extern uint8_t GYRO_Rx_Mem,GYRO_Rx_Mem2;
+
+extern uint8_t TOFBuffer[TOF_DMA_SIZE];
 /*-------------------------------- 基本变量外部声明结束-------------------------------- */
 
 /*-------------------------------- 与裁判系统相关枚举定义开始-------------------------------- */
@@ -694,7 +700,7 @@ typedef __packed struct
 /*-------------------------------- 与裁判系统相关定义结束-------------------------------- */
 
 /*-------------------------------- 与裁判系统相关外部变量声明开始-------------------------------- */
-extern uint8_t Judge_Receive_Buffer[130];
+extern uint8_t Judge_Receive_Buffer[REFEREE_DMA_SIZE];
 extern ext_student_interactive_header_data_t header_data;
 extern robot_interactive_data_t robot_interactive_data;
 extern ext_client_custom_character_t custom_character;

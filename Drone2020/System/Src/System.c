@@ -90,7 +90,6 @@ __weak void Task_Shoot(void *parameters)
 		vTaskDelayUntil(&xLastWakeUpTime,5);
 	}
 }
-
 __weak void Task_Debug(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
@@ -101,6 +100,24 @@ __weak void Task_Debug(void *parameters)
 	}
 }
 __weak void Task_LED(void *parameters)
+{
+	TickType_t xLastWakeUpTime;
+	xLastWakeUpTime = xTaskGetTickCount();
+	while(1)
+	{
+		vTaskDelayUntil(&xLastWakeUpTime,5);
+	}
+}
+__weak void Task_SDIO(void *parameters)
+{
+	TickType_t xLastWakeUpTime;
+	xLastWakeUpTime = xTaskGetTickCount();
+	while(1)
+	{
+		vTaskDelayUntil(&xLastWakeUpTime,50);
+	}
+}
+__weak void Task_TOF(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
 	xLastWakeUpTime = xTaskGetTickCount();

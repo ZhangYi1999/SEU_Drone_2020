@@ -119,6 +119,11 @@ void Gimbal_SetPosition(void)
 
 	YawMotor.RealAngle = Gimbal.position.YawAngle;
 	YawMotor.RealSpeed = Gimbal.position.YawSpeed;
+
+	Gimbal.position.x = ext_game_robot_pos.x;
+	Gimbal.position.y = ext_game_robot_pos.y;
+	Gimbal.position.z = ext_game_robot_pos.z;
+	
 }
 
 void Gimbal_Control(void)
@@ -155,7 +160,7 @@ void Gimbal_Control(void)
 			PID_Calculation(&YawMotor);
 			
 		}
-		
+
 		else if(Gimbal.control_mode == ControlMode_PC)
 		{	
 			if (Gimbal.aim_mode == AimMode_Manual)

@@ -28,7 +28,7 @@ void JetsonComm_Control(UART_HandleTypeDef *huart)
     static TickType_t Pre_time;						/*局部静态变量，记录上一次时间*/
     TickType_t Cur_time, delta_time;				/*时间变量，记录本次时间，△t*/
     uint8_t Seq;									/*帧指针指示变量*/
-	  
+
     memcpy(&DataRecFromJetson, &DataRecFromJetson_Temp, sizeof(JetsonToSTM_Struct));/*从参数二复制字符到参数一*/
     Seq = DataRecFromJetson.Seq % JETSONFLAG_LEN;	                               	/*帧循环指向接收数据*/
     /*通信建立操作帧:Jeston 先向STM发送一帧建立通信请求,STM将自身颜色发送回*/
@@ -147,7 +147,44 @@ void JetsonComm_Control(UART_HandleTypeDef *huart)
         Jetson_Speed_Yaw = JetsonFlag[Jetson_Seq].Speed_Yaw;
     }
 }
+/**
+ * @brief  在空闲中断中的重配置
+ * @param  huart：串口结构体指针
+ * @retval none
+ */
+uint8_t debug_len = 0;
+void JetsonCommUart_ReConfig_In_IRQHandler(UART_HandleTypeDef *huart) //每次清除标志位是为了能够再进入中断
+{
+    BaseType_t xHigherPriorityTaskToWaken = pdFALSE; //在后面的通知中通知某种消息打开Jetson任务
+    uint8_t usart_this_time_rx_len = 0;              //此次接收长度
+    DMA_HandleTypeDef *hdma_uart_rx = huart->hdmarx; //这个句柄指向了串口把接收到的东西放到那
 
+    if (__HAL_UART_GET_IT_SOURCE(huart, UART_IT_IDLE) != RESET) //判断串口进入了某种中断
+    {
+        //clear the idle pending flag 清除空闲挂起标识
+        (void)huart->Instance->SR;
+        (void)huart->Instance->DR;
+
+        __HAL_UART_CLEAR_IDLEFLAG(huart);
+        __HAL_DMA_DISABLE(hdma_uart_rx); //关闭dma中断
+
+        usart_this_time_rx_len = sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN - __HAL_DMA_GET_COUNTER(hdma_uart_rx); //dma还剩多少空间
+
+        debug_len = usart_this_time_rx_len;
+        __HAL_DMA_SET_COUNTER(hdma_uart_rx, (sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN)); //为什么 作用是清空dma空间？
+        __HAL_DMA_ENABLE(hdma_uart_rx);
+
+        if (usart_this_time_rx_len > 0) //判断空间有东西了
+        {
+            if (DataRecFromJetson_Temp.SoF == JetsonCommSOF && DataRecFromJetson_Temp.EoF == JetsonCommEOF)
+            //发送消息通知
+            {
+                vTaskNotifyGiveFromISR(TaskJetsonComm_Handle, &xHigherPriorityTaskToWaken);
+                portYIELD_FROM_ISR(xHigherPriorityTaskToWaken); //为什么 这个函数干什么的
+            }
+        }
+    }
+}
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 /**
   * @brief  视觉识别卡尔曼滤波的初始化
@@ -499,47 +536,6 @@ float *amended_kalman_filter_calc(kalman_filter_t *F, float signal1, float signa
     F->filtered_value[1] = F->xhat.pData[1];
 
     return F->filtered_value;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————-
-
-/**
- * @brief  在空闲中断中的重配置
- * @param  huart：串口结构体指针
- * @retval none
- */
-uint8_t debug_len = 0;
-void JetsonCommUart_ReConfig_In_IRQHandler(UART_HandleTypeDef *huart) //每次清除标志位是为了能够再进入中断
-{
-    BaseType_t xHigherPriorityTaskToWaken = pdFALSE; //在后面的通知中通知某种消息打开Jetson任务
-    uint8_t usart_this_time_rx_len = 0;              //此次接收长度
-    DMA_HandleTypeDef *hdma_uart_rx = huart->hdmarx; // 这个句柄指向了串口把接收到的东西放到那
-
-    if (__HAL_UART_GET_IT_SOURCE(huart, UART_IT_IDLE) != RESET) //判断串口进入了某种中断
-    {
-        //clear the idle pending flag 清除空闲挂起标识
-        (void)huart->Instance->SR;
-        (void)huart->Instance->DR;
-
-        __HAL_UART_CLEAR_IDLEFLAG(huart);
-        __HAL_DMA_DISABLE(hdma_uart_rx); //关闭dma中断
-
-        usart_this_time_rx_len = sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN - __HAL_DMA_GET_COUNTER(hdma_uart_rx); //dma还剩多少空间
-
-        debug_len = usart_this_time_rx_len;
-        __HAL_DMA_SET_COUNTER(hdma_uart_rx, (sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN)); //为什么 作用是清空dma空间？
-        __HAL_DMA_ENABLE(hdma_uart_rx);
-
-        if (usart_this_time_rx_len > 0) //判断空间有东西了
-        {
-            if (DataRecFromJetson_Temp.SoF == JetsonCommSOF && DataRecFromJetson_Temp.EoF == JetsonCommEOF)
-            //发送消息通知
-            {
-                vTaskNotifyGiveFromISR(TaskJetsonComm_Handle, &xHigherPriorityTaskToWaken);
-                portYIELD_FROM_ISR(xHigherPriorityTaskToWaken); //为什么 这个函数干什么的
-            }
-        }
-    }
 }
 
 /**

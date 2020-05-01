@@ -26,7 +26,7 @@ void Task_SDIO(void *parameters)
 	
 	while(1)
 	{
-		vTaskDelayUntil(&xLastWakeUpTime,2);//裁判系统以10Hz发送无人机位置信息，此处检查位置信息是否更新
+		vTaskDelayUntil(&xLastWakeUpTime,50);//裁判系统以10Hz发送无人机位置信息，此处检查位置信息是否更新
 		
 		if(pos_update == 1)//位置信息已更新
 		{

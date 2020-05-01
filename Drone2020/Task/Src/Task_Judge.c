@@ -44,7 +44,7 @@ void Referee_IDLECallback(UART_HandleTypeDef *huart)
             RefereeReceive(counter);
         }
         //重新打开DMA接收
-        __HAL_DMA_SET_COUNTER(huart->hdmarx, 130);
+        __HAL_DMA_SET_COUNTER(huart->hdmarx, REFEREE_DMA_SIZE);
         __HAL_DMA_ENABLE(huart->hdmarx);
     }
 }
@@ -161,9 +161,9 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     case GAME_ROBOT_POS:
     {
         memcpy(&ext_game_robot_pos, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), GAME_ROBOT_POS_DATA_SIZE);
-				robot_pos[0] = ext_game_robot_pos.x;
-				robot_pos[1] = ext_game_robot_pos.y;
-				robot_pos[2] = ext_game_robot_pos.z;
+				robot_pos[0] = Gimbal.position.x;
+				robot_pos[1] = Gimbal.position.y;
+				robot_pos[2] = Gimbal.position.z;
 				pos_update = 1;//无人机位置信息已更新，SD卡可进行写入
         break;
     }

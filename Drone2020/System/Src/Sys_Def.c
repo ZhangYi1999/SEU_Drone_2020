@@ -21,10 +21,13 @@ uint8_t GYRO_Rx_Mem,GYRO_Rx_Mem2;
 RCDecoding_type RC_ReceiveData,LastRC_ReceiveData;
 uint8_t RCBuffer[2][RC_FRAME_LEN+RC_FRAME_LEN_BACK];
 uint8_t RC_Rx_Mem;
+
+//TOF专用
+uint8_t TOFBuffer[TOF_DMA_SIZE];
 /*-------------------------------- 基本外部变量定义结束-------------------------------------- */
 
 /*-------------------------------- 与裁判系统相关外部变量定义开始-------------------------------- */
-uint8_t Judge_Receive_Buffer[130];
+uint8_t Judge_Receive_Buffer[REFEREE_DMA_SIZE];
 ext_student_interactive_header_data_t header_data;
 /*
 typedef __packed struct 

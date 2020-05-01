@@ -33,6 +33,7 @@ extern TaskHandle_t TaskDebug_Handle;
 extern TaskHandle_t TaskLED_Handle;
 extern TaskHandle_t TaskUi_Handle;
 extern TaskHandle_t TaskSDIO_Handle;
+extern TaskHandle_t TaskTOF_Handle;
 
 void Task_Protect(void *parameters);
 void Task_CanComm(void *parameters);
@@ -47,6 +48,7 @@ void Task_Debug(void *parameters);
 void Task_LED(void *parameters);
 void Task_Ui(void *parameters);
 void Task_SDIO(void *parameters);
+void Task_TOF(void *parameters);
 
 void Motor_SetOutput(Motor_type* motor,int16_t output);
 void Motor_CanSend(Motor_type* motor);

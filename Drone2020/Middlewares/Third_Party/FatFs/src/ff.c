@@ -3254,13 +3254,13 @@ FRESULT validate (	/* Returns FR_OK or FR_INVALID_OBJECT */
 
 
 /*-----------------------------------------------------------------------*/
-/* Mount/Unmount a Logical Drive 在FatFs模块上注册、注销一个工作区（文件系统对象）*/
+/* Mount/Unmount a Logical Drive                                         */
 /*-----------------------------------------------------------------------*/
 
 FRESULT f_mount (
-	FATFS* fs,			/* 工作区（文件系统对象）指针，Pointer to the file system object (NULL:unmount)*/
-	const TCHAR* path,	/* 工作区（文件系统对象）指针，Logical drive number to be mounted/unmounted */
-	BYTE opt			/* 注册或注销选项，Mode option 0:Do not mount (delayed mount), 1:Mount immediately */
+	FATFS* fs,			/* Pointer to the file system object (NULL:unmount)*/
+	const TCHAR* path,	/* Logical drive number to be mounted/unmounted */
+	BYTE opt			/* Mode option 0:Do not mount (delayed mount), 1:Mount immediately */
 )
 {
 	FATFS *cfs;
@@ -3302,20 +3302,13 @@ FRESULT f_mount (
 
 
 /*-----------------------------------------------------------------------*/
-/* Open or Create a File，创建/打开一个文件对象                           */
+/* Open or Create a File                                                 */
 /*-----------------------------------------------------------------------*/
 
 FRESULT f_open (
-	FIL* fp,			/* 将被创建的文件对象结构的指针，Pointer to the blank file object */
-	const TCHAR* path,	/* 文件名指针，指定将创建或打开的文件名，Pointer to the file name */
-	BYTE mode			/* 访问类型和打开方法，Access mode and file open mode flags */
-	              /*模式              描述  
-									FA_READ   				指定读访问对象。可以从文件中读取数据。 与FA_WRITE 结 合可以进行读写访问。   
-									FA_WRITE   				指定写访问对象。可以向文件中写入数据。与FA_READ 结合 可以进行读写访问。   
-									FA_OPEN_EXISTING  打开文件。如果文件不存在，则打开失败。(默认)  
-									FA_OPEN_ALWAYS   	如果文件存在，则打开；否则，创建一个新文件。  
-									FA_CREATE_NEW   	创建一个新文件。如果文件已存在，则创建失败。   
-									FA_CREATE_ALWAYS  创建一个新文件。如果文件已存在，则它将被截断并覆盖。*/
+	FIL* fp,			/* Pointer to the blank file object */
+	const TCHAR* path,	/* Pointer to the file name */
+	BYTE mode			/* Access mode and file open mode flags */
 )
 {
 	FRESULT res;
@@ -3512,14 +3505,14 @@ FRESULT f_open (
 
 
 /*-----------------------------------------------------------------------*/
-/* Read File从一个打开的文件中读取数据                                    */
+/* Read File                                                             */
 /*-----------------------------------------------------------------------*/
 
 FRESULT f_read (
-	FIL* fp, 	/* 指向将被读取的已打开的文件对象结构的指针，Pointer to the file object */
-	void* buff,	/* 指向存储读取数据的缓冲区的指针，Pointer to data buffer */
-	UINT btr,	/* 要读取的字节数，Number of bytes to read */
-	UINT* br	/* 指向返回已读取字节数的UINT变量的指针，返回为实际读取的字节数，Pointer to number of bytes read */
+	FIL* fp, 	/* Pointer to the file object */
+	void* buff,	/* Pointer to data buffer */
+	UINT btr,	/* Number of bytes to read */
+	UINT* br	/* Pointer to number of bytes read */
 )
 {
 	FRESULT res;
@@ -3612,14 +3605,14 @@ FRESULT f_read (
 
 #if !_FS_READONLY
 /*-----------------------------------------------------------------------*/
-/* Write File 写入数据到一个已打开的文件                                  */
+/* Write File                                                            */
 /*-----------------------------------------------------------------------*/
 
 FRESULT f_write (
-	FIL* fp,			/* 指向将被写入的已打开的文件对象结构的指针，Pointer to the file object */
-	const void* buff,	/* 指向将被写入的已打开的文件对象结构的指针，Pointer to the data to be written */
-	UINT btw,			/* 要写入的字节数，Number of bytes to write */
-	UINT* bw			/* 指向返回已写入字节数的UINT变量的指针，返回为实际写入的字节数，Pointer to number of bytes written */
+	FIL* fp,			/* Pointer to the file object */
+	const void* buff,	/* Pointer to the data to be written */
+	UINT btw,			/* Number of bytes to write */
+	UINT* bw			/* Pointer to number of bytes written */
 )
 {
 	FRESULT res;
@@ -3814,7 +3807,7 @@ FRESULT f_sync (
 
 
 /*-----------------------------------------------------------------------*/
-/* Close File关闭一个打开的文件                                           */
+/* Close File                                                            */
 /*-----------------------------------------------------------------------*/
 
 FRESULT f_close (

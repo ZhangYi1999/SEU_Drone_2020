@@ -9,6 +9,7 @@
 #define DMA_JetsonTX2_USED
 #define DMA_GYRO_USED
 #define ONBOARDIMU_USED
+#define DMA_TOF_USED
 
 #define FricMotor_MaximumOutput 				16000
 #define FricMotor_SpeedPID_Kp   				8//8
@@ -89,6 +90,8 @@
 
 #define GYROFRAMEHEAD0 0X5A
 #define GYROFRAMEHEAD1 0XA5
+
+#define TOF_DMA_SIZE 19
 
 /* ----------------------- RC Channel Definition---------------------------- */
 #define RC_CH_VALUE_OFFSET (uint16_t)1024//虽然只在RC.c中用到但还是放在了这里
