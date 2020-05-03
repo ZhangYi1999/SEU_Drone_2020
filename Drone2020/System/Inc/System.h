@@ -1,23 +1,25 @@
 #ifndef _SYSTEM_H_
 #define _SYSTEM_H_
 
-#include "Sys_Def.h"
-#include "Sys_Config.h"
-#include "stdio.h"
-#include "stdlib.h"
-#include "math.h"
-#include <string.h>
+#include "Task_CanComm.h"
+#include "Task_Debug.h"
+#include "Task_Flash.h"
+#include "Task_Gimbal.h"
+#include "Task_Init.h"
+#include "Task_JetsonComm.h"
+#include "Task_Judge.h"
+#include "Task_LED.h"
+#include "Task_Position.h"
+#include "Task_Protect.h"
+#include "Task_RC.h"
+#include "Task_SDIO.h"
+#include "Task_Shoot.h"
+#include "Task_StateMachine.h"
+#include "Task_TOF.h"
+#include "Task_Ui.h"
 
-#include "main.h"
-#include "can.h"
-#include "dma.h"
-#include "usart.h"
-#include "gpio.h"
-#include "tim.h"
-#include "spi.h"
-#include "freertos.h"
-#include "cmsis_os.h"
-#include "stm32f4xx_it.h"
+#define Limit(value,range) value>range?range:(value<-1*range?-1*range:value) 
+#define LimitIn360(angle)	 while(angle>360)angle-=360
 
 extern QueueHandle_t Queue_CANSend;
 extern TaskHandle_t TaskProtect_Handle;
@@ -72,7 +74,7 @@ uint16_t Get_CRC16_Check_Sum(uint8_t *pchMessage, uint32_t dwLength, uint16_t wC
 uint32_t Verify_CRC16_Check_Sum(uint8_t *pchMessage, uint32_t dwLength);
 void Append_CRC16_Check_Sum(uint8_t *pchMessage, uint32_t dwLength);
 
-/*-------------------------------------------CRC校验---------------------------------------------------*/
+/*--------------------------------------------------CRC校验---------------------------------------------------*/
 /**
   * @brief  裁判系统数据校验
   * @param  __RECEIVEBUFFER__：  接收到的裁判系统数据头帧所在地址

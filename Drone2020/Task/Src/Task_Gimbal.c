@@ -1,5 +1,9 @@
-#include "Task_Gimbal.h"
-#include "Task_RC.h"
+#include "Sys_Config.h"
+
+Motor_type PitchMotor;
+Motor_type YawMotor;
+Gimbal_type Gimbal;
+
 
 /*
 云台控制逻辑

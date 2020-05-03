@@ -1,7 +1,5 @@
-#include "Task_StateMachine.h"
-#include "Task_JetsonComm.h"
-#include "Task_RC.h"
-#include "Task_Flash.h"
+#include "Sys_Config.h"
+
 void Task_StateMachine(void *parameters)
 {
 	StatusMachine_Init();

@@ -1,4 +1,49 @@
-#include "Task_Judge.h"
+#include "Sys_Config.h"
+
+/*-------------------------------- 与裁判系统相关外部变量定义开始-------------------------------- */
+uint8_t Judge_Receive_Buffer[REFEREE_DMA_SIZE];
+ext_student_interactive_header_data_t header_data;
+/*
+typedef __packed struct 
+{   
+  uint16_t data_cmd_id;    
+  uint16_t sender_ID;    
+  uint16_t receiver_ID; 
+}ext_student_interactive_header_data_t;
+*/
+robot_interactive_data_t robot_interactive_data;
+/*
+typedef __packed struct 
+{ 
+  uint8_t* data;
+} robot_interactive_data_t;//交互数据
+*/
+ext_client_custom_character_t custom_character;
+graphic_data_struct_t graphic_data[GRAPHIC_NUM];
+
+ext_game_state_t ext_game_state;
+ext_game_result_t ext_game_result;
+ext_game_robot_HP_t ext_game_robot_HP;
+ext_dart_status_t ext_dart_status;
+ext_event_data_t ext_event_data;
+ext_supply_projectile_action_t ext_supply_projectile_action;
+ext_referee_warning_t ext_referee_warning;
+ext_dart_remaining_time_t ext_dart_remaining_time;
+ext_game_robot_state_t ext_game_robot_state;
+ext_power_heat_data_t ext_power_heat_data;
+ext_game_robot_pos_t ext_game_robot_pos;
+ext_buff_musk_t ext_buff_musk;
+aerial_robot_energy_t aerial_robot_energy;
+ext_robot_hurt_t ext_robot_hurt;
+ext_shoot_data_t ext_shoot_data;
+ext_bullet_remaining_t ext_bullet_remaining;
+ext_rfid_status_t ext_rfid_status;
+
+uint16_t bullet_remaining_num;
+uint32_t bullet_max = 0;//判断是否是第一次发射，用于设置弹量上限是250还是500
+uint16_t last_energy_point = 0;
+uint8_t GameEnd = 0;//用于判断比赛是否结束，结束SD卡写入任务
+/*-------------------------------- 与裁判系统相关外部变量定义结束-------------------------------- */
 
 void Task_Judge(void *parameters)
 {
@@ -16,9 +61,7 @@ void Task_Judge(void *parameters)
   */
 void Referee_IDLECallback(UART_HandleTypeDef *huart)
 {
-    BaseType_t xHigherPriorityTaskToWaken = pdFALSE;
     uint8_t counter;
-
     //判断空闲中断
     if (__HAL_UART_GET_IT_SOURCE(huart, UART_IT_IDLE))
     {
@@ -165,18 +208,18 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     }
     case AERIAL_ROBOT_ENERGY:
     {
-				last_energy_point  = aerial_robot_energy.energy_point;
+        last_energy_point  = aerial_robot_energy.energy_point;
 			
         memcpy(&aerial_robot_energy, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), AERIAL_ROBOT_ENERGY_DATA_SIZE);
 			
-			  if(bullet_max == 0 || bullet_max == 250)
-				{
-					if(bullet_max == 0 && last_energy_point == 300 && aerial_robot_energy.energy_point <300)//第一次发射
-						bullet_max = 250;
-					if(bullet_max == 250 && last_energy_point == 300 && aerial_robot_energy.energy_point <300)//第二次发射
-						bullet_max = 500;
-				}
-				
+        if(bullet_max == 0 || bullet_max == 250)
+        {
+            if(bullet_max == 0 && last_energy_point == 300 && aerial_robot_energy.energy_point <300)//第一次发射
+                bullet_max = 250;
+            if(bullet_max == 250 && last_energy_point == 300 && aerial_robot_energy.energy_point <300)//第二次发射
+                bullet_max = 500;
+        }
+
         break;
     }
     case ROBOT_HURT:
@@ -192,10 +235,8 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     case REMAIN_BULLET:
     {
         memcpy(&ext_bullet_remaining, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), REMAIN_BULLET_DATA_SIZE);
-        
-				bullet_remaining_num = ext_bullet_remaining.bullet_remaining_num;
-			
-				break;
+        bullet_remaining_num = ext_bullet_remaining.bullet_remaining_num;
+        break;
     }
     case RFID_STATE:
     {

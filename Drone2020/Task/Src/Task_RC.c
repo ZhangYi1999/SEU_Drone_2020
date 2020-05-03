@@ -1,4 +1,9 @@
-#include "Task_RC.h"
+#include "Sys_Config.h"
+
+//遥控专用
+RCDecoding_type RC_ReceiveData,LastRC_ReceiveData;
+uint8_t RCBuffer[2][RC_FRAME_LEN+RC_FRAME_LEN_BACK];
+uint8_t RC_Rx_Mem;
 
 void Task_RC(void *parameters)
 {

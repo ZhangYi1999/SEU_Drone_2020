@@ -1,4 +1,8 @@
-#include "Task_TOF.h"
+#include "Sys_Config.h"
+
+//TOF专用
+uint8_t TOFBuffer[TOF_DMA_SIZE];
+uint32_t height_data_temp[4];
 
 void Task_TOF(void *parameters)
 {
@@ -22,7 +26,7 @@ void TOF_UART_IRQHandler(UART_HandleTypeDef *huart)
         //关闭DMA接收
         __HAL_DMA_DISABLE(huart->hdmarx);
         //记录接收到的字节数
-        counter = REFEREE_DMA_SIZE - __HAL_DMA_GET_COUNTER(huart->hdmarx);
+        counter = TOF_DMA_SIZE - __HAL_DMA_GET_COUNTER(huart->hdmarx);
         //有接收到数据，而不是发送完成后的空闲！
         if (counter == TOF_DMA_SIZE)
         {

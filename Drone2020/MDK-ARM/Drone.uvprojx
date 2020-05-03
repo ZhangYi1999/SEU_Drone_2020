@@ -571,11 +571,6 @@
               <FilePath>..\System\Inc\System.h</FilePath>
             </File>
             <File>
-              <FileName>Sys_Def.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\System\Src\Sys_Def.c</FilePath>
-            </File>
-            <File>
               <FileName>System.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\System\Src\System.c</FilePath>

@@ -1,5 +1,4 @@
-#include "Task_UI.h"
-#include "Task_Judge.h"
+#include "Sys_Config.h"
 
 #define REFEREE_HUART huart3
 #define TASK_UI_INTERVAL (500)

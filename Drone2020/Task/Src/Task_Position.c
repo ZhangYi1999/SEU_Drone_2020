@@ -1,5 +1,11 @@
-#include "Task_Position.h"
-#include "Func_Imu_OB.h"
+#include "Sys_Config.h"
+
+
+//陀螺仪专用
+GYRO_type PersonalGYRO,PersonalGYRO2;
+GYRO_type GYRO;
+uint8_t GYROBuffer[2][PersonalGYRO_rx_len],GYROBuffer2[2][PersonalGYRO_rx_len];
+uint8_t GYRO_Rx_Mem,GYRO_Rx_Mem2;
 
 void Task_Position(void *parameters)
 {

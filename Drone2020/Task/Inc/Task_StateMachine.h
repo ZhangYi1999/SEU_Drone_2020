@@ -1,6 +1,7 @@
-#ifndef _TASK_STATE_H__
-#define _TASK_STATE_H__
-#include "System.h"
+#ifndef _TASK_STATEMACHINE_H__
+#define _TASK_STATEMACHINE_H__
+
+#include "Sys_Def.h"
 
 #define KEY_FRICHIGH     				Get_Keyboard_Val(&RC_ReceiveData,KEY_F)//using
 #define KEY_FRICLOW      				Get_Keyboard_Val(&RC_ReceiveData,KEY_G)

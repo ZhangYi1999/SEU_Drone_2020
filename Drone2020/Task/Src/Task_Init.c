@@ -1,5 +1,5 @@
-#include "Task_Init.h"
-#include "Func_Imu_OB.h"
+#include "Sys_Config.h"
+
 
 TaskHandle_t TaskProtect_Handle;
 TaskHandle_t TaskCanComm_Handle;

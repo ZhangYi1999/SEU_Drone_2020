@@ -1,5 +1,10 @@
-#include "Task_Shoot.h"
+#include "Sys_Config.h"
 
+int8_t  BlockedWarningTimes;
+
+Motor_type FricMotor_Left;
+Motor_type FricMotor_Right;
+Motor_type StirMotor;
 
 void Task_Shoot(void *parameters)
 {

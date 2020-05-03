@@ -1,4 +1,4 @@
-#include "Task_Flash.h"
+#include "Sys_Config.h"
 
 /*
 首先在Task_Init.c里调用了FlashInit函数在一开机时就读取两个微调值,然后当进入自瞄状态时,
@@ -6,6 +6,7 @@
 flashwrite函数来写进flash里
 */
 
+union Wild_Change Wild_Change_Angle_Pitch,Wild_Change_Angle_Yaw;
 
 void FlashWrite(void)
 {

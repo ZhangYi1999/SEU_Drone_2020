@@ -1,5 +1,4 @@
-#include "Task_Protect.h"
-
+#include "Sys_Config.h"
 
 void Task_Protect(void *parameters)
 {

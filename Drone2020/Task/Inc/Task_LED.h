@@ -1,6 +1,7 @@
 #ifndef _TASK_LED_H__
 #define _TASK_LED_H__
-#include "System.h"
+
+#include "Sys_Def.h"
 
 #define System_Work_LED            HAL_GPIO_TogglePin(Normal_Status_GPIO_Port,Normal_Status_Pin)
 #define System_Protect_LED         HAL_GPIO_WritePin(Protect_Status_GPIO_Port,Protect_Status_Pin,GPIO_PIN_RESET)
