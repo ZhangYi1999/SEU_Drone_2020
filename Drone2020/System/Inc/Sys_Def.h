@@ -229,6 +229,7 @@ extern uint8_t GYROBuffer[2][PersonalGYRO_rx_len],GYROBuffer2[2][PersonalGYRO_rx
 extern uint8_t GYRO_Rx_Mem,GYRO_Rx_Mem2;
 
 extern uint8_t TOFBuffer[TOF_DMA_SIZE];
+extern uint32_t height_data_temp[4];
 /*-------------------------------- 基本变量外部声明结束-------------------------------- */
 
 /*-------------------------------- 与裁判系统相关枚举定义开始-------------------------------- */
@@ -724,8 +725,9 @@ extern ext_bullet_remaining_t ext_bullet_remaining;
 extern ext_rfid_status_t ext_rfid_status;
 
 extern uint32_t bullet_max;
-extern uint8_t pos_update;
-extern float robot_pos[3];
+extern uint8_t GameEnd;
+extern uint16_t bullet_remaining_num;
+extern uint16_t last_energy_point;
 /*-------------------------------- 与裁判系统相关外部变量声明结束-------------------------------- */
 
 /*-------------------------------- 与算法通信所用到的结构体定义开始-------------------------------- */

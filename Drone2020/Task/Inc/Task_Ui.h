@@ -14,8 +14,6 @@ uint8_t InitPeripheral_UI(void);
 
 uint8_t FrameUpdata(void);
 
-uint8_t WhichTeam(void);
-
 uint8_t draw_line(uint32_t operate, uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color);
 
 uint8_t draw_rect(uint32_t operate, uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color);

@@ -24,6 +24,7 @@ uint8_t RC_Rx_Mem;
 
 //TOF专用
 uint8_t TOFBuffer[TOF_DMA_SIZE];
+uint32_t height_data_temp[4];
 /*-------------------------------- 基本外部变量定义结束-------------------------------------- */
 
 /*-------------------------------- 与裁判系统相关外部变量定义开始-------------------------------- */
@@ -64,6 +65,11 @@ ext_robot_hurt_t ext_robot_hurt;
 ext_shoot_data_t ext_shoot_data;
 ext_bullet_remaining_t ext_bullet_remaining;
 ext_rfid_status_t ext_rfid_status;
+
+uint16_t bullet_remaining_num;
+uint32_t bullet_max = 0;//判断是否是第一次发射，用于设置弹量上限是250还是500
+uint16_t last_energy_point = 0;
+uint8_t GameEnd = 0;//用于判断比赛是否结束，结束SD卡写入任务
 /*-------------------------------- 与裁判系统相关外部变量定义结束-------------------------------- */
 
 /*-------------------------------- 与算法相关外部变量定义开始----------------------------------- */

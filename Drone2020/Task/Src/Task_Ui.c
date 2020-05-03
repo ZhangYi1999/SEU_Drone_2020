@@ -697,31 +697,6 @@ uint8_t send_graphic(void)
 }
 
 /**
- * @brief  判断是否为红方队伍
- * @note   
- * @retval 0 未收到 1 红 2 蓝
- */
-uint8_t WhichTeam(void)
-{
-    if(ext_game_robot_state.robot_id == 0)
-    {
-        return 0;
-    }
-    else if(ext_game_robot_state.robot_id < 10)
-    {
-        return 1;
-    }
-    else if(ext_game_robot_state.robot_id > 100)
-    {
-        return 2;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-/**
  * @brief  判断当前哪个graphic为被使用
  * @note   
  * @retval 当前第一个空的graphic

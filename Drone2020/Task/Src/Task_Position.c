@@ -50,9 +50,9 @@ void Personal_GYRO_Receive(GYRO_type *gyro)
 	gyro->PitchAngle = -((int16_t)(GYROBuffer[GYRO_Rx_Mem][7] | GYROBuffer[GYRO_Rx_Mem][8] << 8)) / 100.0f; 
 	gyro->RollAngle =  ((int16_t)(GYROBuffer[GYRO_Rx_Mem][9] | GYROBuffer[GYRO_Rx_Mem][10] << 8)) / 100.0f;
 	gyro->YawAngle = - ((int16_t)(GYROBuffer[GYRO_Rx_Mem][11] | GYROBuffer[GYRO_Rx_Mem][12] << 8)) / 10.0f;
-	gyro->Gyro_X = CharsToFloat(&GYROBuffer[GYRO_Rx_Mem][26]);
-	gyro->Gyro_Y = CharsToFloat(&GYROBuffer[GYRO_Rx_Mem][30]);
-	gyro->Gyro_Z = CharsToFloat(&GYROBuffer[GYRO_Rx_Mem][34]);
+	gyro->Gyro_X = SpliceFloat(&GYROBuffer[GYRO_Rx_Mem][26]);
+	gyro->Gyro_Y = SpliceFloat(&GYROBuffer[GYRO_Rx_Mem][30]);
+	gyro->Gyro_Z = SpliceFloat(&GYROBuffer[GYRO_Rx_Mem][34]);
 
 	gyro->comm_status.FrameCounter++;
 }
@@ -129,19 +129,7 @@ void Uart_Config_In_IRQHandle(UART_HandleTypeDef *huart)
 	}
 }
 
-float CharsToFloat(uint8_t* s)
-{
-	union{
-		uint8_t c[4];
-		float   f;
-	} temp;
-	temp.c[0] = s[0];
-	temp.c[1] = s[1];
-	temp.c[2] = s[2];
-	temp.c[3] = s[3];
 
-	return temp.f;
-}
 
 float a=0.15f;
 float LowFilter(float last_value,float current_value)

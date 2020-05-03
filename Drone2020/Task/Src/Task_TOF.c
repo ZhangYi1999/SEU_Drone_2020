@@ -35,19 +35,13 @@ void TOF_UART_IRQHandler(UART_HandleTypeDef *huart)
     }
 }
 
-uint32_t height_data_temp[4];
-void ASCII_to_Char()//把ASCII码转化为0 1 2 3 4 5 6 7 8  9 10 11 12 13 14 15
-{
-    for(int i = 9;i <= 12;i++)
-    {
-        if(TOFBuffer[i] >= 65) height_data_temp[i-9] = TOFBuffer[i] - 65 + 10;
-        else height_data_temp[i-9] = TOFBuffer[i] - 41;
-    }
-}
-
 void TOF_Data_Update()
 {
-    ASCII_to_Char();
+	//把TOF返回的ASCII转化为INT
+    for(int i = 9;i <= 12;i++)
+    {
+				height_data_temp[i-9] = CharToInt(TOFBuffer[i]);
+    }
     //哈哈，这个写法是挺憨的，不想费心去搞个循环了，万一哪里出了错就很没必要，再说这样也挺直观的，
 	  //这就是在把heightheight_data_temp[4]里的数据给变成一个十进制数
     float height_temp = height_data_temp[0] * pow(16,3) + height_data_temp[1] * pow(16,2) \

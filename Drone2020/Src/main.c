@@ -32,7 +32,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Task_SDIO.h"//利用定时器产生写入某条数据的时间
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -108,6 +108,7 @@ int main(void)
   MX_TIM3_Init();
   MX_SDIO_SD_Init();
   MX_UART4_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -194,7 +195,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-
+	if (htim->Instance == htim5.Instance)
+	{
+		Update_SDtime();
+	}
   /* USER CODE END Callback 1 */
 }
 

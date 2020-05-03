@@ -63,6 +63,7 @@ void TIM2_IRQHandler(void);
 void USART1_IRQHandler(void);
 void USART3_IRQHandler(void);
 void SDIO_IRQHandler(void);
+void TIM5_IRQHandler(void);
 void UART4_IRQHandler(void);
 void DMA2_Stream1_IRQHandler(void);
 void DMA2_Stream2_IRQHandler(void);
