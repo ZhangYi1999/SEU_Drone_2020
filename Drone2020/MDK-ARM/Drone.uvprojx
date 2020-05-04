@@ -378,12 +378,27 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Application/MDK-ARM</GroupName>
+          <GroupName>System</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32f427xx.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>startup_stm32f427xx.s</FilePath>
+              <FileName>Sys_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\System\Inc\Sys_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>Sys_Def.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\System\Inc\Sys_Def.h</FilePath>
+            </File>
+            <File>
+              <FileName>System.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\System\Inc\System.h</FilePath>
+            </File>
+            <File>
+              <FileName>System.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\System\Src\System.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -553,31 +568,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>System</GroupName>
-          <Files>
-            <File>
-              <FileName>Sys_Config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\System\Inc\Sys_Config.h</FilePath>
-            </File>
-            <File>
-              <FileName>Sys_Def.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\System\Inc\Sys_Def.h</FilePath>
-            </File>
-            <File>
-              <FileName>System.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\System\Inc\System.h</FilePath>
-            </File>
-            <File>
-              <FileName>System.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\System\Src\System.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Application/User</GroupName>
           <Files>
             <File>
@@ -664,6 +654,16 @@
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\stm32f4xx_hal_msp.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/MDK-ARM</GroupName>
+          <Files>
+            <File>
+              <FileName>startup_stm32f427xx.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>startup_stm32f427xx.s</FilePath>
             </File>
           </Files>
         </Group>

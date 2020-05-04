@@ -41,7 +41,7 @@ void Task_Init_Config(void const * argument)
 	xTaskCreate(Task_Ui, "Task_Ui", 256, NULL, 2, &TaskUi_Handle);
 	xTaskCreate(Task_Debug, "Task_Debug", 125, NULL, 2, &TaskDebug_Handle);
 	xTaskCreate(Task_LED, "Task_LED", 125, NULL, 1, &TaskLED_Handle);
-	xTaskCreate(Task_SDIO, "Task_SDIO", 256, NULL, 3, &TaskSDIO_Handle);
+	xTaskCreate(Task_SDIO, "Task_SDIO", 256, NULL, 2, &TaskSDIO_Handle);
 	xTaskCreate(Task_TOF, "Task_TOF", 256, NULL, 3, &TaskTOF_Handle);
 
 	vTaskDelete(NULL);
