@@ -1,5 +1,5 @@
 --cpu=Cortex-M4.fp
-"drone\startup_stm32f427xx.o"
+"drone\system.o"
 "drone\task_init.o"
 "drone\task_protect.o"
 "drone\task_position.o"
@@ -16,7 +16,6 @@
 "drone\task_flash.o"
 "drone\task_sdio.o"
 "drone\task_tof.o"
-"drone\system.o"
 "drone\main.o"
 "drone\gpio.o"
 "drone\can.o"
@@ -34,6 +33,7 @@
 "drone\usart.o"
 "drone\stm32f4xx_it.o"
 "drone\stm32f4xx_hal_msp.o"
+"drone\startup_stm32f427xx.o"
 "drone\stm32f4xx_hal_can.o"
 "drone\stm32f4xx_hal_rcc.o"
 "drone\stm32f4xx_hal_rcc_ex.o"

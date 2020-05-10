@@ -407,8 +407,6 @@ extern ext_bullet_remaining_t ext_bullet_remaining;
 extern ext_rfid_status_t ext_rfid_status;
 
 extern uint32_t bullet_max;
-extern uint8_t GameEnd;
-extern uint16_t bullet_remaining_num;
 extern uint16_t last_energy_point;
 /*-------------------------------- 与裁判系统相关外部变量声明结束-------------------------------- */
 

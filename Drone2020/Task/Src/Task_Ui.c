@@ -4,8 +4,6 @@
 #define TASK_UI_INTERVAL (500)
 #define bullet_remaining_bar_length   500 / bullet_max * (uint32_t)ext_bullet_remaining.bullet_remaining_num
 
-//需要一个数组记录当前有多少图形要画！！！！！ 3.15晚上
-
 void Task_Ui(void *parameters)
 {
     InitPeripheral_UI();
@@ -261,7 +259,7 @@ uint8_t InitPeripheral_UI(void)
  * @param  color: 颜色
  * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
  */
-uint8_t draw_line(uint32_t operate, uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],
+uint8_t draw_line(uint8_t operate, uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],
                   uint32_t width,uint8_t layer,uint8_t color)
 {
     uint8_t index;
@@ -337,7 +335,7 @@ uint8_t draw_line(uint32_t operate, uint32_t start_x,uint32_t start_y,uint32_t e
  * @param  color: 颜色
  * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
  */
-uint8_t draw_rect(uint32_t operate, uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],
+uint8_t draw_rect(uint8_t operate, uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],
                   uint32_t width,uint8_t layer,uint8_t color)
 {
     uint8_t index;
@@ -413,7 +411,7 @@ uint8_t draw_rect(uint32_t operate, uint32_t start_x,uint32_t start_y,uint32_t e
  * @param  contents: 内容
  * @retval 0:所有graphic已经堆满 1:正常发送 2:坐标错误 3:图层错误 4:颜色错误 
  */
-uint8_t write_int(uint32_t operate,uint32_t start_x,uint32_t start_y,uint8_t name[],uint32_t width,uint32_t size,uint8_t layer,
+uint8_t write_int(uint8_t operate,uint32_t start_x,uint32_t start_y,uint8_t name[],uint32_t width,uint32_t size,uint8_t layer,
                   uint8_t color,uint32_t contents)
 {
 	  uint8_t index;
@@ -492,7 +490,7 @@ uint8_t write_int(uint32_t operate,uint32_t start_x,uint32_t start_y,uint8_t nam
  * @param  contents: 内容
  * @retval 0:所有graphic已经堆满 1:正常发送 2:坐标错误 3:图层错误 4:颜色错误 
  */
-uint8_t write_float(uint32_t operate,uint32_t start_x,uint32_t start_y,uint8_t name[],uint32_t width,uint32_t size,uint32_t decimal,
+uint8_t write_float(uint8_t operate,uint32_t start_x,uint32_t start_y,uint8_t name[],uint32_t width,uint32_t size,uint32_t decimal,
                     uint8_t layer,uint8_t color,uint32_t contents)
 {
 	  uint8_t index;
@@ -571,7 +569,7 @@ uint8_t write_float(uint32_t operate,uint32_t start_x,uint32_t start_y,uint8_t n
  * @param   length: 长度
  * @retval 1:正常发送 2:坐标错误 3:图层错误 4:颜色错误 
  */
-uint8_t write_chars(uint32_t operate, uint32_t start_x, uint32_t start_y, uint8_t name[], uint32_t width, uint32_t size, uint8_t layer,uint8_t color, uint8_t contents[], uint32_t length)
+uint8_t write_chars(uint8_t operate, uint32_t start_x, uint32_t start_y, uint8_t name[], uint32_t width, uint32_t size, uint8_t layer,uint8_t color, uint8_t contents[], uint32_t length)
 {
     custom_character.graphic_data_struct.graphic_name[0] = name[0];
     custom_character.graphic_data_struct.graphic_name[1] = name[1];
@@ -622,21 +620,239 @@ uint8_t write_chars(uint32_t operate, uint32_t start_x, uint32_t start_y, uint8_
         custom_character.graphic_data_struct.color = color;
     }
 
-    header_data.data_cmd_id = 0x0110;
+    header_data.data_cmd_id = 0x0110;//写字符的内容ID
     
     load_chars(contents, length);
-    UiFrame.UiFrameBuffer[1] = 36;
+    UiFrame.UiFrameBuffer[1] = 51;//ext_student_interactive_header_data + grapic_data_struct + data[30] = 6 + 15 + 30 = 51
 
     send_seq++;
     UiFrame.UiFrameBuffer[3] = send_seq;
 
     //进行数据发送，所以外部不需要调用send_graphic()
     memcpy(UiFrame.UiFrameBuffer+JUDGE_DATA_OFFSET, &header_data, sizeof(ext_student_interactive_header_data_t));
-    memcpy(UiFrame.UiFrameBuffer+JUDGE_DATA_OFFSET + sizeof(ext_student_interactive_header_data_t), &custom_character, 45);
+    memcpy(UiFrame.UiFrameBuffer+JUDGE_DATA_OFFSET + sizeof(ext_student_interactive_header_data_t), &custom_character, 45);//grapic_data_struct + data[30] = 15 + 30 = 45
     Append_CRC_Check_Sum(UiFrame.UiFrameBuffer, UiFrame.UiFrameBuffer[1]);
     HAL_UART_Transmit_DMA(&REFEREE_HUART,UiFrame.UiFrameBuffer,(UiFrame.UiFrameBuffer[1]+9)); //头帧加校验共9字节
 		
+		//以下操作相当于清空数据（操作类型写成NULL就相当于不产生作用了）
+		for(int i = 0; i < 3; i++)
+    {
+			UiFrame.UiFrameBuffer[16 + 15 * i] = OPERATE_NULL;//清空UiFrameBuffer[]的数据（如果下次紧跟着发送少于三个的其他图形的话，不能将45字节的内容全部改写，多余的数据可能会导致奇怪的结果，所以也得清空）
+    }
+		
     return 1;
+}
+
+/**
+ * @brief  画圆
+ * @note   调用该函数画圆(没检查坐标)
+ * @param  operate: 需要进行的操作类型，1-增加，2-修改
+ * @param  start_x: 圆心x坐标
+ * @param  start_y: 圆心y坐标
+ * @param  radius: 半径
+ * @param  name:  图形名字(必须3个uint8_t，不够记得补零)
+ * @param  width: 线宽
+ * @param  layer: 图层
+ * @param  color: 颜色
+ * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
+ */
+uint8_t draw_circle(uint8_t operate, uint32_t start_x,uint32_t start_y,uint32_t radius,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
+{
+    uint8_t index;
+    index = check_empty_graphic();
+
+    if(index >= GRAPHIC_NUM)
+    {
+        return 0;
+    }
+		
+		switch (operate)
+    {
+        case 1:
+        {
+            graphic_data[index].operate_tpye = OPERATE_ADD;
+            break;
+        }
+        case 2:
+        {
+            graphic_data[index].operate_tpye = OPERATE_CHANGE;
+            break;
+        }
+    }
+
+    graphic_data[index].graphic_name[0] = name[0];
+    graphic_data[index].graphic_name[1] = name[1];
+    graphic_data[index].graphic_name[2] = name[2];
+
+    graphic_data[index].width = width;
+    graphic_data[index].graphic_tpye = GRAPHIC_CIRCLE;
+    
+    graphic_data[index].start_x = start_x;
+    graphic_data[index].start_y = start_y;
+    graphic_data[index].radius = radius;
+
+    if(layer > LAYER_NUM)
+    {
+        return 3;
+    }
+    else
+    {
+        graphic_data[index].layer = layer;
+    }
+        
+    if(color >= COLOR_NUM)
+    {
+        return 4;
+    }
+    else
+    {
+        graphic_data[index].color = color;
+    }   
+		return 1;
+}
+
+/**
+ * @brief  画椭圆
+ * @note   调用该函数画椭圆(没检查坐标)
+ * @param  operate: 需要进行的操作类型，1-增加，2-修改
+ * @param  start_x: 圆心x坐标
+ * @param  start_y: 圆心y坐标
+ * @param  end_x: x半轴长
+ * @param  end_y: y半轴长
+ * @param  name:  图形名字(必须3个uint8_t，不够记得补零，实在懒得写判断了....)
+ * @param  width: 线宽
+ * @param  layer: 图层
+ * @param  color: 颜色
+ * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
+ */
+uint8_t draw_ellipse(uint8_t operate, uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
+{
+    uint8_t index;
+    index = check_empty_graphic();
+
+    if(index >= GRAPHIC_NUM)
+    {
+        return 0;
+    }
+		
+		switch (operate)
+    {
+        case 1:
+        {
+            graphic_data[index].operate_tpye = OPERATE_ADD;
+            break;
+        }
+        case 2:
+        {
+            graphic_data[index].operate_tpye = OPERATE_CHANGE;
+            break;
+        }
+    }
+
+    graphic_data[index].graphic_name[0] = name[0];
+    graphic_data[index].graphic_name[1] = name[1];
+    graphic_data[index].graphic_name[2] = name[2];
+
+    graphic_data[index].width = width;
+    graphic_data[index].graphic_tpye = GRAPHIC_ELLIPSE;
+    
+    graphic_data[index].start_x = start_x;
+    graphic_data[index].start_y = start_y;
+    graphic_data[index].end_x = end_x;
+    graphic_data[index].end_y = end_y;
+
+    if(layer > LAYER_NUM)
+    {
+        return 3;
+    }
+    else
+    {
+        graphic_data[index].layer = layer;
+    }
+        
+    if(color >= COLOR_NUM)
+    {
+        return 4;
+    }
+    else
+    {
+        graphic_data[index].color = color;
+    }   
+		return 1;
+}
+
+/**
+ * @brief  画弧
+ * @note   调用该函数画弧(没检查坐标)
+ * @param  operate: 需要进行的操作类型，1-增加，2-修改
+ * @param  start_x: 圆心x坐标
+ * @param  start_y: 圆心y坐标
+ * @param  end_x: x半轴长
+ * @param  end_y: y半轴长
+ * @param  start_angle: 起始角度
+ * @param  end_angle: 停止角度
+ * @param  name:  图形名字(必须3个uint8_t，不够记得补零，实在懒得写判断了....)
+ * @param  width: 线宽
+ * @param  layer: 图层
+ * @param  color: 颜色
+ * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
+ */
+uint8_t draw_arc(uint8_t operate, uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint32_t start_angle,uint32_t end_angle,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
+{
+    uint8_t index;
+    index = check_empty_graphic();
+
+    if(index >= GRAPHIC_NUM)
+    {
+        return 0;
+    }
+		
+		switch (operate)
+    {
+        case 1:
+        {
+            graphic_data[index].operate_tpye = OPERATE_ADD;
+            break;
+        }
+        case 2:
+        {
+            graphic_data[index].operate_tpye = OPERATE_CHANGE;
+            break;
+        }
+    }
+
+    graphic_data[index].graphic_name[0] = name[0];
+    graphic_data[index].graphic_name[1] = name[1];
+    graphic_data[index].graphic_name[2] = name[2];
+
+    graphic_data[index].width = width;
+    graphic_data[index].graphic_tpye = GRAPHIC_ELLIPSE;
+    
+    graphic_data[index].start_x = start_x;
+    graphic_data[index].start_y = start_y;
+    graphic_data[index].end_x = end_x;
+    graphic_data[index].end_y = end_y;
+    graphic_data[index].start_angle = start_angle;
+    graphic_data[index].end_angle = end_angle;
+
+    if(layer > LAYER_NUM)
+    {
+        return 3;
+    }
+    else
+    {
+        graphic_data[index].layer = layer;
+    }
+        
+    if(color >= COLOR_NUM)
+    {
+        return 4;
+    }
+    else
+    {
+        graphic_data[index].color = color;
+    }   
+		return 1;
 }
 
 /**
@@ -687,11 +903,17 @@ uint8_t send_graphic(void)
     memcpy(UiFrame.UiFrameBuffer+JUDGE_DATA_OFFSET + sizeof(ext_student_interactive_header_data_t), graphic_data, data_size);
     Append_CRC_Check_Sum(UiFrame.UiFrameBuffer, UiFrame.UiFrameBuffer[1]);
     HAL_UART_Transmit_DMA(&REFEREE_HUART,UiFrame.UiFrameBuffer,(UiFrame.UiFrameBuffer[1]+9)); //头帧加校验共9字节
-    //相当于清空数据
+		
+    //以下俩操作相当于清空数据（操作类型写成NULL就相当于不产生作用了）
     for(int i = 0; i < graphic_num; i++)
     {
-        graphic_data[i].operate_tpye = OPERATE_NULL;
+        graphic_data[i].operate_tpye = OPERATE_NULL;//清空graphic_data[]的数据，便于下次再写入
     }
+		for(int i = 0; i < graphic_num; i++)
+    {
+        UiFrame.UiFrameBuffer[16 + 15 * i] = OPERATE_NULL;//清空UiFrameBuffer[]的数据（如果下次紧跟着发送字符串的话，只会改写前45字节的内容，后面的图形会重复作用，所以也得清空）
+    }
+		
 		return 1;
 }
 
@@ -794,177 +1016,6 @@ uint8_t load_chars(uint8_t chars_to_send[], uint8_t length)
 //	}
 		
 	return 1;
-}
-
-/*------------下面是暂时用不上的函数，目前先保留宁俊以的写法未作改动---------------*/
-/**
- * @brief  画圆
- * @note   调用该函数画圆(没检查坐标)
- * @param  start_x: 圆心x坐标
- * @param  start_y: 圆心y坐标
- * @param  radius: 半径
- * @param  name:  图形名字(必须3个uint8_t，不够记得补零)
- * @param  width: 线宽
- * @param  layer: 图层
- * @param  color: 颜色
- * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
- */
-uint8_t draw_circle(uint32_t start_x,uint32_t start_y,uint32_t radius,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
-{
-    uint8_t index;
-    index = check_empty_graphic();
-
-    if(index >= GRAPHIC_NUM)
-    {
-        return 0;
-    }
-
-    graphic_data[index].graphic_name[0] = name[0];
-    graphic_data[index].graphic_name[1] = name[1];
-    graphic_data[index].graphic_name[2] = name[2];
-
-    graphic_data[index].width = width;
-    graphic_data[index].operate_tpye = OPERATE_ADD;
-    graphic_data[index].graphic_tpye = GRAPHIC_CIRCLE;
-    
-    graphic_data[index].start_x = start_x;
-    graphic_data[index].start_y = start_y;
-    graphic_data[index].radius = radius;
-
-    if(layer > LAYER_NUM)
-    {
-        return 3;
-    }
-    else
-    {
-        graphic_data[index].layer = layer;
-    }
-        
-    if(color >= COLOR_NUM)
-    {
-        return 4;
-    }
-    else
-    {
-        graphic_data[index].color = color;
-    }   
-		return 1;
-}
-
-/**
- * @brief  画椭圆
- * @note   调用该函数画椭圆(没检查坐标)
- * @param  start_x: 圆心x坐标
- * @param  start_y: 圆心y坐标
- * @param  end_x: x半轴长
- * @param  end_y: y半轴长
- * @param  name:  图形名字(必须3个uint8_t，不够记得补零，实在懒得写判断了....)
- * @param  width: 线宽
- * @param  layer: 图层
- * @param  color: 颜色
- * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
- */
-uint8_t draw_ellipse(uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
-{
-    uint8_t index;
-    index = check_empty_graphic();
-
-    if(index >= GRAPHIC_NUM)
-    {
-        return 0;
-    }
-
-    graphic_data[index].graphic_name[0] = name[0];
-    graphic_data[index].graphic_name[1] = name[1];
-    graphic_data[index].graphic_name[2] = name[2];
-
-    graphic_data[index].width = width;
-    graphic_data[index].operate_tpye = OPERATE_ADD;
-    graphic_data[index].graphic_tpye = GRAPHIC_ELLIPSE;
-    
-    graphic_data[index].start_x = start_x;
-    graphic_data[index].start_y = start_y;
-    graphic_data[index].end_x = end_x;
-    graphic_data[index].end_y = end_y;
-
-    if(layer > LAYER_NUM)
-    {
-        return 3;
-    }
-    else
-    {
-        graphic_data[index].layer = layer;
-    }
-        
-    if(color >= COLOR_NUM)
-    {
-        return 4;
-    }
-    else
-    {
-        graphic_data[index].color = color;
-    }   
-		return 1;
-}
-
-/**
- * @brief  画弧
- * @note   调用该函数画弧(没检查坐标)
- * @param  start_x: 圆心x坐标
- * @param  start_y: 圆心y坐标
- * @param  end_x: x半轴长
- * @param  end_y: y半轴长
- * @param  start_angle: 起始角度
- * @param  end_angle: 停止角度
- * @param  name:  图形名字(必须3个uint8_t，不够记得补零，实在懒得写判断了....)
- * @param  width: 线宽
- * @param  layer: 图层
- * @param  color: 颜色
- * @retval 1:配置正确  0:所有graphic已经堆满  2:坐标错误 3:图层错误 4:颜色错误 
- */
-uint8_t draw_arc(uint32_t start_x,uint32_t start_y,uint32_t end_x,uint32_t end_y,uint32_t start_angle,uint32_t end_angle,uint8_t name[],uint32_t width,uint8_t layer,uint8_t color)
-{
-    uint8_t index;
-    index = check_empty_graphic();
-
-    if(index >= GRAPHIC_NUM)
-    {
-        return 0;
-    }
-
-    graphic_data[index].graphic_name[0] = name[0];
-    graphic_data[index].graphic_name[1] = name[1];
-    graphic_data[index].graphic_name[2] = name[2];
-
-    graphic_data[index].width = width;
-    graphic_data[index].operate_tpye = OPERATE_ADD;
-    graphic_data[index].graphic_tpye = GRAPHIC_ELLIPSE;
-    
-    graphic_data[index].start_x = start_x;
-    graphic_data[index].start_y = start_y;
-    graphic_data[index].end_x = end_x;
-    graphic_data[index].end_y = end_y;
-    graphic_data[index].start_angle = start_angle;
-    graphic_data[index].end_angle = end_angle;
-
-    if(layer > LAYER_NUM)
-    {
-        return 3;
-    }
-    else
-    {
-        graphic_data[index].layer = layer;
-    }
-        
-    if(color >= COLOR_NUM)
-    {
-        return 4;
-    }
-    else
-    {
-        graphic_data[index].color = color;
-    }   
-		return 1;
 }
 
 /*---------------load_chars()另一个版本的函数，感觉用不到，但因为尚未上机测试所以先留着好了by陈宇涵------------*/

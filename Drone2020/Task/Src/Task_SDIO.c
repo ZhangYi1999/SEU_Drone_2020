@@ -9,8 +9,8 @@ FIL MyFile;     /* 文件对象结构的指针，File object */
 
 FRESULT res;                                          /* 保存SD相关函数调用后返回的结果，FatFs function common result code */
 uint32_t byteswritten, bytesread;                     /* 读写的字节数，File write/read counts */
-char filename[] = "DroneData.txt";										/* SD卡里的文件名 */
-char finalname[17] = "Game";													/* 用于最后对文件进行重命名，格式为“GameXXXXLineXXXX”，即第几场比赛，一共有多少行数据*/
+char filename[] = "DroneData.txt";										/* SD卡里的文件名，在建立文本文件的时候临时使用，在比赛结束时将修改文件名，见下一行 */
+char finalname[17] = "Game";													/* 下面五个变量用于最后对文件进行重命名，格式为“GameXXXXLineXXXX”，即第几场比赛，一共有多少行数据*/
 char gamenum[4] = {0};
 char linenum[4] = {0};
 int game_num = 0;
@@ -37,7 +37,7 @@ char rtext[100];                                  	  /* 调试用，读缓存，File rea
 
 void Task_SDIO(void *parameters)
 {
-	f_mount(&SDFatFs, "", 0);//将文件系统对象注册到FatFs模块
+	f_mount(&SDFatFs, "", 0);//将文件系统对象注册到FatFs模块。据说在fatfs外挂一个设备的时候，第二个参数为空""就可以访问；而在多个设备时，就得指定磁盘号。没验证过。
 	
 	TickType_t xLastWakeUpTime;
 	xLastWakeUpTime = xTaskGetTickCount();
@@ -46,16 +46,16 @@ void Task_SDIO(void *parameters)
 	{
 		vTaskDelayUntil(&xLastWakeUpTime, 100/portTICK_RATE_MS);
 		
-		if(GameEnd == 0)//比赛未结束
+		if(ext_game_state.game_progress != 5)//比赛未结束
 		{
 			DtatPrepareSD();
 			
 			f_open(&MyFile, filename, FA_CREATE_ALWAYS | FA_WRITE);//创建并打开具有写访问权限的新文本文件对象
 			
 			f_write(&MyFile, ctime, 15, (void *)&byteswritten);//向文本文件写入时间
-			f_write(&MyFile, cpos_x, 18, (void *)&byteswritten);
+			f_write(&MyFile, cpos_x, 18, (void *)&byteswritten);//向文本文件写入无人机坐标
 			f_write(&MyFile, cpos_y, 18, (void *)&byteswritten);
-			f_write(&MyFile, cpos_z, 18, (void *)&byteswritten);//向文本文件写入无人机坐标
+			f_write(&MyFile, cpos_z, 18, (void *)&byteswritten);
 			f_write(&MyFile, cheight, 18, (void *)&byteswritten);//向文本文件写入无人机高度
 			f_write(&MyFile, cpitch, 18, (void *)&byteswritten);//向文本文件写入pitch角度
 			f_write(&MyFile, cyaw, 18, (void *)&byteswritten);//向文本文件写入yaw角度
@@ -145,7 +145,7 @@ void AppendBlank(char *str, int pre_len, int blank)
 }
 
 /**
-  * @brief  根据定时器TIM5计算写入某行数据的时间
+  * @brief  因为FreeRTOS的任务可能会受到其他任务的影响而不能按照预定时间周期唤醒，所以这里根据定时器TIM5计算写入某行数据的时间。每次增加100ms，按照进位的逻辑计算
   * @param  None
   * @retval None
   * @note	  None
@@ -203,7 +203,6 @@ void Update_SDtime(void)
 }
 
 /*以下函数用于对SD卡读写功能进行串口调试，不用的时候注释掉*/
-
 /*
 void Task_SDIO(void *parameters)
 {

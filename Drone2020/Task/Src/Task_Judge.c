@@ -19,7 +19,7 @@ typedef __packed struct
 } robot_interactive_data_t;//交互数据
 */
 ext_client_custom_character_t custom_character;
-graphic_data_struct_t graphic_data[GRAPHIC_NUM];
+graphic_data_struct_t graphic_data[GRAPHIC_NUM];//需要一个数组存储图形信息，同时记录当前有多少图形要画
 
 ext_game_state_t ext_game_state;
 ext_game_result_t ext_game_result;
@@ -39,10 +39,8 @@ ext_shoot_data_t ext_shoot_data;
 ext_bullet_remaining_t ext_bullet_remaining;
 ext_rfid_status_t ext_rfid_status;
 
-uint16_t bullet_remaining_num;
 uint32_t bullet_max = 0;//判断是否是第一次发射，用于设置弹量上限是250还是500
-uint16_t last_energy_point = 0;
-uint8_t GameEnd = 0;//用于判断比赛是否结束，结束SD卡写入任务
+uint16_t last_energy_point = 0;//存储上一次通信时裁判系统返回的能量点，用于判断无人机是否发射（发射后能量点会从300变为0）
 /*-------------------------------- 与裁判系统相关外部变量定义结束-------------------------------- */
 
 void Task_Judge(void *parameters)
@@ -134,11 +132,7 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     //1.	比赛机器人状态(0x0001)	10Hz
     case GAME_STATE:
     {
-        memcpy(&ext_game_state, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), GAME_STATE_DATA_SIZE);
-				
-				if(ext_game_state.game_progress == 5)
-					GameEnd = 1;
-				
+        memcpy(&ext_game_state, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), GAME_STATE_DATA_SIZE);		
         break;
     }
     //2.	比赛结果(0x0002)
@@ -212,6 +206,9 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
 			
         memcpy(&aerial_robot_energy, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), AERIAL_ROBOT_ENERGY_DATA_SIZE);
 			
+			  //如果开始发射，即能量从300变为0，即last_energy_point是300，当前裁判系统返回的能量不是300。如果这时候bullet_max是初始化值为0，那么就判定为第一次发射，最大弹量就是250
+			  //如果开始发射，即能量从300变为0，即last_energy_point是300，当前裁判系统返回的能量不是300。如果这时候bullet_max不是初始化值0，是250，就说明被修改过一次，那么就判定为第二次发射，最大弹量就是500
+			  //如果bullet_max已经是500，就说明是第三次或者之后发射，就不会进判断语句，最大弹量就继续是500
         if(bullet_max == 0 || bullet_max == 250)
         {
             if(bullet_max == 0 && last_energy_point == 300 && aerial_robot_energy.energy_point <300)//第一次发射
@@ -235,7 +232,6 @@ void Referee_Receive_Data_Processing(uint8_t SOF, uint16_t CmdID)
     case REMAIN_BULLET:
     {
         memcpy(&ext_bullet_remaining, (Judge_Receive_Buffer + JUDGE_DATA_OFFSET + SOF), REMAIN_BULLET_DATA_SIZE);
-        bullet_remaining_num = ext_bullet_remaining.bullet_remaining_num;
         break;
     }
     case RFID_STATE:
