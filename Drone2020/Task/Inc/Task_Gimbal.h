@@ -14,10 +14,10 @@ typedef struct
 	float PitchSpeed;
 	float YawSpeed;
 	float RollSpeed;
-    float x;
-    float y;
-    float z;
-    float Height;
+	float x;
+	float y;
+	float z;
+	float Height;
 }Gimbal_Position;
 
 

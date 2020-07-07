@@ -168,7 +168,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     PA1     ------> UART4_RX
     PA0/WKUP     ------> UART4_TX 
     */
-    GPIO_InitStruct.Pin = TOF_Rx_Pin|GPIO_PIN_0;
+    GPIO_InitStruct.Pin = TOF_Rx_Pin|TOF_Tx_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -184,7 +184,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     hdma_uart4_rx.Init.MemInc = DMA_MINC_ENABLE;
     hdma_uart4_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
     hdma_uart4_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-    hdma_uart4_rx.Init.Mode = DMA_NORMAL;
+    hdma_uart4_rx.Init.Mode = DMA_CIRCULAR;
     hdma_uart4_rx.Init.Priority = DMA_PRIORITY_LOW;
     hdma_uart4_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
     if (HAL_DMA_Init(&hdma_uart4_rx) != HAL_OK)
@@ -484,7 +484,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
     PA1     ------> UART4_RX
     PA0/WKUP     ------> UART4_TX 
     */
-    HAL_GPIO_DeInit(GPIOA, TOF_Rx_Pin|GPIO_PIN_0);
+    HAL_GPIO_DeInit(GPIOA, TOF_Rx_Pin|TOF_Tx_Pin);
 
     /* UART4 DMA DeInit */
     HAL_DMA_DeInit(uartHandle->hdmarx);

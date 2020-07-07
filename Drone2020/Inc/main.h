@@ -115,6 +115,8 @@ void Error_Handler(void);
 #define FricMotor_Status_GPIO_Port GPIOG
 #define TOF_Rx_Pin GPIO_PIN_1
 #define TOF_Rx_GPIO_Port GPIOA
+#define TOF_Tx_Pin GPIO_PIN_0
+#define TOF_Tx_GPIO_Port GPIOA
 #define Debug_TX_Pin GPIO_PIN_8
 #define Debug_TX_GPIO_Port GPIOE
 #define Protect_Status_Pin GPIO_PIN_11

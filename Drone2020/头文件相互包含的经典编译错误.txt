@@ -1,2 +1,0 @@
-1.在一个头文件中定义的枚举变量和结构体要在另一个头文件中引用
-https://blog.csdn.net/hazir/article/details/38600419

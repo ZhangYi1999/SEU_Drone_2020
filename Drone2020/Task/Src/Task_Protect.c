@@ -1,5 +1,6 @@
 #include "Sys_Config.h"
 
+int protect=0;
 void Task_Protect(void *parameters)
 {
 	static Comm_Status GYRO_Last_Status;
@@ -10,6 +11,7 @@ void Task_Protect(void *parameters)
 	
 	while(1)
 	{
+		protect++;
 		vTaskDelayUntil(&xLastWakeUpTime,5);
 		if(GYRO.comm_status.FrameCounter == GYRO_Last_Status.FrameCounter)
 		{

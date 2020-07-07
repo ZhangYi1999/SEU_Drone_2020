@@ -4,7 +4,6 @@ Motor_type PitchMotor;
 Motor_type YawMotor;
 Gimbal_type Gimbal;
 
-
 /*
 云台控制逻辑
 首先init
@@ -12,14 +11,30 @@ Gimbal_type Gimbal;
 再然后在control中通过对电机的target angle进行赋值,然后PID计算使得电机转至目标角度
 */
 
+
+int gimbal=0;
 void Task_Gimbal(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
 	xLastWakeUpTime = xTaskGetTickCount();
 	Gimbal_Init();
 
+	
 	while(1)
 	{
+		gimbal++;
+		
+//		for(int i = 9;i <= 12;i++)
+//    {
+//				height_data_temp[i-9] = CharToInt(TOFBuffer[i]);
+//    }
+//    //哈哈，这个写法是挺憨的，不想费心去搞个循环了，万一哪里出了错就很没必要，再说这样也挺直观的，
+//	  //这就是在把heightheight_data_temp[4]里的数据给变成一个十进制数
+//    float height_temp = (float)(height_data_temp[0] * pow(16,3) + height_data_temp[1] * pow(16,2) \
+//    + height_data_temp[2] * pow(16,1) + height_data_temp[0] * pow(16,0));
+//		
+//    Gimbal.position.Height = height_temp / 1000;
+		
 		vTaskDelayUntil(&xLastWakeUpTime,2);
 		if(GYRO.comm_status.link_status == online)
 		{

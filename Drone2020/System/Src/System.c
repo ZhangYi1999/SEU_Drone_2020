@@ -12,16 +12,6 @@ __weak void Task_Protect(void *parameters)
 	}
 }
 
-__weak void Task_CanComm(void *parameters)
-{
-	TickType_t xLastWakeUpTime;
-	xLastWakeUpTime = xTaskGetTickCount();
-	while(1)
-	{
-		vTaskDelayUntil(&xLastWakeUpTime,5);
-	}
-}
-
 __weak void Task_Position(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
@@ -60,6 +50,15 @@ __weak void Task_RC(void *parameters)
 		vTaskDelayUntil(&xLastWakeUpTime,5);
 	}
 }
+__weak void Task_CanComm(void *parameters)
+{
+	TickType_t xLastWakeUpTime;
+	xLastWakeUpTime = xTaskGetTickCount();
+	while(1)
+	{
+		vTaskDelayUntil(&xLastWakeUpTime,5);
+	}
+}
 
 __weak void Task_StateMachine(void *parameters)
 {
@@ -90,15 +89,6 @@ __weak void Task_Shoot(void *parameters)
 		vTaskDelayUntil(&xLastWakeUpTime,5);
 	}
 }
-__weak void Task_Debug(void *parameters)
-{
-	TickType_t xLastWakeUpTime;
-	xLastWakeUpTime = xTaskGetTickCount();
-	while(1)
-	{
-		vTaskDelayUntil(&xLastWakeUpTime,5);
-	}
-}
 __weak void Task_LED(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
@@ -108,6 +98,24 @@ __weak void Task_LED(void *parameters)
 		vTaskDelayUntil(&xLastWakeUpTime,5);
 	}
 }
+__weak void Task_Debug(void *parameters)
+{
+	TickType_t xLastWakeUpTime;
+	xLastWakeUpTime = xTaskGetTickCount();
+	while(1)
+	{
+		vTaskDelayUntil(&xLastWakeUpTime,5);
+	}
+}
+__weak void Task_Ui(void *parameters)
+{
+	TickType_t xLastWakeUpTime;
+	xLastWakeUpTime = xTaskGetTickCount();
+	while(1)
+	{
+		vTaskDelayUntil(&xLastWakeUpTime,500);
+	}
+}
 __weak void Task_SDIO(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
@@ -115,15 +123,6 @@ __weak void Task_SDIO(void *parameters)
 	while(1)
 	{
 		vTaskDelayUntil(&xLastWakeUpTime,50);
-	}
-}
-__weak void Task_TOF(void *parameters)
-{
-	TickType_t xLastWakeUpTime;
-	xLastWakeUpTime = xTaskGetTickCount();
-	while(1)
-	{
-		vTaskDelayUntil(&xLastWakeUpTime,5);
 	}
 }
 
@@ -330,10 +329,10 @@ float SpliceFloat(uint8_t* s)
   */
 uint32_t CharToInt(uint8_t ch)
 {
-	if(ch >= 65)
-		return (ch - 65 + 10);
+	if((int)ch >= 65)
+		return ((int)ch - 65 + 10);
   else
-		return (ch - 48);
+		return ((int)ch - 48);
 }
 
 /**

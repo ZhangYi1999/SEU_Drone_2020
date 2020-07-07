@@ -5,7 +5,7 @@ int8_t  BlockedWarningTimes;
 Motor_type FricMotor_Left;
 Motor_type FricMotor_Right;
 Motor_type StirMotor;
-
+int cc=0;
 void Task_Shoot(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
@@ -16,6 +16,7 @@ void Task_Shoot(void *parameters)
 	HAL_GPIO_WritePin(GPIOH,GPIO_PIN_2,GPIO_PIN_SET);
 	while(1)
 	{
+		cc++;
 		Shoot_GetInfo();
 		Shoot_Control();
 		vTaskDelayUntil(&xLastWakeUpTime,2);

@@ -34,7 +34,7 @@ char wtext[] = "Testing STM32 working with FatFs";		/* 调试用，写缓存，File writ
 char rtext[100];                                  	  /* 调试用，读缓存，File read buffer */
 
 /*------------------SD读写---函数定义------------------*/
-
+int sd=0;
 void Task_SDIO(void *parameters)
 {
 	f_mount(&SDFatFs, "", 0);//将文件系统对象注册到FatFs模块。据说在fatfs外挂一个设备的时候，第二个参数为空""就可以访问；而在多个设备时，就得指定磁盘号。没验证过。
@@ -44,13 +44,14 @@ void Task_SDIO(void *parameters)
 	
 	while(1)
 	{
-		vTaskDelayUntil(&xLastWakeUpTime, 100/portTICK_RATE_MS);
+		sd++;
+		vTaskDelayUntil(&xLastWakeUpTime, 100);
 		
 		if(ext_game_state.game_progress != 5)//比赛未结束
 		{
 			DtatPrepareSD();
 			
-			f_open(&MyFile, filename, FA_CREATE_ALWAYS | FA_WRITE);//创建并打开具有写访问权限的新文本文件对象
+			//f_open(&MyFile, filename, FA_CREATE_ALWAYS | FA_WRITE);//创建并打开具有写访问权限的新文本文件对象
 			
 			f_write(&MyFile, ctime, 15, (void *)&byteswritten);//向文本文件写入时间
 			f_write(&MyFile, cpos_x, 18, (void *)&byteswritten);//向文本文件写入无人机坐标
@@ -69,25 +70,25 @@ void Task_SDIO(void *parameters)
 		}
 		else//比赛结束，修改文件名
 		{
-			Int_to_Char(gamenum, game_num, 4);
-			Int_to_Char(linenum, line_num, 4);
-			
-			int i;
-			for(i = 0; i < 4; i ++)
-			{
-				finalname[4 + i] = gamenum[i];
-			}
-			finalname[8] = 'L';
-			finalname[9] = 'i';
-			finalname[10] = 'n';
-			finalname[11] = 'e';
-			for(i = 0; i < 4; i ++)
-			{
-				finalname[12 + i] = linenum[i];
-			}
-			finalname[16] = '\0';
-			
-			f_rename(filename, finalname);//将文件重命名
+//			Int_to_Char(gamenum, game_num, 4);
+//			Int_to_Char(linenum, line_num, 4);
+//			
+//			int i;
+//			for(i = 0; i < 4; i ++)
+//			{
+//				finalname[4 + i] = gamenum[i];
+//			}
+//			finalname[8] = 'L';
+//			finalname[9] = 'i';
+//			finalname[10] = 'n';
+//			finalname[11] = 'e';
+//			for(i = 0; i < 4; i ++)
+//			{
+//				finalname[12 + i] = linenum[i];
+//			}
+//			finalname[16] = '\0';
+//			
+//			f_rename(filename, finalname);//将文件重命名
 		}
 	}
 }
