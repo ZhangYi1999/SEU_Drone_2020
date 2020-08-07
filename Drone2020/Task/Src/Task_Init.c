@@ -1,5 +1,6 @@
 #include "Sys_Config.h"
 
+
 TaskHandle_t TaskProtect_Handle;
 TaskHandle_t TaskCanComm_Handle;
 TaskHandle_t TaskPosition_Handle;
@@ -13,10 +14,14 @@ TaskHandle_t TaskDebug_Handle;
 TaskHandle_t TaskLED_Handle;
 TaskHandle_t TaskUi_Handle;
 TaskHandle_t TaskSDIO_Handle;
+TaskHandle_t TaskTOF_Handle;
 
 void Task_Init_Config(void const * argument)
 {
 	taskENTER_CRITICAL();
+	
+	Queue_CANSend = xQueueCreate(20,sizeof(CanSend_type));
+	
 	CanInit(NULL);
 	DMAInit(NULL);
 	TIMInit(NULL);
@@ -25,21 +30,22 @@ void Task_Init_Config(void const * argument)
 	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);
 	__HAL_TIM_SET_COMPARE(&htim3,IMU_HEATING_Pin,HEAT_MID);	
 	FlashInit(); 
+		
+	xTaskCreate(Task_Protect, "Task_Protect", 256, NULL, 7, &TaskProtect_Handle);
+	xTaskCreate(Task_CanComm, "Task_CanComm", 256, NULL, 6, &TaskCanComm_Handle);
+	xTaskCreate(Task_Position, "Task_Position", 256, NULL, 5, &TaskPosition_Handle);
+	xTaskCreate(Task_Judge, "Task_Judge", 256, NULL, 5, &TaskJudge_Handle);
+	xTaskCreate(Task_JetsonComm, "Task_JetsonComm", 256, NULL, 4, &TaskJetsonComm_Handle);
+	xTaskCreate(Task_RC, "Task_RC", 256, NULL, 4, &TaskRC_Handle);
+	xTaskCreate(Task_StateMachine, "Task_StateMachine", 256, NULL, 4, &TaskStateMachine_Handle);
+	xTaskCreate(Task_Gimbal, "Task_Gimbal", 256, NULL, 3, &TaskGimbal_Handle);
+	xTaskCreate(Task_Shoot, "Task_Shoot", 256, NULL, 3, &TaskShoot_Handle);
+	xTaskCreate(Task_Ui, "Task_Ui", 256, NULL, 3, &TaskUi_Handle);
+	xTaskCreate(Task_Debug, "Task_Debug", 125, NULL, 3, &TaskDebug_Handle);
+	xTaskCreate(Task_TOF, "Task_TOF", 125, NULL, 3, &TaskTOF_Handle);
 	
-	Queue_CANSend = xQueueCreate(20,sizeof(CanSend_type));
-	xTaskCreate(Task_Protect, "Task_Protect", 256, NULL, 6, &TaskProtect_Handle);
-	xTaskCreate(Task_CanComm, "Task_CanComm", 256, NULL, 5, &TaskCanComm_Handle);
-	xTaskCreate(Task_Position, "Task_Position", 256, NULL, 4, &TaskPosition_Handle);
-	xTaskCreate(Task_Judge, "Task_Judge", 256, NULL, 4, &TaskJudge_Handle);
-	xTaskCreate(Task_JetsonComm, "Task_JetsonComm", 256, NULL, 3, &TaskJetsonComm_Handle);
-	xTaskCreate(Task_RC, "Task_RC", 256, NULL, 3, &TaskRC_Handle);
-	xTaskCreate(Task_StateMachine, "Task_StateMachine", 256, NULL, 3, &TaskStateMachine_Handle);
-	xTaskCreate(Task_Gimbal, "Task_Gimbal", 256, NULL, 2, &TaskGimbal_Handle);
-	xTaskCreate(Task_Shoot, "Task_Shoot", 256, NULL, 2, &TaskShoot_Handle);
-	xTaskCreate(Task_Ui, "Task_Ui", 256, NULL, 2, &TaskUi_Handle);
-	xTaskCreate(Task_Debug, "Task_Debug", 125, NULL, 2, &TaskDebug_Handle);
-	xTaskCreate(Task_LED, "Task_LED", 125, NULL, 1, &TaskLED_Handle);
-	xTaskCreate(Task_SDIO, "Task_SDIO", 125, NULL, 2, &TaskSDIO_Handle);
+	xTaskCreate(Task_SDIO, "Task_SDIO", 512, NULL, 1, &TaskSDIO_Handle);
+	xTaskCreate(Task_LED, "Task_LED", 125, NULL, 2, &TaskLED_Handle);
 
 	vTaskDelete(NULL);
 	taskEXIT_CRITICAL();
@@ -111,20 +117,18 @@ void DMAInit(void *parameters)
 
 #ifdef DMA_JetsonTX2_USED
 	SET_BIT(huart6.Instance->CR3, USART_CR3_DMAR);
-	HAL_DMA_Start_IT(huart6.hdmarx, (uint32_t)&huart6.Instance->DR, (uint32_t)&DataRecFromJetson_Temp, sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN);
-	__HAL_UART_ENABLE_IT(&huart6, UART_IT_IDLE);	
+  	HAL_DMA_Start_IT(huart6.hdmarx, (uint32_t)&huart6.Instance->DR, (uint32_t)&DataRecFromJetson_Temp, sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN);
+  	__HAL_UART_ENABLE_IT(&huart6, UART_IT_IDLE);	
 #endif
 
 #ifdef DMA_GYRO_USED
-	 SET_BIT(huart8.Instance->CR3, USART_CR3_DMAR);
-	 HAL_DMAEx_MultiBufferStart(huart8.hdmarx, (uint32_t)&huart8.Instance->DR, (uint32_t)&GYROBuffer[0][0], (uint32_t)&GYROBuffer[1][0], PersonalGYRO_rx_len);
-	 __HAL_UART_ENABLE_IT(&huart8, UART_IT_IDLE);
+	SET_BIT(huart8.Instance->CR3, USART_CR3_DMAR);
+ 	 HAL_DMAEx_MultiBufferStart(huart8.hdmarx, (uint32_t)&huart8.Instance->DR, (uint32_t)&GYROBuffer[0][0], (uint32_t)&GYROBuffer[1][0], PersonalGYRO_rx_len);
+ 	 __HAL_UART_ENABLE_IT(&huart8, UART_IT_IDLE);
 #endif
 
 #ifdef DMA_TOF_USED
-	__HAL_UART_CLEAR_IDLEFLAG(&huart4);
-	__HAL_UART_ENABLE_IT(&huart4, UART_IT_IDLE);
-	HAL_UART_Receive_DMA(&huart4,TOFBuffer,19);
+	HAL_UART_Receive_DMA(&huart4, TOFBuffer, 19);
 #endif
 
 }
@@ -135,10 +139,10 @@ void TIMInit(void *parameters)
 
 void FlashInit()
 {
-	uint32_t Address = FLASH_USER_START_ADDR;
+  	uint32_t Address = FLASH_USER_START_ADDR;
  	__IO uint32_t data32 = 0;
 	data32 = *(__IO uint32_t*)Address;
  	Wild_Change_Angle_Pitch.FLOAT = data32;
  	Address = Address + 4;
-	Wild_Change_Angle_Yaw.FLOAT = data32;
+  	Wild_Change_Angle_Yaw.FLOAT = data32;
 }

@@ -95,6 +95,8 @@ void Error_Handler(void);
 #define SD_DATA0_GPIO_Port GPIOC
 #define FricMotor_Left_Power_Pin GPIO_PIN_4
 #define FricMotor_Left_Power_GPIO_Port GPIOH
+#define Debug_Status_Pin GPIO_PIN_8
+#define Debug_Status_GPIO_Port GPIOG
 #define FricMotor_Right_Power_Pin GPIO_PIN_5
 #define FricMotor_Right_Power_GPIO_Port GPIOH
 #define GYRO_Status_Pin GPIO_PIN_7

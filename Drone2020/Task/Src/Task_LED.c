@@ -1,6 +1,5 @@
 #include "Sys_Config.h"
 
-int dd=0;
 void Task_LED(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
@@ -10,7 +9,6 @@ void Task_LED(void *parameters)
 	
 	while(1)
 	{
-		dd++;
 		System_Work_LED;
 		
 		if(GYRO.comm_status.link_status == online)

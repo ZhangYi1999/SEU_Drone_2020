@@ -57,7 +57,6 @@ osThreadId Task_InitHandle;
 
 void Task_Init_Config(void const * argument);
 
-extern void MX_FATFS_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
@@ -121,7 +120,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of Task_Init */
-  osThreadDef(Task_Init, Task_Init_Config, osPriorityNormal, 0, 256);
+  osThreadDef(Task_Init, Task_Init_Config, osPriorityNormal, 0, 512);
   Task_InitHandle = osThreadCreate(osThread(Task_Init), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -139,14 +138,9 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_Task_Init_Config */
 __weak void Task_Init_Config(void const * argument)
 {
-  /* init code for FATFS */
-  MX_FATFS_Init();
   /* USER CODE BEGIN Task_Init_Config */
   /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
+  
   /* USER CODE END Task_Init_Config */
 }
 

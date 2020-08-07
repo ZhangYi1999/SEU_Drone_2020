@@ -1,136 +1,142 @@
 #include "Sys_Config.h"
 
-//²Î¿¼Î¢Ñ©µç×Óhttp://www.waveshare.net/study/article-657-1.html
-/*------------------SD¶ÁĞ´---±äÁ¿¶¨Òå------------------*/
+/*------------------SDè¯»å†™---å˜é‡å®šä¹‰------------------*/
 
-FATFS SDFatFs;  /* ÎÄ¼şÏµÍ³¹¤×÷Çø£¬File system object for SD card logical drive */
-FIL MyFile;     /* ÎÄ¼ş¶ÔÏó½á¹¹µÄÖ¸Õë£¬File object */
-//char SDPath[4]; /* SD card logical drive path */
+FATFS SDFatFs;  /* æ–‡ä»¶ç³»ç»Ÿå·¥ä½œåŒºï¼ŒFile system object for SD card logical drive */
+FIL MyFile;     /* æ–‡ä»¶å¯¹è±¡ç»“æ„çš„æŒ‡é’ˆï¼ŒFile object */
 
-FRESULT res;                                          /* ±£´æSDÏà¹Øº¯Êıµ÷ÓÃºó·µ»ØµÄ½á¹û£¬FatFs function common result code */
-uint32_t byteswritten, bytesread;                     /* ¶ÁĞ´µÄ×Ö½ÚÊı£¬File write/read counts */
-char filename[] = "DroneData.txt";										/* SD¿¨ÀïµÄÎÄ¼şÃû£¬ÔÚ½¨Á¢ÎÄ±¾ÎÄ¼şµÄÊ±ºòÁÙÊ±Ê¹ÓÃ£¬ÔÚ±ÈÈü½áÊøÊ±½«ĞŞ¸ÄÎÄ¼şÃû£¬¼ûÏÂÒ»ĞĞ */
-char finalname[17] = "Game";													/* ÏÂÃæÎå¸ö±äÁ¿ÓÃÓÚ×îºó¶ÔÎÄ¼ş½øĞĞÖØÃüÃû£¬¸ñÊ½Îª¡°GameXXXXLineXXXX¡±£¬¼´µÚ¼¸³¡±ÈÈü£¬Ò»¹²ÓĞ¶àÉÙĞĞÊı¾İ*/
+FRESULT res;                                          /* ä¿å­˜SDç›¸å…³å‡½æ•°è°ƒç”¨åè¿”å›çš„ç»“æœï¼ŒFatFs function common result code */
+uint32_t byteswritten, bytesread;                     /* è¯»å†™çš„å­—èŠ‚æ•°ï¼ŒFile write/read counts */
+char filename[] = "DroneData.txt";										/* SDå¡é‡Œçš„æ–‡ä»¶åï¼Œåœ¨å»ºç«‹æ–‡æœ¬æ–‡ä»¶çš„æ—¶å€™ä¸´æ—¶ä½¿ç”¨ï¼Œåœ¨æ¯”èµ›ç»“æŸæ—¶å°†ä¿®æ”¹æ–‡ä»¶åï¼Œè§ä¸‹ä¸€è¡Œ */
+char finalname[21] = "Game";													/* ä¸‹é¢äº”ä¸ªå˜é‡ç”¨äºæœ€åå¯¹æ–‡ä»¶è¿›è¡Œé‡å‘½åï¼Œæ ¼å¼ä¸ºâ€œGameXXXXLineXXXXâ€ï¼Œå³ç¬¬å‡ åœºæ¯”èµ›ï¼Œä¸€å…±æœ‰å¤šå°‘è¡Œæ•°æ®*/
 char gamenum[4] = {0};
 char linenum[4] = {0};
 int game_num = 0;
 int line_num = 0;
+int game_num_temp = 12;//ä»…æµ‹è¯•ç”¨
 
-//char interval[3] = "   ";											 	 	  /* ÏòSD¿¨Ğ´ÈëÊı¾İÊ±ÓÃÓÚ·Ö¸ôÒ»´ÎĞ´ÈëµÄ²»Í¬Êı¾İ*/
-char newline[8] = "      \r\n";												/* ÏòSD¿¨Ğ´ÈëÊı¾İÊ±ÓÃÓÚ·Ö¸ôÁ½´ÎĞ´ÈëµÄÊı¾İ£¬ºÃÏñFATFs²»Ö§³ÖĞ´Èë»»ĞĞ·û£¬¹ÃÇÒÏÈÊÔÒ»ÏÂÔÙËµ*/
-char ctime[] = {'[', '0', '0', ':', '0', '0', ':', '0', '0', ':', '0', ']', ' ', ' ', ' '};  //ÓÃÓÚ¼ÇÂ¼Ã¿´ÎĞ´ÈëÊı¾İµÄÊ±¼ä£¬ºóÃæ´ø¿Õ¸ñ£¬¸ñÊ½Îª¡°¡¾Ğ¡Ê±£º·ÖÖÓ£ºÃëÖÓ£º°ÙºÁÃë¡¿   ¡±
+//char AllData[160];//ç”¨äºæš‚å­˜éœ€è¦å†™å…¥çš„æ‰€æœ‰æ•°æ®ï¼Œè¿™æ ·åœ¨SDå†™å…¥æ—¶åªéœ€è¦è°ƒç”¨ä¸€æ¬¡f_writeï¼ŒDMAæ•ˆç‡æ›´é«˜
+
+char newline[8] = "      \r\n";												/* å‘SDå¡å†™å…¥æ•°æ®æ—¶ç”¨äºåˆ†éš”ä¸¤æ¬¡å†™å…¥çš„æ•°æ®ï¼Œå¥½åƒFATFsä¸æ”¯æŒå†™å…¥æ¢è¡Œç¬¦ï¼Œå§‘ä¸”å…ˆè¯•ä¸€ä¸‹å†è¯´*/
+char ctime[15] = {'[', '0', '0', ':', '0', '0', ':', '0', '0', ':', '0', ']', ' ', ' ', ' '};  //ç”¨äºè®°å½•æ¯æ¬¡å†™å…¥æ•°æ®çš„æ—¶é—´ï¼Œåé¢å¸¦ç©ºæ ¼ï¼Œæ ¼å¼ä¸ºâ€œã€å°æ—¶ï¼šåˆ†é’Ÿï¼šç§’é’Ÿï¼šç™¾æ¯«ç§’ã€‘   â€
 char cpos_x[18] = {0};
 char cpos_y[18] = {0};
-char cpos_z[18] = {0};	//ÎŞÈË»úxyz×ø±ê
-char cheight[18] = {0};	//TOF²âµÃ¸ß¶È
-char cpitch[18] = {0};	//pitch½Ç¶È
-char cyaw[18] = {0};		//yaw½Ç¶È
-char cfric[18] = {0};		//Ä¦²ÁÂÖ×ªËÙ
-char cspeed[18] = {0};	//×Óµ¯³õËÙ¶È
+char cpos_z[18] = {0};	//æ— äººæœºxyzåæ ‡
+char cheight[18] = {0};	//TOFæµ‹å¾—é«˜åº¦
+char cpitch[18] = {0};	//pitchè§’åº¦
+char cyaw[18] = {0};		//yawè§’åº¦
+char cfric[18] = {0};		//æ‘©æ“¦è½®è½¬é€Ÿ
+char cspeed[18] = {0};	//å­å¼¹åˆé€Ÿåº¦
 
-//ÒÔÏÂ±äÁ¿ÓÃÓÚ¶ÔSD¿¨¶ÁĞ´¹¦ÄÜ½øĞĞ´®¿Úµ÷ÊÔ£¬Õı³£¹¤×÷µÄÊ±ºòÓÃ²»µ½
-char* debug_chars;																		/* µ÷ÊÔÓÃ£¬Êä³öÓï¾ä */
-char wtext[] = "Testing STM32 working with FatFs";		/* µ÷ÊÔÓÃ£¬Ğ´»º´æ£¬File write buffer */
-char rtext[100];                                  	  /* µ÷ÊÔÓÃ£¬¶Á»º´æ£¬File read buffer */
+//ä»¥ä¸‹å˜é‡ç”¨äºå¯¹SDå¡è¯»å†™åŠŸèƒ½è¿›è¡Œä¸²å£è°ƒè¯•ï¼Œæ­£å¸¸å·¥ä½œçš„æ—¶å€™ç”¨ä¸åˆ°
+//char* debug_chars;																		/* è°ƒè¯•ç”¨ï¼Œè¾“å‡ºè¯­å¥ */
+//char wtext[] = "Testing STM32 working with FatFs";		/* è°ƒè¯•ç”¨ï¼Œå†™ç¼“å­˜ï¼ŒFile write buffer */
+//char rtext[100];                                  	  /* è°ƒè¯•ç”¨ï¼Œè¯»ç¼“å­˜ï¼ŒFile read buffer */
 
-/*------------------SD¶ÁĞ´---º¯Êı¶¨Òå------------------*/
-int sd=0;
+/*------------------SDè¯»å†™---å‡½æ•°å®šä¹‰------------------*/
+int sd = 0;
 void Task_SDIO(void *parameters)
 {
-	f_mount(&SDFatFs, "", 0);//½«ÎÄ¼şÏµÍ³¶ÔÏó×¢²áµ½FatFsÄ£¿é¡£¾İËµÔÚfatfsÍâ¹ÒÒ»¸öÉè±¸µÄÊ±ºò£¬µÚ¶ş¸ö²ÎÊıÎª¿Õ""¾Í¿ÉÒÔ·ÃÎÊ£»¶øÔÚ¶à¸öÉè±¸Ê±£¬¾ÍµÃÖ¸¶¨´ÅÅÌºÅ¡£Ã»ÑéÖ¤¹ı¡£
-	
 	TickType_t xLastWakeUpTime;
 	xLastWakeUpTime = xTaskGetTickCount();
 	
+	f_mount(&SDFatFs, "", 0);//å°†æ–‡ä»¶ç³»ç»Ÿå¯¹è±¡æ³¨å†Œåˆ°FatFsæ¨¡å—ã€‚æ®è¯´åœ¨fatfså¤–æŒ‚ä¸€ä¸ªè®¾å¤‡çš„æ—¶å€™ï¼Œç¬¬äºŒä¸ªå‚æ•°ä¸ºç©º""å°±å¯ä»¥è®¿é—®ï¼›è€Œåœ¨å¤šä¸ªè®¾å¤‡æ—¶ï¼Œå°±å¾—æŒ‡å®šç£ç›˜å·ã€‚æ²¡éªŒè¯è¿‡ã€‚
+	
 	while(1)
 	{
-		sd++;
-		vTaskDelayUntil(&xLastWakeUpTime, 100);
-		
-		if(ext_game_state.game_progress != 5)//±ÈÈüÎ´½áÊø
+		vTaskDelayUntil(&xLastWakeUpTime, 500);
+		Debug_LED;//è°ƒè¯•çœ‹è¯¥ä»»åŠ¡æ˜¯å¦æ­£å¸¸è¿è¡Œ
+		sd++;//è°ƒè¯•çœ‹è¯¥ä»»åŠ¡æ˜¯å¦æ­£å¸¸è¿è¡Œ
+    //if(ext_game_state.game_progress != 5)//æ¯”èµ›æœªç»“æŸ
+		if(line_num < 50)//æµ‹è¯•æ—¶å€™æ²¡æœ‰è£åˆ¤ç³»ç»Ÿï¼Œä¸´æ—¶ç”¨ä¸€ä¸‹
 		{
 			DtatPrepareSD();
 			
-			//f_open(&MyFile, filename, FA_CREATE_ALWAYS | FA_WRITE);//´´½¨²¢´ò¿ª¾ßÓĞĞ´·ÃÎÊÈ¨ÏŞµÄĞÂÎÄ±¾ÎÄ¼ş¶ÔÏó
+			f_open(&MyFile, filename, FA_OPEN_ALWAYS | FA_WRITE);//åˆ›å»ºå¹¶æ‰“å¼€å…·æœ‰å†™è®¿é—®æƒé™çš„æ–°æ–‡æœ¬æ–‡ä»¶å¯¹è±¡
+			f_lseek(&MyFile, f_size(&MyFile));										 //ä»ä¸Šæ¬¡æ•°æ®çš„ç»“å°¾ç»§ç»­å†™å…¥æ–°æ•°æ®
 			
-			f_write(&MyFile, ctime, 15, (void *)&byteswritten);//ÏòÎÄ±¾ÎÄ¼şĞ´ÈëÊ±¼ä
-			f_write(&MyFile, cpos_x, 18, (void *)&byteswritten);//ÏòÎÄ±¾ÎÄ¼şĞ´ÈëÎŞÈË»ú×ø±ê
-			f_write(&MyFile, cpos_y, 18, (void *)&byteswritten);
-			f_write(&MyFile, cpos_z, 18, (void *)&byteswritten);
-			f_write(&MyFile, cheight, 18, (void *)&byteswritten);//ÏòÎÄ±¾ÎÄ¼şĞ´ÈëÎŞÈË»ú¸ß¶È
-			f_write(&MyFile, cpitch, 18, (void *)&byteswritten);//ÏòÎÄ±¾ÎÄ¼şĞ´Èëpitch½Ç¶È
-			f_write(&MyFile, cyaw, 18, (void *)&byteswritten);//ÏòÎÄ±¾ÎÄ¼şĞ´Èëyaw½Ç¶È
-			f_write(&MyFile, cfric, 18, (void *)&byteswritten);//ÏòÎÄ±¾ÎÄ¼şĞ´ÈëÄ¦²ÁÂÖ×ªËÙ
-			f_write(&MyFile, cspeed, 18, (void *)&byteswritten);//ÏòÎÄ±¾ÎÄ¼şĞ´Èë×Óµ¯³õËÙ¶È
-			f_write(&MyFile, newline, 8, (void *)&byteswritten);//»»ĞĞ
+			f_write(&MyFile, ctime, sizeof(ctime), (void *)&byteswritten);//å‘æ–‡æœ¬æ–‡ä»¶å†™å…¥æ—¶é—´
+//			f_write(&MyFile, cpos_x, sizeof(cpos_x), (void *)&byteswritten);//å‘æ–‡æœ¬æ–‡ä»¶å†™å…¥æ— äººæœºåæ ‡
+//			f_write(&MyFile, cpos_y, sizeof(cpos_y), (void *)&byteswritten);
+//			f_write(&MyFile, cpos_z, sizeof(cpos_z), (void *)&byteswritten);
+//			f_write(&MyFile, cheight, sizeof(cheight), (void *)&byteswritten);//å‘æ–‡æœ¬æ–‡ä»¶å†™å…¥æ— äººæœºé«˜åº¦
+//			f_write(&MyFile, cpitch, sizeof(cpitch), (void *)&byteswritten);//å‘æ–‡æœ¬æ–‡ä»¶å†™å…¥pitchè§’åº¦
+//			f_write(&MyFile, cyaw, sizeof(cyaw), (void *)&byteswritten);//å‘æ–‡æœ¬æ–‡ä»¶å†™å…¥yawè§’åº¦
+//			f_write(&MyFile, cfric, sizeof(cfric), (void *)&byteswritten);//å‘æ–‡æœ¬æ–‡ä»¶å†™å…¥æ‘©æ“¦è½®è½¬é€Ÿ
+//			f_write(&MyFile, cspeed, sizeof(cspeed), (void *)&byteswritten);//å‘æ–‡æœ¬æ–‡ä»¶å†™å…¥å­å¼¹åˆé€Ÿåº¦
+			f_write(&MyFile, newline, sizeof(newline), (void *)&byteswritten);//æ¢è¡Œ
+	
+			f_close(&MyFile);//å…³é—­æ–‡æœ¬æ–‡ä»¶
 			
-			f_close(&MyFile);//¹Ø±ÕÎÄ±¾ÎÄ¼ş
-			
-			line_num++;//¸üĞÂÊı¾İĞĞÊı
+			line_num++;//æ›´æ–°æ•°æ®è¡Œæ•°
 		}
-		else//±ÈÈü½áÊø£¬ĞŞ¸ÄÎÄ¼şÃû
+		else//æ¯”èµ›ç»“æŸï¼Œä¿®æ”¹æ–‡ä»¶å
 		{
-//			Int_to_Char(gamenum, game_num, 4);
-//			Int_to_Char(linenum, line_num, 4);
-//			
-//			int i;
-//			for(i = 0; i < 4; i ++)
-//			{
-//				finalname[4 + i] = gamenum[i];
-//			}
-//			finalname[8] = 'L';
-//			finalname[9] = 'i';
-//			finalname[10] = 'n';
-//			finalname[11] = 'e';
-//			for(i = 0; i < 4; i ++)
-//			{
-//				finalname[12 + i] = linenum[i];
-//			}
-//			finalname[16] = '\0';
-//			
-//			f_rename(filename, finalname);//½«ÎÄ¼şÖØÃüÃû
+			Int_to_Char(gamenum, game_num_temp, 4);
+			Int_to_Char(linenum, line_num, 4);
+			
+			int i;
+			for(i = 0; i < 4; i ++)
+			{
+				finalname[4 + i] = gamenum[i];
+			}
+			finalname[8] = 'L';
+			finalname[9] = 'i';
+			finalname[10] = 'n';
+			finalname[11] = 'e';
+			for(i = 0; i < 4; i ++)
+			{
+				finalname[12 + i] = linenum[i];
+			}
+			finalname[16] = '.';
+			finalname[17] = 't';
+			finalname[18] = 'x';
+			finalname[19] = 't';
+			finalname[20] = '\0';
+			
+			f_rename(filename, finalname);//å°†æ–‡ä»¶é‡å‘½å
 		}
 	}
 }
 
 /**
-  * @brief  ÓÃÓÚ×¼±¸ĞèÒªĞ´ÈëSDµÄÊı¾İ
+  * @brief  ç”¨äºå‡†å¤‡éœ€è¦å†™å…¥SDçš„æ•°æ®
   * @param  None
   * @retval None
   * @note	  None
   */
 void DtatPrepareSD(void)
 {
-	Float_to_Char(cpos_x, ext_game_robot_pos.x, 8, 5);
-	AppendBlank(cpos_x, 15, 3);
-	
-	Float_to_Char(cpos_y, ext_game_robot_pos.y, 8, 5);
-	AppendBlank(cpos_y, 15, 3);
-	
-	Float_to_Char(cpos_z, ext_game_robot_pos.z, 8, 5);
-	AppendBlank(cpos_z, 15, 3);
-	
-	Float_to_Char(cheight, Gimbal.position.Height, 8, 5);
-	AppendBlank(cheight, 15, 3);
-	
-	Float_to_Char(cpitch, Gimbal.position.PitchAngle, 8, 5);
-	AppendBlank(cpitch, 15, 3);
-	
-	Float_to_Char(cyaw, Gimbal.position.YawAngle, 8, 5);
-	AppendBlank(cyaw, 15, 3);
-	
-	Float_to_Char(cfric,FricMotor_Left.RealSpeed, 8, 5);
-	AppendBlank(cfric, 15, 3);
-	
-	Float_to_Char(cspeed, ext_shoot_data.bullet_speed, 8, 5);
-	AppendBlank(cspeed, 15, 3);
+//	Float_to_Char(cpos_x, ext_game_robot_pos.x, 8, 5);
+//	AppendBlank(cpos_x, 15, 3);
+//	
+//	Float_to_Char(cpos_y, ext_game_robot_pos.y, 8, 5);
+//	AppendBlank(cpos_y, 15, 3);
+//	
+//	Float_to_Char(cpos_z, ext_game_robot_pos.z, 8, 5);
+//	AppendBlank(cpos_z, 15, 3);
+//	
+//	Float_to_Char(cheight, Gimbal.position.Height, 8, 5);
+//	AppendBlank(cheight, 15, 3);
+//	
+//	Float_to_Char(cpitch, Gimbal.position.PitchAngle, 8, 5);
+//	AppendBlank(cpitch, 15, 3);
+//	
+//	Float_to_Char(cyaw, Gimbal.position.YawAngle, 8, 5);
+//	AppendBlank(cyaw, 15, 3);
+//	
+//	Float_to_Char(cfric,FricMotor_Left.RealSpeed, 8, 5);
+//	AppendBlank(cfric, 15, 3);
+//	
+//	Float_to_Char(cspeed, ext_shoot_data.bullet_speed, 8, 5);
+//	AppendBlank(cspeed, 15, 3);
 }
 
 /**
-  * @brief  ÓÃÓÚÔÚ×Ö·û´®ºóÃæ¼Ó¿Õ¸ñ±ãÓÚÇø·ÖÊı¾İ
-  * @param  str£º   	ÒªĞ´ÈëµÄ×Ö·û´®
-  * @param  pre_len£º ¼Ó¿Õ¸ñÖ®Ç°×Ö·û´®ÓĞ¶à³¤£¨¼´×Ö·û´®ÄÚÈİ¼ÓÉÏ½áÎ²¡®\0¡¯µÄ³¤¶È£©
-  * @param  blank£º 	Òª¼ÓµÄ¿Õ¸ñÊı
+  * @brief  ç”¨äºåœ¨å­—ç¬¦ä¸²åé¢åŠ ç©ºæ ¼ä¾¿äºåŒºåˆ†æ•°æ®
+  * @param  strï¼š   	è¦å†™å…¥çš„å­—ç¬¦ä¸²
+  * @param  pre_lenï¼š åŠ ç©ºæ ¼ä¹‹å‰å­—ç¬¦ä¸²æœ‰å¤šé•¿ï¼ˆå³å­—ç¬¦ä¸²å†…å®¹åŠ ä¸Šç»“å°¾â€˜\0â€™çš„é•¿åº¦ï¼‰
+  * @param  blankï¼š 	è¦åŠ çš„ç©ºæ ¼æ•°
   * @retval None
   */
 void AppendBlank(char *str, int pre_len, int blank)
@@ -146,7 +152,7 @@ void AppendBlank(char *str, int pre_len, int blank)
 }
 
 /**
-  * @brief  ÒòÎªFreeRTOSµÄÈÎÎñ¿ÉÄÜ»áÊÜµ½ÆäËûÈÎÎñµÄÓ°Ïì¶ø²»ÄÜ°´ÕÕÔ¤¶¨Ê±¼äÖÜÆÚ»½ĞÑ£¬ËùÒÔÕâÀï¸ù¾İ¶¨Ê±Æ÷TIM5¼ÆËãĞ´ÈëÄ³ĞĞÊı¾İµÄÊ±¼ä¡£Ã¿´ÎÔö¼Ó100ms£¬°´ÕÕ½øÎ»µÄÂß¼­¼ÆËã
+  * @brief  å› ä¸ºFreeRTOSçš„ä»»åŠ¡å¯èƒ½ä¼šå—åˆ°å…¶ä»–ä»»åŠ¡çš„å½±å“è€Œä¸èƒ½æŒ‰ç…§é¢„å®šæ—¶é—´å‘¨æœŸå”¤é†’ï¼Œæ‰€ä»¥è¿™é‡Œæ ¹æ®å®šæ—¶å™¨TIM5è®¡ç®—å†™å…¥æŸè¡Œæ•°æ®çš„æ—¶é—´ã€‚æ¯æ¬¡å¢åŠ 100msï¼ŒæŒ‰ç…§è¿›ä½çš„é€»è¾‘è®¡ç®—
   * @param  None
   * @retval None
   * @note	  None
@@ -203,13 +209,13 @@ void Update_SDtime(void)
 		ctime[10]++;
 }
 
-/*ÒÔÏÂº¯ÊıÓÃÓÚ¶ÔSD¿¨¶ÁĞ´¹¦ÄÜ½øĞĞ´®¿Úµ÷ÊÔ£¬²»ÓÃµÄÊ±ºò×¢ÊÍµô*/
+/*ä»¥ä¸‹å‡½æ•°ç”¨äºå¯¹SDå¡è¯»å†™åŠŸèƒ½è¿›è¡Œä¸²å£è°ƒè¯•ï¼Œä¸ç”¨çš„æ—¶å€™æ³¨é‡Šæ‰*/
 /*
 void Task_SDIO(void *parameters)
 {
-	//##-1- ½«ÎÄ¼şÏµÍ³¶ÔÏó×¢²áµ½FatFsÄ£¿é£¬Register the file system object to the FatFs module ##############
+	//##-1- å°†æ–‡ä»¶ç³»ç»Ÿå¯¹è±¡æ³¨å†Œåˆ°FatFsæ¨¡å—ï¼ŒRegister the file system object to the FatFs module ##############
 	res = f_mount(&SDFatFs, "", 0);
-	if(res)			//ÔËĞĞÕı³£Ê±º¯Êı·µ»ØÖµFR_OK = 0,Èôres²»Îª0ÔòËµÃ÷³öÏÖÒì³£
+	if(res)			//è¿è¡Œæ­£å¸¸æ—¶å‡½æ•°è¿”å›å€¼FR_OK = 0,è‹¥resä¸ä¸º0åˆ™è¯´æ˜å‡ºç°å¼‚å¸¸
 	{
 			Error_Handler();
 	}
@@ -219,7 +225,7 @@ void Task_SDIO(void *parameters)
 			HAL_UART_Transmit(&huart7, (uint8_t*)debug_chars ,15,100);
 	}
 	 
-	//##-2- ´´½¨²¢´ò¿ª¾ßÓĞĞ´·ÃÎÊÈ¨ÏŞµÄĞÂÎÄ±¾ÎÄ¼ş¶ÔÏó£¬Create and Open new text file objects with write access ######
+	//##-2- åˆ›å»ºå¹¶æ‰“å¼€å…·æœ‰å†™è®¿é—®æƒé™çš„æ–°æ–‡æœ¬æ–‡ä»¶å¯¹è±¡ï¼ŒCreate and Open new text file objects with write access ######
 	res = f_open(&MyFile, filename, FA_CREATE_ALWAYS | FA_WRITE);
 	if(res)
 	{
@@ -232,7 +238,7 @@ void Task_SDIO(void *parameters)
 			HAL_UART_Transmit(&huart7, (uint8_t*)debug_chars ,14,100);
 	}
 	 
-	//##-3- ÏòÎÄ±¾ÎÄ¼şĞ´ÈëÊı¾İ£¬Write data to the text files ###############################
+	//##-3- å‘æ–‡æœ¬æ–‡ä»¶å†™å…¥æ•°æ®ï¼ŒWrite data to the text files ###############################
 	res = f_write(&MyFile, wtext, sizeof(wtext), (void *)&byteswritten);
 	if(res)
 	{
@@ -251,7 +257,7 @@ void Task_SDIO(void *parameters)
 		  HAL_UART_Transmit(&huart7, (uint8_t*)debug_chars ,2,100);
 	}
 	 
-	//##-4- ¹Ø±ÕÎÄ±¾ÎÄ¼ş£¬Close the open text files ################################
+	//##-4- å…³é—­æ–‡æœ¬æ–‡ä»¶ï¼ŒClose the open text files ################################
 	res = f_close(&MyFile);
 	if(res)
 	{
@@ -267,7 +273,7 @@ void Task_SDIO(void *parameters)
 			HAL_UART_Transmit(&huart7, (uint8_t*)debug_chars ,15,100);
 	}
 	 
-	//##-5- ´ò¿ª¾ßÓĞ¶Á·ÃÎÊÈ¨ÏŞµÄÎÄ±¾ÎÄ¼ş¶ÔÏó£¬Open the text files object with read access ##############
+	//##-5- æ‰“å¼€å…·æœ‰è¯»è®¿é—®æƒé™çš„æ–‡æœ¬æ–‡ä»¶å¯¹è±¡ï¼ŒOpen the text files object with read access ##############
 	res = f_open(&MyFile, filename, FA_READ);
 	if(res)
 	{
@@ -283,7 +289,7 @@ void Task_SDIO(void *parameters)
 			HAL_UART_Transmit(&huart7, (uint8_t*)debug_chars ,14,100);
 	}
 	 
-	//##-6- ´ÓÎÄ±¾ÎÄ¼ş¶ÁÈëÊı¾İ£¬Read data from the text files ##########################
+	//##-6- ä»æ–‡æœ¬æ–‡ä»¶è¯»å…¥æ•°æ®ï¼ŒRead data from the text files ##########################
 	res = f_read(&MyFile, rtext, sizeof(rtext), (UINT*)&bytesread);
 	if(res)
 	{
@@ -302,7 +308,7 @@ void Task_SDIO(void *parameters)
 		  HAL_UART_Transmit(&huart7, (uint8_t*)debug_chars ,2,100);
 	}
 	 
-	//##-7- ¹Ø±ÕÎÄ±¾ÎÄ¼ş£¬Close the open text files ############################
+	//##-7- å…³é—­æ–‡æœ¬æ–‡ä»¶ï¼ŒClose the open text files ############################
 	res = f_close(&MyFile);
 	if(res)  
 	{

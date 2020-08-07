@@ -125,6 +125,15 @@ __weak void Task_SDIO(void *parameters)
 		vTaskDelayUntil(&xLastWakeUpTime,50);
 	}
 }
+__weak void Task_TOF(void *parameters)
+{
+	TickType_t xLastWakeUpTime;
+	xLastWakeUpTime = xTaskGetTickCount();
+	while(1)
+	{
+		vTaskDelayUntil(&xLastWakeUpTime,20);
+	}
+}
 
 void Motor_SetOutput(Motor_type* motor,int16_t output)
 {

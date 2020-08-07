@@ -9,7 +9,6 @@ void AppendBlank(char *str, int pre_len, int blank);
 void DtatPrepareSD(void);
 //static void Error_Handler(void);
 
-extern char ctime[];
 extern int game_num;
 
 #endif

@@ -217,12 +217,12 @@ uint8_t InitPeripheral_UI(void)
 		|UiFrame_t(UiFrameBuffer[128])-----------|
 	  */
     UiFrame.UiFrameBuffer[0] = 0XA5;
-		UiFrame.Frame.frame_header.Frame.seq = 0;//包序号初始化
+	UiFrame.Frame.frame_header.Frame.seq = 0;//包序号初始化
     UiFrame.Frame.frame_header.Frame.data_length.Frame = 0;//数据长度初始化
-		UiFrame.Frame.frame_header.Frame.CRC8 = 0;//CRC校验初始化
+	UiFrame.Frame.frame_header.Frame.CRC8 = 0;//CRC校验初始化
     UiFrame.UiFrameBuffer[5] = 0X01;
     UiFrame.UiFrameBuffer[6] = 0X03;//cmd_id设置为0x0301机器人间交互
-		memset(UiFrame.Frame.data, 0, 121);//数据初始化
+	memset(UiFrame.Frame.data, 0, 121);//数据初始化
 
     header_data.sender_ID = ext_game_robot_state.robot_id;//发送方id
 

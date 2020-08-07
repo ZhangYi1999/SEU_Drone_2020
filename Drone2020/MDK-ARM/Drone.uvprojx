@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F427xx,USE_STDPERIPH_DRIVER,ARM_MATH_CM4,__CC_ARM,ARM_MATH_M</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Inc;     ..\Drivers\STM32F4xx_HAL_Driver\Inc;     ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;     ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;     ../Drivers/CMSIS/Include;     ../Middlewares/Third_Party/FreeRTOS/Source/include;     ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;     ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;     ..\Task\Inc;     ..\System\Inc;     ..\OnboardMPU\Inc;     ..\Mathlib;     ..\System\Src;   ../Middlewares/Third_Party/FatFs/src</IncludePath>
+              <IncludePath>..\Inc;        ..\Drivers\STM32F4xx_HAL_Driver\Inc;        ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;        ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;        ../Drivers/CMSIS/Include;        ../Middlewares/Third_Party/FreeRTOS/Source/include;        ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;        ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;        ..\Task\Inc;        ..\System\Inc;        ..\OnboardMPU\Inc;        ..\Mathlib;        ..\System\Src;      ../Middlewares/Third_Party/FatFs/src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -626,16 +626,6 @@
               <FilePath>..\Src\spi.c</FilePath>
             </File>
             <File>
-              <FileName>sys.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\sys.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f4xx_hal_timebase_tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\stm32f4xx_hal_timebase_tim.c</FilePath>
-            </File>
-            <File>
               <FileName>tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\tim.c</FilePath>
@@ -654,6 +644,11 @@
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\stm32f4xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_hal_timebase_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\stm32f4xx_hal_timebase_tim.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -56,8 +56,8 @@ void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2|GPIO_PIN_3|FricMotor_Left_Power_Pin|FricMotor_Right_Power_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOG, GYRO_Status_Pin|ShootPermission_Status_Pin|Auto_Status_Pin|MultiRound_Status_Pin 
-                          |SingleRound_Status_Pin|Can_Status_Pin|FricMotor_Status_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOG, Debug_Status_Pin|GYRO_Status_Pin|ShootPermission_Status_Pin|Auto_Status_Pin 
+                          |MultiRound_Status_Pin|SingleRound_Status_Pin|Can_Status_Pin|FricMotor_Status_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(SPI5_NSS_GPIO_Port, SPI5_NSS_Pin, GPIO_PIN_RESET);
@@ -82,9 +82,9 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PGPin PGPin PGPin PGPin 
-                           PGPin PGPin PGPin */
-  GPIO_InitStruct.Pin = GYRO_Status_Pin|ShootPermission_Status_Pin|Auto_Status_Pin|MultiRound_Status_Pin 
-                          |SingleRound_Status_Pin|Can_Status_Pin|FricMotor_Status_Pin;
+                           PGPin PGPin PGPin PGPin */
+  GPIO_InitStruct.Pin = Debug_Status_Pin|GYRO_Status_Pin|ShootPermission_Status_Pin|Auto_Status_Pin 
+                          |MultiRound_Status_Pin|SingleRound_Status_Pin|Can_Status_Pin|FricMotor_Status_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

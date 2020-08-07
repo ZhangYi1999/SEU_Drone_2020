@@ -4,6 +4,7 @@ Motor_type PitchMotor;
 Motor_type YawMotor;
 Gimbal_type Gimbal;
 
+
 /*
 云台控制逻辑
 首先init
