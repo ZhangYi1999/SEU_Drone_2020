@@ -12,6 +12,8 @@
 #include "spi.h"
 #include "freertos.h"
 #include "cmsis_os.h"
+#include "fatfs.h"
+#include "sdio.h"
 
 #include "stdio.h"
 #include "stdlib.h"

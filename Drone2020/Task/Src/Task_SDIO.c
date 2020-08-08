@@ -39,7 +39,7 @@ void Task_SDIO(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
 	xLastWakeUpTime = xTaskGetTickCount();
-	
+
 	f_mount(&SDFatFs, "", 0);//将文件系统对象注册到FatFs模块。据说在fatfs外挂一个设备的时候，第二个参数为空""就可以访问；而在多个设备时，就得指定磁盘号。没验证过。
 	
 	while(1)

@@ -1,6 +1,4 @@
 drone\sd_diskio.o: ../Src/sd_diskio.c
-drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FatFs/src/diskio.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FatFs/src/integer.h
@@ -43,7 +41,6 @@ drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h
 drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h
 drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 drone\sd_diskio.o: ..\Inc\bsp_driver_sd.h
-drone\sd_diskio.o: ..\Inc\fatfs_platform.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\sd_diskio.o: ..\Inc\FreeRTOSConfig.h
@@ -58,5 +55,6 @@ drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
-drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 drone\sd_diskio.o: ..\Inc\sd_diskio.h
+drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

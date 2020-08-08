@@ -23,7 +23,6 @@
 "drone\bsp_driver_sd.o"
 "drone\sd_diskio.o"
 "drone\fatfs.o"
-"drone\fatfs_platform.o"
 "drone\freertos.o"
 "drone\sdio.o"
 "drone\spi.o"

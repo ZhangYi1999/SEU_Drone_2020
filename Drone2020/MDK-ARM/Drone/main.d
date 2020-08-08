@@ -56,9 +56,7 @@ drone\main.o: ../Middlewares/Third_Party/FatFs/src/ff.h
 drone\main.o: ../Middlewares/Third_Party/FatFs/src/integer.h
 drone\main.o: ..\Inc\ffconf.h
 drone\main.o: ..\Inc\bsp_driver_sd.h
-drone\main.o: ..\Inc\fatfs_platform.h
 drone\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
-drone\main.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 drone\main.o: ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h
 drone\main.o: ../Middlewares/Third_Party/FatFs/src/diskio.h
 drone\main.o: ..\Inc\sd_diskio.h

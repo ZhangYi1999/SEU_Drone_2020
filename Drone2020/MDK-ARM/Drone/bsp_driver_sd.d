@@ -35,4 +35,3 @@ drone\bsp_driver_sd.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h
 drone\bsp_driver_sd.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h
 drone\bsp_driver_sd.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h
 drone\bsp_driver_sd.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
-drone\bsp_driver_sd.o: ..\Inc\fatfs_platform.h

@@ -87,8 +87,6 @@ void Error_Handler(void);
 #define CAN1_TX_GPIO_Port GPIOD
 #define SD_CMD_Pin GPIO_PIN_2
 #define SD_CMD_GPIO_Port GPIOD
-#define CampInput_Pin GPIO_PIN_0
-#define CampInput_GPIO_Port GPIOF
 #define SD_DATA1_Pin GPIO_PIN_9
 #define SD_DATA1_GPIO_Port GPIOC
 #define SD_DATA0_Pin GPIO_PIN_8

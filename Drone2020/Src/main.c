@@ -76,7 +76,6 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
-  
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -107,20 +106,19 @@ int main(void)
   MX_SPI5_Init();
   MX_TIM3_Init();
   MX_SDIO_SD_Init();
+  MX_FATFS_Init();
   MX_UART4_Init();
   MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
-	MX_FATFS_Init();
+	
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init(); 
-
   /* Start scheduler */
   osKernelStart();
-  
+ 
   /* We should never get here as control is now taken by the scheduler */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -178,7 +176,7 @@ void SystemClock_Config(void)
 
 /* USER CODE END 4 */
 
-/**
+ /**
   * @brief  Period elapsed callback in non blocking mode
   * @note   This function is called  when TIM2 interrupt took place, inside
   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
@@ -195,10 +193,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-	if (htim->Instance == htim5.Instance)
-	{
-		Update_SDtime();
-	}
+//	if (htim->Instance == htim5.Instance)
+//	{
+//		Update_SDtime();
+//	}
   /* USER CODE END Callback 1 */
 }
 

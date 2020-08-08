@@ -41,7 +41,6 @@ drone\diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h
 drone\diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h
 drone\diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 drone\diskio.o: ..\Inc\bsp_driver_sd.h
-drone\diskio.o: ..\Inc\fatfs_platform.h
 drone\diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 drone\diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\diskio.o: ..\Inc\FreeRTOSConfig.h
@@ -56,4 +55,3 @@ drone\diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 drone\diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 drone\diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 drone\diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
-drone\diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

@@ -39,7 +39,6 @@ drone\cc936.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h
 drone\cc936.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h
 drone\cc936.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
 drone\cc936.o: ..\Inc\bsp_driver_sd.h
-drone\cc936.o: ..\Inc\fatfs_platform.h
 drone\cc936.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 drone\cc936.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 drone\cc936.o: ..\Inc\FreeRTOSConfig.h
@@ -54,4 +53,3 @@ drone\cc936.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 drone\cc936.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 drone\cc936.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 drone\cc936.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
-drone\cc936.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
