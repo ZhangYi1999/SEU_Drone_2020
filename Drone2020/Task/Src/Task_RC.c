@@ -4,12 +4,13 @@
 RCDecoding_type RC_ReceiveData,LastRC_ReceiveData;
 uint8_t RCBuffer[2][RC_FRAME_LEN+RC_FRAME_LEN_BACK];
 uint8_t RC_Rx_Mem;
-
+ int rc = 0;
 void Task_RC(void *parameters)
 {
 	RC_InitConfig();
 	while(1)
 	{
+		rc++;
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		RC_Data_Update();
 		xTaskNotifyGive(TaskStateMachine_Handle);

@@ -78,9 +78,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -90,11 +90,11 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
-F (..\Task\Inc\Task_Init.h)(0x5EAECAC6)()
-F (..\Task\Src\Task_Init.c)(0x5F2EA090)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_init.o --omf_browse drone\task_init.crf --depend drone\task_init.d)
+F (..\Task\Inc\Task_Init.h)(0x5F328611)()
+F (..\Task\Src\Task_Init.c)(0x5F37F0EB)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_init.o --omf_browse drone\task_init.crf --depend drone\task_init.d)
 I (..\System\Inc\Sys_Config.h)(0x5EAECB1C)
 I (..\System\Inc\System.h)(0x5EAECB1C)
 I (..\Task\Inc\Task_CanComm.h)(0x5EAECAC6)
@@ -171,9 +171,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -183,7 +183,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)()
@@ -264,9 +264,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -276,7 +276,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_Position.h)(0x5EAECAC6)()
@@ -357,9 +357,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -369,7 +369,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)()
@@ -450,9 +450,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -462,7 +462,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)()
@@ -543,9 +543,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -555,11 +555,11 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_RC.h)(0x5EAECAC6)()
-F (..\Task\Src\Task_RC.c)(0x5EAEC932)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_rc.o --omf_browse drone\task_rc.crf --depend drone\task_rc.d)
+F (..\Task\Src\Task_RC.c)(0x5F309668)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_rc.o --omf_browse drone\task_rc.crf --depend drone\task_rc.d)
 I (..\System\Inc\Sys_Config.h)(0x5EAECB1C)
 I (..\System\Inc\System.h)(0x5EAECB1C)
 I (..\Task\Inc\Task_CanComm.h)(0x5EAECAC6)
@@ -636,9 +636,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -648,7 +648,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_CanComm.h)(0x5EAECAC6)()
@@ -729,9 +729,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -741,11 +741,11 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
-F (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)()
-F (..\Task\Src\Task_StateMachine.c)(0x5EAEC932)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_statemachine.o --omf_browse drone\task_statemachine.crf --depend drone\task_statemachine.d)
+F (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)()
+F (..\Task\Src\Task_StateMachine.c)(0x5F37EE10)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_statemachine.o --omf_browse drone\task_statemachine.crf --depend drone\task_statemachine.d)
 I (..\System\Inc\Sys_Config.h)(0x5EAECB1C)
 I (..\System\Inc\System.h)(0x5EAECB1C)
 I (..\Task\Inc\Task_CanComm.h)(0x5EAECAC6)
@@ -822,9 +822,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -834,11 +834,11 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)()
-F (..\Task\Src\Task_Gimbal.c)(0x5F0297EC)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_gimbal.o --omf_browse drone\task_gimbal.crf --depend drone\task_gimbal.d)
+F (..\Task\Src\Task_Gimbal.c)(0x5F37F0EB)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_gimbal.o --omf_browse drone\task_gimbal.crf --depend drone\task_gimbal.d)
 I (..\System\Inc\Sys_Config.h)(0x5EAECB1C)
 I (..\System\Inc\System.h)(0x5EAECB1C)
 I (..\Task\Inc\Task_CanComm.h)(0x5EAECAC6)
@@ -915,9 +915,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -927,7 +927,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)()
@@ -1008,9 +1008,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -1020,7 +1020,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_LED.h)(0x5F2D2344)()
@@ -1101,9 +1101,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -1113,7 +1113,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)()
@@ -1194,9 +1194,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -1206,7 +1206,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)()
@@ -1287,9 +1287,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -1299,104 +1299,11 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
-I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
-F (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)()
-F (..\Task\Src\Task_Flash.c)(0x5EAF7692)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_flash.o --omf_browse drone\task_flash.crf --depend drone\task_flash.d)
-I (..\System\Inc\Sys_Config.h)(0x5EAECB1C)
-I (..\System\Inc\System.h)(0x5EAECB1C)
-I (..\Task\Inc\Task_CanComm.h)(0x5EAECAC6)
-I (..\System\Inc\Sys_Def.h)(0x5F2D5265)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x5E44786D)
-I (..\Inc\stm32f4xx_hal_conf.h)(0x5F2EAC75)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h)(0x5E44787F)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h)(0x5E44786D)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x5E447835)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h)(0x5E447835)
-I (../Drivers/CMSIS/Include/core_cm4.h)(0x5E44782F)
-I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Drivers/CMSIS/Include/cmsis_version.h)(0x5E44782F)
-I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5E44782F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5E44782F)
-I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x5E44782F)
-I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x5E447835)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy/stm32_hal_legacy.h)(0x5E450BB0)
-I (D:\Program\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h)(0x5E44787F)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h)(0x5E447869)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h)(0x5E44786F)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio_ex.h)(0x5E44786F)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma.h)(0x5E447862)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_dma_ex.h)(0x5E447862)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_cortex.h)(0x5E447858)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_can.h)(0x5E447854)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash.h)(0x5E44786A)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ex.h)(0x5E44786A)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h)(0x5E44786A)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h)(0x5E44787C)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h)(0x5E44787C)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_sd.h)(0x5E447885)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_sdmmc.h)(0x5E447885)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x5E44788A)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h)(0x5E447894)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h)(0x5E447894)
-I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x5E44789A)
-I (..\Inc\stm32f4xx_it.h)(0x5F2EAC75)
-I (..\Inc\usart.h)(0x5F2EAC75)
-I (..\Inc\main.h)(0x5F2EAC75)
-I (..\Inc\can.h)(0x5F2EAC70)
-I (..\Inc\dma.h)(0x5F2EAC72)
-I (..\Inc\gpio.h)(0x5F2EAC4F)
-I (..\Inc\tim.h)(0x5F2EAC74)
-I (..\Inc\spi.h)(0x5F2EAC74)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x5E447844)
-I (..\Inc\FreeRTOSConfig.h)(0x5F2EAC74)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x5E447844)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5E447844)
-I (..\Inc\fatfs.h)(0x5F2EAC73)
-I (../Middlewares/Third_Party/FatFs/src/ff.h)(0x5E447842)
-I (../Middlewares/Third_Party/FatFs/src/integer.h)(0x5E447842)
-I (..\Inc\ffconf.h)(0x5F2EAC72)
-I (..\Inc\bsp_driver_sd.h)(0x5F2EAC73)
-I (../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h)(0x5E447842)
-I (../Middlewares/Third_Party/FatFs/src/diskio.h)(0x5E447842)
-I (..\Inc\sd_diskio.h)(0x5F2EAC73)
-I (..\Inc\sdio.h)(0x5F2EAC74)
-I (D:\Program\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
-I (D:\Program\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
-I (D:\Program\Keil_v5\ARM\ARMCC\include\math.h)(0x588B8344)
-I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
-I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
-I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
-I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
-I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
-I (..\Task\Inc\Task_LED.h)(0x5F2D2344)
-I (..\Task\Inc\Task_Position.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
-I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)()
-F (..\Task\Src\Task_SDIO.c)(0x5F2EAD4C)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_sdio.o --omf_browse drone\task_sdio.crf --depend drone\task_sdio.d)
+F (..\Task\Src\Task_SDIO.c)(0x5F328D5B)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\task_sdio.o --omf_browse drone\task_sdio.crf --depend drone\task_sdio.d)
 I (..\System\Inc\Sys_Config.h)(0x5EAECB1C)
 I (..\System\Inc\System.h)(0x5EAECB1C)
 I (..\Task\Inc\Task_CanComm.h)(0x5EAECAC6)
@@ -1473,9 +1380,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -1485,7 +1392,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Task\Inc\Task_TOF.h)(0x5F01C73C)()
@@ -1566,9 +1473,9 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h)(0x5898498A)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898498A)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\Task\Inc\Task_Debug.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_Flash.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_Flash.h)(0x5F37E39A)
 I (..\Task\Inc\Task_Gimbal.h)(0x5F01C996)
 I (..\Task\Inc\Task_JetsonComm.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_Judge.h)(0x5EB7F29C)
@@ -1578,7 +1485,7 @@ I (..\Task\Inc\Task_Protect.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_RC.h)(0x5EAECAC6)
 I (..\Task\Inc\Task_SDIO.h)(0x5F2BBC3B)
 I (..\Task\Inc\Task_Shoot.h)(0x5EAECAC6)
-I (..\Task\Inc\Task_StateMachine.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_StateMachine.h)(0x5F37F032)
 I (..\Task\Inc\Task_TOF.h)(0x5F01C73C)
 I (..\Task\Inc\Task_Ui.h)(0x5EB7F29C)
 F (..\Src\main.c)(0x5F2EAD4C)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\main.o --omf_browse drone\main.crf --depend drone\main.d)
@@ -3112,7 +3019,7 @@ F (..\OnboardMPU\Inc\ist8310_reg.h)(0x5DD0EC8C)()
 F (..\OnboardMPU\Inc\mpu6500_reg.h)(0x5DD0EC8C)()
 F (..\OnboardMPU\Src\Func_Imu_OB.c)(0x5E43BAF2)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc -I ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ..\Task\Inc -I ..\System\Inc -I ..\OnboardMPU\Inc -I ..\Mathlib -I ..\System\Src -I ../Middlewares/Third_Party/FatFs/src-I.\RTE\_Drone-ID:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_M-o drone\func_imu_ob.o --omf_browse drone\func_imu_ob.crf --depend drone\func_imu_ob.d)
 I (..\OnboardMPU\Inc\Func_Imu_OB.h)(0x5DD0EC8C)
-I (..\Task\Inc\Task_init.h)(0x5EAECAC6)
+I (..\Task\Inc\Task_init.h)(0x5F328611)
 I (..\System\Inc\Sys_Def.h)(0x5F2D5265)
 I (..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x5E44786D)
 I (..\Inc\stm32f4xx_hal_conf.h)(0x5F2EAC75)

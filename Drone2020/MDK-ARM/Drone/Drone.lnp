@@ -13,7 +13,6 @@
 "drone\task_led.o"
 "drone\task_debug.o"
 "drone\task_ui.o"
-"drone\task_flash.o"
 "drone\task_sdio.o"
 "drone\task_tof.o"
 "drone\main.o"

@@ -33,7 +33,6 @@ char cspeed[18] = {0};	//子弹初速度
 //char wtext[] = "Testing STM32 working with FatFs";		/* 调试用，写缓存，File write buffer */
 //char rtext[100];                                  	  /* 调试用，读缓存，File read buffer */
 
-/*------------------SD读写---函数定义------------------*/
 int sd = 0;
 void Task_SDIO(void *parameters)
 {
@@ -45,7 +44,7 @@ void Task_SDIO(void *parameters)
 	while(1)
 	{
 		vTaskDelayUntil(&xLastWakeUpTime, 500);
-		Debug_LED;//调试看该任务是否正常运行
+		//Debug_LED;//调试看该任务是否正常运行
 		sd++;//调试看该任务是否正常运行
     //if(ext_game_state.game_progress != 5)//比赛未结束
 		if(line_num < 50)//测试时候没有裁判系统，临时用一下

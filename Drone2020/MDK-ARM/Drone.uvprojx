@@ -536,16 +536,6 @@
               <FilePath>..\Task\Src\Task_Ui.c</FilePath>
             </File>
             <File>
-              <FileName>Task_Flash.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Task\Inc\Task_Flash.h</FilePath>
-            </File>
-            <File>
-              <FileName>Task_Flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Task\Src\Task_Flash.c</FilePath>
-            </File>
-            <File>
               <FileName>Task_SDIO.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Task\Inc\Task_SDIO.h</FilePath>

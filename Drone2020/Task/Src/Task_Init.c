@@ -1,6 +1,5 @@
 #include "Sys_Config.h"
 
-
 TaskHandle_t TaskProtect_Handle;
 TaskHandle_t TaskCanComm_Handle;
 TaskHandle_t TaskPosition_Handle;
@@ -29,7 +28,6 @@ void Task_Init_Config(void const * argument)
 	init_quaternion();
 	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);
 	__HAL_TIM_SET_COMPARE(&htim3,IMU_HEATING_Pin,HEAT_MID);	
-	FlashInit(); 
 		
 	xTaskCreate(Task_Protect, "Task_Protect", 256, NULL, 7, &TaskProtect_Handle);
 	xTaskCreate(Task_CanComm, "Task_CanComm", 256, NULL, 6, &TaskCanComm_Handle);
@@ -135,14 +133,4 @@ void DMAInit(void *parameters)
 
 void TIMInit(void *parameters)
 {
-}
-
-void FlashInit()
-{
-  	uint32_t Address = FLASH_USER_START_ADDR;
- 	__IO uint32_t data32 = 0;
-	data32 = *(__IO uint32_t*)Address;
- 	Wild_Change_Angle_Pitch.FLOAT = data32;
- 	Address = Address + 4;
-  	Wild_Change_Angle_Yaw.FLOAT = data32;
 }
