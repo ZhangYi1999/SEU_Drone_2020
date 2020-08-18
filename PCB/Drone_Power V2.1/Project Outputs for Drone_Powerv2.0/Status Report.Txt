@@ -1,0 +1,10 @@
+Output: Protel
+Type  : ProtelNetlist
+From  : Project [Drone_Powerv2.0.PrjPCB]
+   Generated File[Drone_Powerv2.0.NET]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 15:26:38 On 2020/8/17

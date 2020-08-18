@@ -1,0 +1,58 @@
+Added Component: Designator=Power(XT30)
+Added Pin To Net: NetName=24V Pin=JTAG-1
+Added Pin To Net: NetName=24V Pin=JTAG-2
+Added Pin To Net: NetName=24V Pin=JTAG-3
+Added Pin To Net: NetName=24V Pin=JTAG-4
+Added Pin To Net: NetName=24V Pin=JTAG-5
+Added Pin To Net: NetName=24V Pin=JTAG-6
+Added Pin To Net: NetName=24V Pin=Main-1
+Added Pin To Net: NetName=24V Pin=Pitch-1
+Added Pin To Net: NetName=24V Pin=Power-1
+Added Pin To Net: NetName=24V Pin=STM32-1
+Added Pin To Net: NetName=24V Pin=Yaw-1
+Added Net: Name=24V
+Added Pin To Net: NetName=CAN_H Pin=CAN1-1
+Added Pin To Net: NetName=CAN_H Pin=CAN2-1
+Added Pin To Net: NetName=CAN_H Pin=CAN3-1
+Added Pin To Net: NetName=CAN_H Pin=JTAG-8
+Added Pin To Net: NetName=CAN_H Pin=P?-1
+Added Net: Name=CAN_H
+Added Pin To Net: NetName=CAN_L Pin=CAN1-2
+Added Pin To Net: NetName=CAN_L Pin=CAN2-2
+Added Pin To Net: NetName=CAN_L Pin=CAN3-2
+Added Pin To Net: NetName=CAN_L Pin=JTAG-10
+Added Pin To Net: NetName=CAN_L Pin=P?-2
+Added Net: Name=CAN_L
+Added Pin To Net: NetName=GND Pin=JTAG-15
+Added Pin To Net: NetName=GND Pin=JTAG-16
+Added Pin To Net: NetName=GND Pin=JTAG-17
+Added Pin To Net: NetName=GND Pin=JTAG-18
+Added Pin To Net: NetName=GND Pin=JTAG-19
+Added Pin To Net: NetName=GND Pin=JTAG-20
+Added Pin To Net: NetName=GND Pin=Main-2
+Added Pin To Net: NetName=GND Pin=Pitch-2
+Added Pin To Net: NetName=GND Pin=Power-2
+Added Pin To Net: NetName=GND Pin=STM32-2
+Added Pin To Net: NetName=GND Pin=UART-3
+Added Pin To Net: NetName=GND Pin=Yaw-2
+Added Net: Name=GND
+Added Pin To Net: NetName=LINE1 Pin=JTAG-13
+Added Pin To Net: NetName=LINE1 Pin=Judge-1
+Added Net: Name=LINE1
+Added Pin To Net: NetName=LINE2 Pin=JTAG-11
+Added Pin To Net: NetName=LINE2 Pin=Judge-2
+Added Net: Name=LINE2
+Added Pin To Net: NetName=LINE3 Pin=JTAG-9
+Added Pin To Net: NetName=LINE3 Pin=Judge-3
+Added Net: Name=LINE3
+Added Pin To Net: NetName=LINE4 Pin=JTAG-7
+Added Pin To Net: NetName=LINE4 Pin=Judge-4
+Added Net: Name=LINE4
+Added Pin To Net: NetName=RX Pin=JTAG-14
+Added Pin To Net: NetName=RX Pin=UART-2
+Added Net: Name=RX
+Added Pin To Net: NetName=TX Pin=JTAG-12
+Added Pin To Net: NetName=TX Pin=UART-1
+Added Net: Name=TX
+Added Class: Name=Gimbal_Power
+Added Room: Name=Gimbal_Power

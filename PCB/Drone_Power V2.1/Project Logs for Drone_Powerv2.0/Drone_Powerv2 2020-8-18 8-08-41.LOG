@@ -1,0 +1,14 @@
+Change Component DesignItemId : Designator= Old DesignItemId= New DesignItemId=MR电源插头
+Change Component DesignItemId : Designator= Old DesignItemId= New DesignItemId=MR电源插头
+Change Component DesignItemId : Designator= Old DesignItemId= New DesignItemId=MR电源插头
+Change Component DesignItemId : Designator= Old DesignItemId= New DesignItemId=MR电源插头
+Change Component DesignItemId : Designator=StirMotor Old DesignItemId=X New DesignItemId=XT30电源插头
+Change Component Comment : Designator=P3 Old Comment=BM03B-GHS-TBT(LF)(SN) New Comment=UART
+Change Component Comment : Designator=P1 Old Comment=BM04B-GHS-TBT(LF)(SN) New Comment=JudgeComm
+Change Component Comment : Designator=P2 Old Comment=SM02B-GHS-TB(LF)(SN) New Comment=Can
+Change Component Designator: OldDesignator= NewDesignator=V3
+Change Component Designator: OldDesignator= NewDesignator=V4
+Change Component Designator: OldDesignator= NewDesignator=V7
+Change Component Designator: OldDesignator= NewDesignator=V8
+Added Class: Name=Drone_Powerv2.0
+Added Room: Name=Drone_Powerv2.0

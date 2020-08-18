@@ -1,0 +1,32 @@
+Removed Pin From Net: NetName=GND Pin=C1-1
+Removed Pin From Net: NetName=24V Pin=C1-2
+Removed Pin From Net: NetName=GND Pin=C2-2
+Removed Pin From Net: NetName=24V Pin=E1-1
+Removed Pin From Net: NetName=GND Pin=E1-2
+Removed Pin From Net: NetName=GND Pin=E2-2
+Removed Pin From Net: NetName=24V Pin=L7812-1
+Removed Pin From Net: NetName=GND Pin=L7812-2
+Removed Member From Class: ClassName=Drone_Powerv2.0 Member=C1
+Removed Member From Class: ClassName=Drone_Powerv2.0 Member=C2
+Removed Member From Class: ClassName=Drone_Powerv2.0 Member=E1
+Removed Member From Class: ClassName=Drone_Powerv2.0 Member=E2
+Removed Member From Class: ClassName=Drone_Powerv2.0 Member=L7812
+Change Component Designator: OldDesignator=Judge NewDesignator=P1
+Change Component Designator: OldDesignator=M1 NewDesignator=V7
+Change Component Designator: OldDesignator=M2 NewDesignator=V8
+Change Component Designator: OldDesignator=M3 NewDesignator=V3
+Change Component Designator: OldDesignator=M4 NewDesignator=V4
+Change Component Designator: OldDesignator=N1 NewDesignator=V11
+Change Component Designator: OldDesignator=StirMotor NewDesignator=V2
+Change Component Designator: OldDesignator=UART NewDesignator=P3
+Added Pin To Net: NetName=48V Pin=Power1-1
+Added Pin To Net: NetName=24V Pin=Power1-2
+Added Pin To Net: NetName=24V Pin=S1-2
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component JTAG
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component Motor1 XT60
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component Motor2 XT60
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component Motor3 XT60
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component Motor4 XT60
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component Power1 XT60
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component V11 XT60
+Added Room: Name=Drone_Powerv2.0

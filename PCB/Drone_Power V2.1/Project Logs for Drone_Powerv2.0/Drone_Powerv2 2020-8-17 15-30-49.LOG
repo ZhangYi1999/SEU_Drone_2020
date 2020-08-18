@@ -1,0 +1,94 @@
+Change Component Designator: OldDesignator=Judge NewDesignator=P1
+Change Component Designator: OldDesignator=M1 NewDesignator=V7
+Change Component Designator: OldDesignator=M2 NewDesignator=V8
+Change Component Designator: OldDesignator=M3 NewDesignator=V3
+Change Component Designator: OldDesignator=M4 NewDesignator=V4
+Change Component Designator: OldDesignator=UART NewDesignator=P3
+Change Component Designator: OldDesignator=V14 NewDesignator=Judge
+Change Component Designator: OldDesignator=V17 NewDesignator=Guidance
+Added Component: Designator=N3(TX60UPB-F)
+Added Component: Designator=Power1(TX60UPB-F)
+Added Pin To Net: NetName=24V Pin=Guidance-1
+Added Pin To Net: NetName=24V Pin=JTAG-1
+Added Pin To Net: NetName=24V Pin=JTAG-2
+Added Pin To Net: NetName=24V Pin=JTAG-3
+Added Pin To Net: NetName=24V Pin=JTAG-4
+Added Pin To Net: NetName=24V Pin=JTAG-5
+Added Pin To Net: NetName=24V Pin=JTAG-6
+Added Pin To Net: NetName=24V Pin=Judge-1
+Added Pin To Net: NetName=24V Pin=Power1-2
+Added Pin To Net: NetName=24V Pin=Power2-2
+Added Pin To Net: NetName=24V Pin=Power3-1
+Added Pin To Net: NetName=24V Pin=Power4-1
+Added Pin To Net: NetName=24V Pin=S1-2
+Added Pin To Net: NetName=24V Pin=StirMotor-1
+Added Net: Name=24V
+Added Pin To Net: NetName=48V Pin=Motor1-1
+Added Pin To Net: NetName=48V Pin=Motor2-1
+Added Pin To Net: NetName=48V Pin=Motor3-1
+Added Pin To Net: NetName=48V Pin=Motor4-1
+Added Pin To Net: NetName=48V Pin=N3-1
+Added Pin To Net: NetName=48V Pin=Power1-1
+Added Pin To Net: NetName=48V Pin=Power2-1
+Added Net: Name=48V
+Added Pin To Net: NetName=BLUE Pin=S1-3
+Added Pin To Net: NetName=BLUE Pin=V3-3
+Added Pin To Net: NetName=BLUE Pin=V4-3
+Added Pin To Net: NetName=BLUE Pin=V7-3
+Added Pin To Net: NetName=BLUE Pin=V8-3
+Added Net: Name=BLUE
+Added Pin To Net: NetName=CAN_H Pin=JTAG-8
+Added Pin To Net: NetName=CAN_H Pin=P2-1
+Added Net: Name=CAN_H
+Added Pin To Net: NetName=CAN_L Pin=JTAG-10
+Added Pin To Net: NetName=CAN_L Pin=P2-2
+Added Net: Name=CAN_L
+Added Pin To Net: NetName=GND Pin=Guidance-2
+Added Pin To Net: NetName=GND Pin=JTAG-15
+Added Pin To Net: NetName=GND Pin=JTAG-17
+Added Pin To Net: NetName=GND Pin=JTAG-18
+Added Pin To Net: NetName=GND Pin=JTAG-19
+Added Pin To Net: NetName=GND Pin=JTAG-20
+Added Pin To Net: NetName=GND Pin=Judge-2
+Added Pin To Net: NetName=GND Pin=Motor1-2
+Added Pin To Net: NetName=GND Pin=Motor2-2
+Added Pin To Net: NetName=GND Pin=Motor3-2
+Added Pin To Net: NetName=GND Pin=Motor4-2
+Added Pin To Net: NetName=GND Pin=N3-2
+Added Pin To Net: NetName=GND Pin=Power3-2
+Added Pin To Net: NetName=GND Pin=Power4-2
+Added Pin To Net: NetName=GND Pin=StirMotor-2
+Added Pin To Net: NetName=GND Pin=V3-1
+Added Pin To Net: NetName=GND Pin=V4-1
+Added Pin To Net: NetName=GND Pin=V7-1
+Added Pin To Net: NetName=GND Pin=V8-1
+Added Net: Name=GND
+Added Pin To Net: NetName=GROUND Pin=JTAG-16
+Added Pin To Net: NetName=GROUND Pin=P3-3
+Added Net: Name=GROUND
+Added Pin To Net: NetName=LINE1 Pin=JTAG-13
+Added Pin To Net: NetName=LINE1 Pin=P1-1
+Added Net: Name=LINE1
+Added Pin To Net: NetName=LINE2 Pin=JTAG-11
+Added Pin To Net: NetName=LINE2 Pin=P1-2
+Added Net: Name=LINE2
+Added Pin To Net: NetName=LINE3 Pin=JTAG-9
+Added Pin To Net: NetName=LINE3 Pin=P1-3
+Added Net: Name=LINE3
+Added Pin To Net: NetName=LINE4 Pin=JTAG-7
+Added Pin To Net: NetName=LINE4 Pin=P1-4
+Added Net: Name=LINE4
+Added Pin To Net: NetName=RED Pin=S1-1
+Added Pin To Net: NetName=RED Pin=V3-2
+Added Pin To Net: NetName=RED Pin=V4-2
+Added Pin To Net: NetName=RED Pin=V7-2
+Added Pin To Net: NetName=RED Pin=V8-2
+Added Net: Name=RED
+Added Pin To Net: NetName=RX Pin=JTAG-14
+Added Pin To Net: NetName=RX Pin=P3-2
+Added Net: Name=RX
+Added Pin To Net: NetName=TX Pin=JTAG-12
+Added Pin To Net: NetName=TX Pin=P3-1
+Added Net: Name=TX
+Added Class: Name=Drone_Powerv2.0
+Added Room: Name=Drone_Powerv2.0

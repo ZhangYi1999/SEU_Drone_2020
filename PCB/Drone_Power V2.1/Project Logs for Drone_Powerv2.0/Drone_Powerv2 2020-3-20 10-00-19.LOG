@@ -1,0 +1,57 @@
+Removed Pin From Net: NetName=RED Pin=S1-1
+Removed Pin From Net: NetName=BLUE Pin=S1-3
+Removed Pin From Net: NetName=RED Pin=V3-1
+Removed Pin From Net: NetName=GND Pin=V3-3
+Removed Pin From Net: NetName=RED Pin=V4-1
+Removed Pin From Net: NetName=GND Pin=V4-3
+Removed Pin From Net: NetName=RED Pin=V7-1
+Removed Pin From Net: NetName=GND Pin=V7-3
+Removed Pin From Net: NetName=RED Pin=V8-1
+Removed Pin From Net: NetName=GND Pin=V8-3
+Change Component Footprint: Designator=S1 Old Footprint=SK-12D07VG3 New Footprint=MSK-12C01-07
+Change component parameters: Designator = "E1"; Footprint = "CAP 2.5*6.3*11.2 - BK"; UniqueID = "\CREDFWLT"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "直插电解电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "E2"; Footprint = "CAP 2.5*6.3*11.2 - BK"; UniqueID = "\XULVPVQY"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "直插电解电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "S1"; Footprint = "MSK-12C01-07"; UniqueID = "\QUMXYCPB"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "波动开关"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C1"; Footprint = "C 0603_M"; UniqueID = "\LACOLZBI"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "材质"; Value = "X7R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C2"; Footprint = "C 0603_M"; UniqueID = "\UHQNAISI"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "材质"; Value = "X7R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=Power1(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=48V Pin=Power1-1
+Added Pin To Net: NetName=24V Pin=Power1-2
+Added Pin To Net: NetName=BLUE Pin=S1-1
+Added Pin To Net: NetName=RED Pin=S1-3
+Added Pin To Net: NetName=GND Pin=V3-1
+Added Pin To Net: NetName=RED Pin=V3-3
+Added Pin To Net: NetName=GND Pin=V4-1
+Added Pin To Net: NetName=RED Pin=V4-3
+Added Pin To Net: NetName=GND Pin=V7-1
+Added Pin To Net: NetName=RED Pin=V7-3
+Added Pin To Net: NetName=GND Pin=V8-1
+Added Pin To Net: NetName=RED Pin=V8-3
+Change Net Name : Old Net Name=BLUE New Net Name=RED
+Change Net Name : Old Net Name=RED New Net Name=BLUE
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component Power1 XT60
+Added Member To Class: ClassName=Drone_Powerv2.0 Member=Component V17 XT60
+Added Room: Name=Drone_Powerv2.0

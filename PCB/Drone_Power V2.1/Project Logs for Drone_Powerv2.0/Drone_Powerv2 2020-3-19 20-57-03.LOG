@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=24V Pin=V12-2
+Removed Pin From Net: NetName=24V Pin=V13-2
+Removed Pin From Net: NetName=24V Pin=V15-1
+Removed Pin From Net: NetName=24V Pin=V16-1
+Change Component Footprint: Designator=P3 Old Footprint=JST-BM03B-GHS-TBT_V New Footprint=JST-BM03B-GHS-TBT_V
+Change Component Footprint: Designator=P1 Old Footprint=JST-BM04B-GHS-TBT_V New Footprint=JST-BM04B-GHS-TBT_V
+Change Component Footprint: Designator=P2 Old Footprint=JST-SM02B-GHS-TB_V New Footprint=JST-SM02B-GHS-TB_V
+Change Component Footprint: Designator=V9 Old Footprint=TX60UPB-F New Footprint=TX60PW-F20
+Change Component Footprint: Designator=V10 Old Footprint=TX60UPB-F New Footprint=TX60PW-F20
+Change Component Designator: OldDesignator=V5 NewDesignator=Power1
+Change Component Designator: OldDesignator=V6 NewDesignator=Power2
+Change Component Designator: OldDesignator=V9 NewDesignator=Power3
+Change Component Designator: OldDesignator=V10 NewDesignator=Power4
+Change Component Designator: OldDesignator=V12 NewDesignator=Motor1
+Change Component Designator: OldDesignator=V13 NewDesignator=Motor2
+Change Component Designator: OldDesignator=V15 NewDesignator=Motor3
+Change Component Designator: OldDesignator=V16 NewDesignator=Motor4
+Added Pin To Net: NetName=GND Pin=Motor1-2
+Added Pin To Net: NetName=GND Pin=Motor2-2
+Added Pin To Net: NetName=48V Pin=Motor3-1
+Added Pin To Net: NetName=48V Pin=Motor4-1

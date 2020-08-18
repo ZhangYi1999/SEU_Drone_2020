@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "task_cancomm.h": "c",
+        "system.h": "c",
+        "task_init.h": "c"
+    }
+}

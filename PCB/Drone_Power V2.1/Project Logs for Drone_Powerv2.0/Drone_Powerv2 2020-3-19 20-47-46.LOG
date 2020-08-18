@@ -1,0 +1,204 @@
+Added Component: Designator=C1(C 0603_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "材质"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=C2(C 0603_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "材质"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=E1(CAP 2.5*6.3*11.2 - BK)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "直插电解电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=E2(CAP 2.5*6.3*11.2 - BK)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "直插电解电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JTAG(IDC20S)
+Add component. Clean all parameters for all variants
+Added Component: Designator=P1(JST-BM04B-GHS-TBT_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.jst-mfg.com/product/pdf/eng/eGH.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "05/2016"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "JST"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.jst.com/home2.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "No of Positions"; Value = "5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "GH Disconnectable Crimp Style Connector, Pitch 1.25 mm, 1 x 5 Position, Height 4.05 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "BM05B-GHS-TBT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "1.25mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Style/Orientation"; Value = "StraightHeader/Plug"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Termination"; Value = "Crimp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "WiretoBoard"; VariantName = "[No Variations]"
+Added Component: Designator=P2(JST-SM02B-GHS-TB_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.jst-mfg.com/product/pdf/eng/eGH.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "05/2016"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "JST"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.jst.com/home2.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "No of Positions"; Value = "5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "GH Disconnectable Crimp Style Connector, Pitch 1.25 mm, 1 x 5 Position, Height 4.05 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "BM05B-GHS-TBT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "1.25mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Style/Orientation"; Value = "StraightHeader/Plug"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Termination"; Value = "Crimp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "WiretoBoard"; VariantName = "[No Variations]"
+Added Component: Designator=P3(JST-BM03B-GHS-TBT_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.jst-mfg.com/product/pdf/eng/eGH.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "05/2016"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "JST"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.jst.com/home2.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "No of Positions"; Value = "5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "GH Disconnectable Crimp Style Connector, Pitch 1.25 mm, 1 x 5 Position, Height 4.05 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "BM05B-GHS-TBT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "1.25mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Style/Orientation"; Value = "StraightHeader/Plug"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Termination"; Value = "Crimp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "WiretoBoard"; VariantName = "[No Variations]"
+Added Component: Designator=S1(SK-12D07VG3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "波动开关"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=V1(TO220A)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "线性稳压芯片"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=V2(XT30PW-F30)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V3(MR30PB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V4(MR30PB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V5(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V6(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V7(MR30PB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V8(MR30PB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V9(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V10(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V11(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V12(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V13(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V14(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V15(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V16(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=V17(TX60UPB-F)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=12V Pin=C2-1
+Added Pin To Net: NetName=12V Pin=E2-1
+Added Pin To Net: NetName=12V Pin=S1-2
+Added Pin To Net: NetName=12V Pin=V1-3
+Added Net: Name=12V
+Added Pin To Net: NetName=24V Pin=C1-2
+Added Pin To Net: NetName=24V Pin=E1-1
+Added Pin To Net: NetName=24V Pin=JTAG-1
+Added Pin To Net: NetName=24V Pin=JTAG-2
+Added Pin To Net: NetName=24V Pin=JTAG-3
+Added Pin To Net: NetName=24V Pin=JTAG-4
+Added Pin To Net: NetName=24V Pin=JTAG-5
+Added Pin To Net: NetName=24V Pin=JTAG-6
+Added Pin To Net: NetName=24V Pin=V1-1
+Added Pin To Net: NetName=24V Pin=V2-1
+Added Pin To Net: NetName=24V Pin=V5-2
+Added Pin To Net: NetName=24V Pin=V6-2
+Added Pin To Net: NetName=24V Pin=V9-1
+Added Pin To Net: NetName=24V Pin=V10-1
+Added Pin To Net: NetName=24V Pin=V12-2
+Added Pin To Net: NetName=24V Pin=V13-2
+Added Pin To Net: NetName=24V Pin=V14-1
+Added Pin To Net: NetName=24V Pin=V15-1
+Added Pin To Net: NetName=24V Pin=V16-1
+Added Pin To Net: NetName=24V Pin=V17-1
+Added Net: Name=24V
+Added Pin To Net: NetName=48V Pin=V5-1
+Added Pin To Net: NetName=48V Pin=V6-1
+Added Pin To Net: NetName=48V Pin=V11-1
+Added Pin To Net: NetName=48V Pin=V12-1
+Added Pin To Net: NetName=48V Pin=V13-1
+Added Net: Name=48V
+Added Pin To Net: NetName=BLUE Pin=S1-3
+Added Pin To Net: NetName=BLUE Pin=V3-2
+Added Pin To Net: NetName=BLUE Pin=V4-2
+Added Pin To Net: NetName=BLUE Pin=V7-2
+Added Pin To Net: NetName=BLUE Pin=V8-2
+Added Net: Name=BLUE
+Added Pin To Net: NetName=CAN_H Pin=JTAG-8
+Added Pin To Net: NetName=CAN_H Pin=P2-1
+Added Net: Name=CAN_H
+Added Pin To Net: NetName=CAN_L Pin=JTAG-10
+Added Pin To Net: NetName=CAN_L Pin=P2-2
+Added Net: Name=CAN_L
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=E1-2
+Added Pin To Net: NetName=GND Pin=E2-2
+Added Pin To Net: NetName=GND Pin=JTAG-15
+Added Pin To Net: NetName=GND Pin=JTAG-17
+Added Pin To Net: NetName=GND Pin=JTAG-18
+Added Pin To Net: NetName=GND Pin=JTAG-19
+Added Pin To Net: NetName=GND Pin=JTAG-20
+Added Pin To Net: NetName=GND Pin=V1-2
+Added Pin To Net: NetName=GND Pin=V2-2
+Added Pin To Net: NetName=GND Pin=V3-3
+Added Pin To Net: NetName=GND Pin=V4-3
+Added Pin To Net: NetName=GND Pin=V7-3
+Added Pin To Net: NetName=GND Pin=V8-3
+Added Pin To Net: NetName=GND Pin=V9-2
+Added Pin To Net: NetName=GND Pin=V10-2
+Added Pin To Net: NetName=GND Pin=V11-2
+Added Pin To Net: NetName=GND Pin=V14-2
+Added Pin To Net: NetName=GND Pin=V15-2
+Added Pin To Net: NetName=GND Pin=V16-2
+Added Pin To Net: NetName=GND Pin=V17-2
+Added Net: Name=GND
+Added Pin To Net: NetName=ground Pin=JTAG-16
+Added Pin To Net: NetName=ground Pin=P3-3
+Added Net: Name=ground
+Added Pin To Net: NetName=Line1 Pin=JTAG-13
+Added Pin To Net: NetName=Line1 Pin=P1-1
+Added Net: Name=Line1
+Added Pin To Net: NetName=Line2 Pin=JTAG-11
+Added Pin To Net: NetName=Line2 Pin=P1-2
+Added Net: Name=Line2
+Added Pin To Net: NetName=Line3 Pin=JTAG-9
+Added Pin To Net: NetName=Line3 Pin=P1-3
+Added Net: Name=Line3
+Added Pin To Net: NetName=Line4 Pin=JTAG-7
+Added Pin To Net: NetName=Line4 Pin=P1-4
+Added Net: Name=Line4
+Added Pin To Net: NetName=RED Pin=S1-1
+Added Pin To Net: NetName=RED Pin=V3-1
+Added Pin To Net: NetName=RED Pin=V4-1
+Added Pin To Net: NetName=RED Pin=V7-1
+Added Pin To Net: NetName=RED Pin=V8-1
+Added Net: Name=RED
+Added Pin To Net: NetName=RX Pin=JTAG-14
+Added Pin To Net: NetName=RX Pin=P3-2
+Added Net: Name=RX
+Added Pin To Net: NetName=TX Pin=JTAG-12
+Added Pin To Net: NetName=TX Pin=P3-1
+Added Net: Name=TX
+Added Class: Name=Drone_Powerv2.0
+Added Room: Name=Drone_Powerv2.0

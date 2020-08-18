@@ -1,0 +1,11 @@
+Change Component Footprint: Designator=S1 Old Footprint=MSK-12C01-07 New Footprint=SK-12D07VG3
+Change Pin Designator/Name:  Old Designator=S1-1 Old Name=1 New Designator =3 New Name=3
+Change Pin Designator/Name:  Old Designator=S1-3 Old Name=3 New Designator =1 New Name=1
+Change Pin Designator/Name:  Old Designator=V3-1 Old Name=1 New Designator =3 New Name=3
+Change Pin Designator/Name:  Old Designator=V3-3 Old Name=3 New Designator =1 New Name=1
+Change Pin Designator/Name:  Old Designator=V4-1 Old Name=1 New Designator =3 New Name=3
+Change Pin Designator/Name:  Old Designator=V4-3 Old Name=3 New Designator =1 New Name=1
+Change Pin Designator/Name:  Old Designator=V7-1 Old Name=1 New Designator =3 New Name=3
+Change Pin Designator/Name:  Old Designator=V7-3 Old Name=3 New Designator =1 New Name=1
+Change Pin Designator/Name:  Old Designator=V8-1 Old Name=1 New Designator =3 New Name=3
+Change Pin Designator/Name:  Old Designator=V8-3 Old Name=3 New Designator =1 New Name=1
