@@ -80,7 +80,6 @@ drone\task_judge.o: ..\OnboardMPU\Inc\Func_Imu_OB.h
 drone\task_judge.o: ..\Task\Inc\Task_init.h
 drone\task_judge.o: ..\System\Inc\Sys_Def.h
 drone\task_judge.o: ..\Task\Inc\Task_Debug.h
-drone\task_judge.o: ..\Task\Inc\Task_Flash.h
 drone\task_judge.o: ..\Task\Inc\Task_Gimbal.h
 drone\task_judge.o: ..\Task\Inc\Task_JetsonComm.h
 drone\task_judge.o: ..\Task\Inc\Task_Judge.h

@@ -79,7 +79,6 @@ drone\system.o: ..\OnboardMPU\Inc\Func_Imu_OB.h
 drone\system.o: ..\Task\Inc\Task_init.h
 drone\system.o: ..\System\Inc\Sys_Def.h
 drone\system.o: ..\Task\Inc\Task_Debug.h
-drone\system.o: ..\Task\Inc\Task_Flash.h
 drone\system.o: ..\Task\Inc\Task_Gimbal.h
 drone\system.o: ..\Task\Inc\Task_JetsonComm.h
 drone\system.o: ..\Task\Inc\Task_Judge.h

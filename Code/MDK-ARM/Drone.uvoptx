@@ -203,6 +203,61 @@
           <WinNumber>1</WinNumber>
           <ItemText>\\Drone\../Task/Src/Task_Gimbal.c\Gimbal</ItemText>
         </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>res1</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>res3</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>res2</ItemText>
+        </Ww>
+        <Ww>
+          <count>13</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>res4</ItemText>
+        </Ww>
+        <Ww>
+          <count>14</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>res5</ItemText>
+        </Ww>
+        <Ww>
+          <count>15</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>res6</ItemText>
+        </Ww>
+        <Ww>
+          <count>16</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ctime[10]</ItemText>
+        </Ww>
+        <Ww>
+          <count>17</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ctime[9]</ItemText>
+        </Ww>
+        <Ww>
+          <count>18</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ctime[8]</ItemText>
+        </Ww>
+        <Ww>
+          <count>19</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ctime[7]</ItemText>
+        </Ww>
+        <Ww>
+          <count>20</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>time</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
@@ -254,6 +309,11 @@
           <count>9</count>
           <WinNumber>2</WinNumber>
           <ItemText>Wild_Change_Angle_Pitch</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>res2</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
@@ -1433,7 +1493,7 @@
 
   <Group>
     <GroupName>Middlewares/FatFs</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1453,7 +1513,7 @@
       <GroupNumber>10</GroupNumber>
       <FileNumber>89</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>../Middlewares/Third_Party/FatFs/src/ff.c</PathWithFileName>
@@ -1465,7 +1525,7 @@
       <GroupNumber>10</GroupNumber>
       <FileNumber>90</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>../Middlewares/Third_Party/FatFs/src/ff_gen_drv.c</PathWithFileName>

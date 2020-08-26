@@ -64,7 +64,7 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+extern void Update_SDtime(void);
 /* USER CODE END 0 */
 
 /**
@@ -110,7 +110,7 @@ int main(void)
   MX_UART4_Init();
   MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
-	
+	HAL_TIM_Base_Start_IT(&htim5);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
@@ -193,10 +193,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-//	if (htim->Instance == htim5.Instance)
-//	{
-//		Update_SDtime();
-//	}
+	if (htim->Instance == htim5.Instance)
+	{
+		Update_SDtime();
+	}
   /* USER CODE END Callback 1 */
 }
 

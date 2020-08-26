@@ -5,7 +5,7 @@
 FATFS SDFatFs;  /* 文件系统工作区，File system object for SD card logical drive */
 FIL MyFile;     /* 文件对象结构的指针，File object */
 
-FRESULT res;                                          /* 保存SD相关函数调用后返回的结果，FatFs function common result code */
+FRESULT res1,res2,res3,res4,res5,res6,res7;                                          /* 保存SD相关函数调用后返回的结果，FatFs function common result code */
 uint32_t byteswritten, bytesread;                     /* 读写的字节数，File write/read counts */
 char filename[] = "DroneData.txt";										/* SD卡里的文件名，在建立文本文件的时候临时使用，在比赛结束时将修改文件名，见下一行 */
 char finalname[21] = "Game";													/* 下面五个变量用于最后对文件进行重命名，格式为“GameXXXXLineXXXX”，即第几场比赛，一共有多少行数据*/
@@ -13,7 +13,7 @@ char gamenum[4] = {0};
 char linenum[4] = {0};
 int game_num = 0;
 int line_num = 0;
-int game_num_temp = 12;//仅测试用
+int game_num_temp = 18;//仅测试用
 
 //char AllData[160];//用于暂存需要写入的所有数据，这样在SD写入时只需要调用一次f_write，DMA效率更高
 
@@ -34,27 +34,28 @@ char cspeed[18] = {0};	//子弹初速度
 //char rtext[100];                                  	  /* 调试用，读缓存，File read buffer */
 
 int sd = 0;
+int time = 0;
 void Task_SDIO(void *parameters)
 {
 	TickType_t xLastWakeUpTime;
 	xLastWakeUpTime = xTaskGetTickCount();
 
-	f_mount(&SDFatFs, "", 0);//将文件系统对象注册到FatFs模块。据说在fatfs外挂一个设备的时候，第二个参数为空""就可以访问；而在多个设备时，就得指定磁盘号。没验证过。
-	
+	res1 = f_mount(&SDFatFs, "", 0);//将文件系统对象注册到FatFs模块。据说在fatfs外挂一个设备的时候，第二个参数为空""就可以访问；而在多个设备时，就得指定磁盘号。没验证过。
+	//res7 = f_mkfs(0,0,4096);
 	while(1)
 	{
 		vTaskDelayUntil(&xLastWakeUpTime, 500);
-		//Debug_LED;//调试看该任务是否正常运行
+		Debug_LED;//调试看该任务是否正常运行
 		sd++;//调试看该任务是否正常运行
     //if(ext_game_state.game_progress != 5)//比赛未结束
 		if(line_num < 50)//测试时候没有裁判系统，临时用一下
 		{
 			DtatPrepareSD();
 			
-			f_open(&MyFile, filename, FA_OPEN_ALWAYS | FA_WRITE);//创建并打开具有写访问权限的新文本文件对象
-			f_lseek(&MyFile, f_size(&MyFile));										 //从上次数据的结尾继续写入新数据
+			res2 = f_open(&MyFile, filename, FA_OPEN_ALWAYS | FA_WRITE);//创建并打开具有写访问权限的新文本文件对象
+			res3 = f_lseek(&MyFile, f_size(&MyFile));										 //从上次数据的结尾继续写入新数据
 			
-			f_write(&MyFile, ctime, sizeof(ctime), (void *)&byteswritten);//向文本文件写入时间
+			res4 = f_write(&MyFile, ctime, sizeof(ctime), (void *)&byteswritten);//向文本文件写入时间
 //			f_write(&MyFile, cpos_x, sizeof(cpos_x), (void *)&byteswritten);//向文本文件写入无人机坐标
 //			f_write(&MyFile, cpos_y, sizeof(cpos_y), (void *)&byteswritten);
 //			f_write(&MyFile, cpos_z, sizeof(cpos_z), (void *)&byteswritten);
@@ -63,9 +64,9 @@ void Task_SDIO(void *parameters)
 //			f_write(&MyFile, cyaw, sizeof(cyaw), (void *)&byteswritten);//向文本文件写入yaw角度
 //			f_write(&MyFile, cfric, sizeof(cfric), (void *)&byteswritten);//向文本文件写入摩擦轮转速
 //			f_write(&MyFile, cspeed, sizeof(cspeed), (void *)&byteswritten);//向文本文件写入子弹初速度
-			f_write(&MyFile, newline, sizeof(newline), (void *)&byteswritten);//换行
-	
-			f_close(&MyFile);//关闭文本文件
+			res5 = f_write(&MyFile, newline, sizeof(newline), (void *)&byteswritten);//换行
+
+			res6 = f_close(&MyFile);//关闭文本文件
 			
 			line_num++;//更新数据行数
 		}
@@ -93,7 +94,7 @@ void Task_SDIO(void *parameters)
 			finalname[19] = 't';
 			finalname[20] = '\0';
 			
-			f_rename(filename, finalname);//将文件重命名
+			res7 = f_rename(filename, finalname);//将文件重命名
 		}
 	}
 }
@@ -158,6 +159,7 @@ void AppendBlank(char *str, int pre_len, int blank)
   */
 void Update_SDtime(void)
 {
+	time ++;
 	if(ctime[10] == '9')
 	{
 		if(ctime[8] == '9')

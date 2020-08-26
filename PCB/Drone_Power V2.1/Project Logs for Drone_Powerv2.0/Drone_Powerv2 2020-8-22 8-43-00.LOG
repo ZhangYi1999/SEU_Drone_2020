@@ -1,0 +1,24 @@
+Change Component DesignItemId : Designator=V3 Old DesignItemId= New DesignItemId=MR电源插头
+Change Component DesignItemId : Designator=V4 Old DesignItemId= New DesignItemId=MR电源插头
+Change Component DesignItemId : Designator=V7 Old DesignItemId= New DesignItemId=MR电源插头
+Change Component DesignItemId : Designator=V8 Old DesignItemId= New DesignItemId=MR电源插头
+Change Component DesignItemId : Designator=StirMotor Old DesignItemId= New DesignItemId=XT30电源插头
+Change Component DesignItemId : Designator=Guidance Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Judge Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Motor1 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Motor2 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Motor3 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Motor4 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=N3 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Power1 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Power2 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Power3 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component DesignItemId : Designator=Power4 Old DesignItemId=X New DesignItemId=XT60电源插头
+Change Component Designator: OldDesignator=JudgeComm NewDesignator=P1
+Change Component Designator: OldDesignator=UART NewDesignator=P3
+Change Component Description : Designator=S1 Old Description= New Description=1路波动开关
+Change Component Library : Designator=V3 Old Library=Amass电源插头 New Library=Amass电源插头.IntLib
+Change Component Library : Designator=V4 Old Library=Amass电源插头 New Library=Amass电源插头.IntLib
+Change Component Library : Designator=V7 Old Library=Amass电源插头 New Library=Amass电源插头.IntLib
+Change Component Library : Designator=V8 Old Library=Amass电源插头 New Library=Amass电源插头.IntLib
+Added Room: Name=Drone_Powerv2.0
