@@ -50,7 +50,7 @@ void Task_SDIO(void *parameters)
     //if(ext_game_state.game_progress != 5)//比赛未结束
 		if(line_num < 50)//测试时候没有裁判系统，临时用一下
 		{
-			DtatPrepareSD();
+			DataPrepareSD();
 			
 			res2 = f_open(&MyFile, filename, FA_OPEN_ALWAYS | FA_WRITE);//创建并打开具有写访问权限的新文本文件对象
 			res3 = f_lseek(&MyFile, f_size(&MyFile));										 //从上次数据的结尾继续写入新数据
@@ -105,7 +105,7 @@ void Task_SDIO(void *parameters)
   * @retval None
   * @note	  None
   */
-void DtatPrepareSD(void)
+void DataPrepareSD(void)
 {
 //	Float_to_Char(cpos_x, ext_game_robot_pos.x, 8, 5);
 //	AppendBlank(cpos_x, 15, 3);

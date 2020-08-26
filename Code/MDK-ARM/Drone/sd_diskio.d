@@ -12,7 +12,7 @@ drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h
 drone\sd_diskio.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 drone\sd_diskio.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
 drone\sd_diskio.o: ../Drivers/CMSIS/Include/core_cm4.h
-drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+drone\sd_diskio.o: E:\School Software\ARM\ARMCC\Bin\..\include\stdint.h
 drone\sd_diskio.o: ../Drivers/CMSIS/Include/cmsis_version.h
 drone\sd_diskio.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 drone\sd_diskio.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -20,7 +20,7 @@ drone\sd_diskio.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 drone\sd_diskio.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h
 drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy/stm32_hal_legacy.h
-drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+drone\sd_diskio.o: E:\School Software\ARM\ARMCC\Bin\..\include\stddef.h
 drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h
 drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h
 drone\sd_diskio.o: ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h
@@ -56,5 +56,5 @@ drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 drone\sd_diskio.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 drone\sd_diskio.o: ..\Inc\sd_diskio.h
-drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-drone\sd_diskio.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+drone\sd_diskio.o: E:\School Software\ARM\ARMCC\Bin\..\include\string.h
+drone\sd_diskio.o: E:\School Software\ARM\ARMCC\Bin\..\include\stdio.h
