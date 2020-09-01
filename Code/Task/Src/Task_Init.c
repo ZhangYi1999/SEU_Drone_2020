@@ -108,8 +108,8 @@ void DMAInit(void *parameters)
 #endif
 
 #ifdef DMA_Judge_USED
-	SET_BIT(huart3.Instance->CR3, USART_CR3_DMAR);
-	HAL_DMA_Start_IT(huart3.hdmarx, (uint32_t)&(huart3.Instance->DR), (uint32_t)Judge_Receive_Buffer, REFEREE_DMA_SIZE);
+	//SET_BIT(huart3.Instance->CR3, USART_CR3_DMAR);
+	HAL_UART_Receive_DMA(&huart3, (uint8_t*)Judge_Receive_Buffer, REFEREE_DMA_SIZE);
 	__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
 #endif
 

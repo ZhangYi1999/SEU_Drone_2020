@@ -1,8 +1,8 @@
 drone\list.o: ..\Middlewares\Third_Party\FreeRTOS\Source\list.c
-drone\list.o: E:\School Software\ARM\ARMCC\Bin\..\include\stdlib.h
+drone\list.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 drone\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-drone\list.o: E:\School Software\ARM\ARMCC\Bin\..\include\stddef.h
-drone\list.o: E:\School Software\ARM\ARMCC\Bin\..\include\stdint.h
+drone\list.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+drone\list.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 drone\list.o: ..\Inc\FreeRTOSConfig.h
 drone\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 drone\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
