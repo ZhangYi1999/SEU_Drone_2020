@@ -23,7 +23,9 @@ JetsonFlag_Struct JetsonFlag[JETSONFLAG_LEN]; 								/*16个结构体用来克�
 同时因为算法对图像的处理是有延迟的,当JetSon处理完图像之后,可能这时的云台已经指向另一个角度了
 那如果还用JetSon结算出来的差值角度,显然是不对的,所以我们要将图像被处理时所对应的角度保存起来
 等JetSon结算完成后,再加上当时记录的角度,就得到了最终想要的角度,再赋值给Desire_Angle*/
-																			
+
+uint8_t JetsonBuffer[100];
+
 JetsonToSTM_Struct DataRecFromJetson_Temp, DataRecFromJetson;               /*两个变量克服某些可能覆盖的错误*/
 STMToJetson_Struct DataSendToJetson = {   			                		/*发送给Jetson的裁判系统数据*/
     .Seq = 0, 																/*seq是记录的第几个变量*/
@@ -196,34 +198,20 @@ void JetsonComm_Control(UART_HandleTypeDef *huart)
 uint8_t debug_len = 0;
 void JetsonCommUart_ReConfig_In_IRQHandler(UART_HandleTypeDef *huart) //每次清除标志位是为了能够再进入中断
 {
-    BaseType_t xHigherPriorityTaskToWaken = pdFALSE; //在后面的通知中通知某种消息打开Jetson任务
-    uint8_t usart_this_time_rx_len = 0;              //此次接收长度
-    DMA_HandleTypeDef *hdma_uart_rx = huart->hdmarx; //这个句柄指向了串口把接收到的东西放到那
-
-    if (__HAL_UART_GET_IT_SOURCE(huart, UART_IT_IDLE) != RESET) //判断串口进入了某种中断
+    debug_len = 0;
+    //判断空闲中断
+    if (__HAL_UART_GET_IT_SOURCE(huart, UART_IT_IDLE))
     {
-        //clear the idle pending flag 清除空闲挂起标识
-        (void)huart->Instance->SR;
-        (void)huart->Instance->DR;
-
-        __HAL_UART_CLEAR_IDLEFLAG(huart);
-        __HAL_DMA_DISABLE(hdma_uart_rx); //关闭dma中断
-
-        usart_this_time_rx_len = sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN - __HAL_DMA_GET_COUNTER(hdma_uart_rx); //dma还剩多少空间
-
-        debug_len = usart_this_time_rx_len;
-        __HAL_DMA_SET_COUNTER(hdma_uart_rx, (sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN)); //为什么 作用是清空dma空间？
-        __HAL_DMA_ENABLE(hdma_uart_rx);
-
-        if (usart_this_time_rx_len > 0) //判断空间有东西了
-        {
-            if (DataRecFromJetson_Temp.SoF == JetsonCommSOF && DataRecFromJetson_Temp.EoF == JetsonCommEOF)
-            //发送消息通知
-            {
-                vTaskNotifyGiveFromISR(TaskJetsonComm_Handle, &xHigherPriorityTaskToWaken);
-                portYIELD_FROM_ISR(xHigherPriorityTaskToWaken); //为什么 这个函数干什么的
-            }
-        }
+			//清除空闲中断标志位
+			__HAL_UART_CLEAR_IDLEFLAG(huart);
+			//关闭DMA接收
+			__HAL_DMA_DISABLE(huart->hdmarx);
+			//记录接收到的字节数
+			debug_len = 100 - __HAL_DMA_GET_COUNTER(huart->hdmarx);
+			//重新打开DMA接收        
+			memset(JetsonBuffer,0,debug_len);
+			debug_len = 0;
+			HAL_UART_Receive_DMA(&huart6, (uint8_t*)JetsonBuffer, 100);
     }
 }
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————

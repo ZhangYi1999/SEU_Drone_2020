@@ -123,7 +123,7 @@ void Uart_Config_In_IRQHandle(UART_HandleTypeDef *huart)
 		if(usart_this_time_rx_len == PersonalGYROFrameLength\
 			&& GYROBuffer[GYRO_Rx_Mem][0] == GYROFRAMEHEAD0 \
 			&& GYROBuffer[GYRO_Rx_Mem][1] == GYROFRAMEHEAD1) 
-			//ע̍лϢ֪ͨ
+
 			vTaskNotifyGiveFromISR(TaskPosition_Handle, &xHigherPriorityTaskToWaken);
 		else 
 			GYRO_Rx_Mem = MEMORYRESET;
@@ -134,8 +134,6 @@ void Uart_Config_In_IRQHandle(UART_HandleTypeDef *huart)
 		portYIELD_FROM_ISR(xHigherPriorityTaskToWaken);
 	}
 }
-
-
 
 float a=0.15f;
 float LowFilter(float last_value,float current_value)

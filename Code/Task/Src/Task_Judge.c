@@ -42,12 +42,15 @@ ext_rfid_status_t ext_rfid_status;
 uint32_t bullet_max = 0;//判断是否是第一次发射，用于设置弹量上限是250还是500
 uint16_t last_energy_point = 0;//存储上一次通信时裁判系统返回的能量点，用于判断无人机是否发射（发射后能量点会从300变为0）
 /*-------------------------------- 与裁判系统相关外部变量定义结束-------------------------------- */
-
+int judge1 = 0;
+int judge2 = 0;
+int judge3 = 0;
 void Task_Judge(void *parameters)
 {
 	while(1)
 	{
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		judge1++;
 	}
 }
 
@@ -57,9 +60,10 @@ void Task_Judge(void *parameters)
   * @retval None
   * @note	用在USART的中断服务函数里
   */
+uint8_t counter = 0;
 void Referee_IDLECallback(UART_HandleTypeDef *huart)
 {
-    uint8_t counter;
+    counter = 0;
     //判断空闲中断
     if (__HAL_UART_GET_IT_SOURCE(huart, UART_IT_IDLE))
     {
@@ -76,8 +80,10 @@ void Referee_IDLECallback(UART_HandleTypeDef *huart)
             RefereeReceive(counter);
         }
         //重新打开DMA接收
-        __HAL_DMA_SET_COUNTER(huart->hdmarx, REFEREE_DMA_SIZE);
-        __HAL_DMA_ENABLE(huart->hdmarx);
+        memset(Judge_Receive_Buffer,0,counter);//清零接收缓冲区
+				counter = 0;
+				HAL_UART_Receive_DMA(&huart3, (uint8_t*)Judge_Receive_Buffer, REFEREE_DMA_SIZE);
+				judge3++;
     }
 }
 
@@ -89,6 +95,7 @@ void Referee_IDLECallback(UART_HandleTypeDef *huart)
  */
 void RefereeReceive(uint8_t JudgeReceive_Counter)
 {
+		judge2++;
     uint8_t Judge_SOF = 0;
     uint16_t DataLength, Judge_CmdID;
     //循环扫描头帧
