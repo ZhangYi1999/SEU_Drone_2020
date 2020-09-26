@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=TX Pin=USART-1
+Removed Pin From Net: NetName=GND Pin=USART-3
+Added Pin To Net: NetName=TX Pin=USART-3
+Added Pin To Net: NetName=GND Pin=USART-4
+Added Room: Name=Gimbal_Power

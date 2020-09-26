@@ -1,0 +1,446 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://E:\School Software\AltiumDesigner10\AD10Store\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">2020/8/28</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">10:58:40</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc" class="file"><acronym title="E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc">E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">33</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDOLL42KGNPKBKLUMQJZ3GQUT14HT3BZQG3031EUGFTCPDMUATRUOO"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3RVFW0UH52HZN3MFPGRRMSQJBJYCTQ4L4O2SRXWTPWKKNVO4TJE">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJFOIKULTBLPXOPNSA0AAPJ0EAMV3SHL1QALDD5NBKBX2HKB2CYOK">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPIQERDFPX1YSGHHXGXYUDOQZUJTW3EO0AOM0TZHQ0X3TE42EDO1E">Silkscreen Over Component Pads (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">7</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID440EBVZMXVSMG3RORD03QDQU2CEVKR25KUJSPGE0IFHY32YGDCUE">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0LB0MUWW5VZ5KKUGC3TCLARYYDXIWARNUUA0EDODS2IMBW32RRCO">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKYVQ51EOIF01B430S320WYPYDGGHOGYX4OC30YNC1WVXVKHOD3FO">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">26</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXXUH3MX2C3NCIK0E1MY0IYTOWHQ330HRZ4CR04IDAU0CYXPTY1BJ">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXZPAEZUDIT2HCIT2DJKCP1NNZINNYGGH5P4JOGN4OF3QRTZWA35">Width Constraint (Min=10mil) (Max=196.85mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDURQITS4T1YYSNCCCNBTN4MIF4L5C0W0HM0BWPCDSKIAESNUVA13M">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOHF5ZKHQFXBDOHYLH4KXU4ZWTEDRPR21TLAGGLOYY020BCOMD25E">Clearance Constraint (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLMWHVHTBV1D5CBHJ45DXEILDXJNQYXCSPS5RBGOGTSFMOOEKUW3N">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTRS5I1KYNEWYKPBI50M5E5KF0PR1QXF0ODC2G4K2YGU5KQRIJ51H">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">33</td>
+</tr>
+</table><br><hr><a name="IDPIQERDFPX1YSGHHXGXYUDOQZUJTW3EO0AOM0TZHQ0X3TE42EDO1E"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silkscreen Over Component Pads (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6772.575mil|Location2.X=6977.425mil|Location1.Y=3832.575mil|Location2.Y=4037.425mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6772.575mil|Location2.X=6977.425mil|Location1.Y=3832.575mil|Location2.Y=4037.425mil|Absolute=True">Pad Power3-1(6875mil,3935mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6792.549mil|Location2.X=6929.678mil|Location1.Y=4043.247mil|Location2.Y=4117.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6792.549mil|Location2.X=6929.678mil|Location1.Y=4043.247mil|Location2.Y=4117.185mil|Absolute=True">Arc (6922.244mil,3958.623mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4396.119mil|Location2.X=4600.97mil|Location1.Y=3549.111mil|Location2.Y=3753.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4396.119mil|Location2.X=4600.97mil|Location1.Y=3549.111mil|Location2.Y=3753.961mil|Absolute=True">Pad Power4-1(4498.544mil,3651.536mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4443.867mil|Location2.X=4580.995mil|Location1.Y=3469.351mil|Location2.Y=3543.289mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4443.867mil|Location2.X=4580.995mil|Location1.Y=3469.351mil|Location2.Y=3543.289mil|Absolute=True">Arc (4451.3mil,3627.913mil)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6641.003mil|Location2.X=6649.003mil|Location1.Y=3061.003mil|Location2.Y=3089.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6641.003mil|Location2.X=6649.003mil|Location1.Y=3061.003mil|Location2.Y=3089.003mil|Absolute=True">Track (6645.003mil,3065.003mil)(6645.003mil,3085.003mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6604.61mil|Location2.X=6668.232mil|Location1.Y=3091.948mil|Location2.Y=3218.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6604.61mil|Location2.X=6668.232mil|Location1.Y=3091.948mil|Location2.Y=3218.058mil|Absolute=True">Pad S1-0(6636.421mil,3155.003mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6641.003mil|Location2.X=6649.003mil|Location1.Y=3221.003mil|Location2.Y=3249.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6641.003mil|Location2.X=6649.003mil|Location1.Y=3221.003mil|Location2.Y=3249.003mil|Absolute=True">Track (6645.003mil,3225.003mil)(6645.003mil,3245.003mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6604.61mil|Location2.X=6668.232mil|Location1.Y=3091.948mil|Location2.Y=3218.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6604.61mil|Location2.X=6668.232mil|Location1.Y=3091.948mil|Location2.Y=3218.058mil|Absolute=True">Pad S1-0(6636.421mil,3155.003mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6301.003mil|Location2.X=6309.003mil|Location1.Y=3061.003mil|Location2.Y=3089.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6301.003mil|Location2.X=6309.003mil|Location1.Y=3061.003mil|Location2.Y=3089.003mil|Absolute=True">Track (6305.003mil,3085.003mil)(6305.003mil,3065.003mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6281.775mil|Location2.X=6345.397mil|Location1.Y=3091.948mil|Location2.Y=3218.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6281.775mil|Location2.X=6345.397mil|Location1.Y=3091.948mil|Location2.Y=3218.058mil|Absolute=True">Pad S1-0(6313.586mil,3155.003mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6301.003mil|Location2.X=6309.003mil|Location1.Y=3221.003mil|Location2.Y=3249.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6301.003mil|Location2.X=6309.003mil|Location1.Y=3221.003mil|Location2.Y=3249.003mil|Absolute=True">Track (6305.003mil,3225.003mil)(6305.003mil,3245.003mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6281.775mil|Location2.X=6345.397mil|Location1.Y=3091.948mil|Location2.Y=3218.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6281.775mil|Location2.X=6345.397mil|Location1.Y=3091.948mil|Location2.Y=3218.058mil|Absolute=True">Pad S1-0(6313.586mil,3155.003mil)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4470mil|Location2.X=4520mil|Location1.Y=4665.001mil|Location2.Y=4715mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4470mil|Location2.X=4520mil|Location1.Y=4665.001mil|Location2.Y=4715mil|Absolute=True">Track (4475mil,4710mil)(4515mil,4670.001mil)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4382.599mil|Location2.X=4517.401mil|Location1.Y=4559.449mil|Location2.Y=4694.252mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4382.599mil|Location2.X=4517.401mil|Location1.Y=4559.449mil|Location2.Y=4694.252mil|Absolute=True">Pad StirMotor-1(4450mil,4626.85mil)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDKYVQ51EOIF01B430S320WYPYDGGHOGYX4OC30YNC1WVXVKHOD3FO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6127.761mil|Location2.X=6302.239mil|Location1.Y=4631.225mil|Location2.Y=4805.703mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6127.761mil|Location2.X=6302.239mil|Location1.Y=4631.225mil|Location2.Y=4805.703mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Motor2-2(6215mil,4718.464mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6127.761mil|Location2.X=6302.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6127.761mil|Location2.X=6302.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Motor2-1(6215mil,4435mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4807.761mil|Location2.X=4982.239mil|Location1.Y=4631.225mil|Location2.Y=4805.703mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4807.761mil|Location2.X=4982.239mil|Location1.Y=4631.225mil|Location2.Y=4805.703mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Motor4-2(4895mil,4718.464mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4807.761mil|Location2.X=4982.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4807.761mil|Location2.X=4982.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Motor4-1(4895mil,4435mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6567.761mil|Location2.X=6742.239mil|Location1.Y=4631.225mil|Location2.Y=4805.703mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6567.761mil|Location2.X=6742.239mil|Location1.Y=4631.225mil|Location2.Y=4805.703mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Motor3-2(6655mil,4718.464mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6567.761mil|Location2.X=6742.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6567.761mil|Location2.X=6742.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Motor3-1(6655mil,4435mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5257.761mil|Location2.X=5432.239mil|Location1.Y=4631.225mil|Location2.Y=4805.703mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5257.761mil|Location2.X=5432.239mil|Location1.Y=4631.225mil|Location2.Y=4805.703mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Motor1-2(5345mil,4718.464mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5257.761mil|Location2.X=5432.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5257.761mil|Location2.X=5432.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Motor1-1(5345mil,4435mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4807.761mil|Location2.X=4982.239mil|Location1.Y=3819.493mil|Location2.Y=3993.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4807.761mil|Location2.X=4982.239mil|Location1.Y=3819.493mil|Location2.Y=3993.971mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Guidance-1(4895mil,3906.732mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4807.761mil|Location2.X=4982.239mil|Location1.Y=3536.029mil|Location2.Y=3710.507mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4807.761mil|Location2.X=4982.239mil|Location1.Y=3536.029mil|Location2.Y=3710.507mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Guidance-2(4895mil,3623.268mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4343.706mil|Location2.X=4474.878mil|Location1.Y=3209.61mil|Location2.Y=3340.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4343.706mil|Location2.X=4474.878mil|Location1.Y=3209.61mil|Location2.Y=3340.782mil|Absolute=True">Hole Size Constraint (129.921mil &gt; 100mil) : Pad Free-0(4409.292mil,3275.196mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6902.76mil|Location2.X=7033.932mil|Location1.Y=3209.61mil|Location2.Y=3340.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6902.76mil|Location2.X=7033.932mil|Location1.Y=3209.61mil|Location2.Y=3340.782mil|Absolute=True">Hole Size Constraint (129.921mil &gt; 100mil) : Pad Free-0(6968.346mil,3275.196mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6902.76mil|Location2.X=7033.932mil|Location1.Y=5178.114mil|Location2.Y=5309.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6902.76mil|Location2.X=7033.932mil|Location1.Y=5178.114mil|Location2.Y=5309.286mil|Absolute=True">Hole Size Constraint (129.921mil &gt; 100mil) : Pad Free-0(6968.346mil,5243.7mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4343.706mil|Location2.X=4474.878mil|Location1.Y=5178.114mil|Location2.Y=5309.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4343.706mil|Location2.X=4474.878mil|Location1.Y=5178.114mil|Location2.Y=5309.286mil|Absolute=True">Hole Size Constraint (129.921mil &gt; 100mil) : Pad Free-0(4409.292mil,5243.7mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6317.761mil|Location2.X=6492.239mil|Location1.Y=3819.493mil|Location2.Y=3993.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6317.761mil|Location2.X=6492.239mil|Location1.Y=3819.493mil|Location2.Y=3993.971mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Judge-1(6405mil,3906.732mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6317.761mil|Location2.X=6492.239mil|Location1.Y=3536.029mil|Location2.Y=3710.507mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6317.761mil|Location2.X=6492.239mil|Location1.Y=3536.029mil|Location2.Y=3710.507mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Judge-2(6405mil,3623.268mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5797.761mil|Location2.X=5972.239mil|Location1.Y=3884.493mil|Location2.Y=4058.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5797.761mil|Location2.X=5972.239mil|Location1.Y=3884.493mil|Location2.Y=4058.971mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Power2-1(5885mil,3971.732mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5797.761mil|Location2.X=5972.239mil|Location1.Y=3601.029mil|Location2.Y=3775.507mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5797.761mil|Location2.X=5972.239mil|Location1.Y=3601.029mil|Location2.Y=3775.507mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Power2-2(5885mil,3688.268mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6823.194mil|Location2.X=6926.806mil|Location1.Y=3883.194mil|Location2.Y=3986.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6823.194mil|Location2.X=6926.806mil|Location1.Y=3883.194mil|Location2.Y=3986.806mil|Absolute=True">Hole Size Constraint (102.362mil &gt; 100mil) : Pad Power3-1(6875mil,3935mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6823.194mil|Location2.X=6926.806mil|Location1.Y=3599.73mil|Location2.Y=3703.342mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6823.194mil|Location2.X=6926.806mil|Location1.Y=3599.73mil|Location2.Y=3703.342mil|Absolute=True">Hole Size Constraint (102.362mil &gt; 100mil) : Pad Power3-2(6875mil,3651.536mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5347.761mil|Location2.X=5522.239mil|Location1.Y=3601.029mil|Location2.Y=3775.507mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5347.761mil|Location2.X=5522.239mil|Location1.Y=3601.029mil|Location2.Y=3775.507mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Power1-2(5435mil,3688.268mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5347.761mil|Location2.X=5522.239mil|Location1.Y=3884.493mil|Location2.Y=4058.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5347.761mil|Location2.X=5522.239mil|Location1.Y=3884.493mil|Location2.Y=4058.971mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad Power1-1(5435mil,3971.732mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5692.761mil|Location2.X=5867.239mil|Location1.Y=4631.226mil|Location2.Y=4805.704mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5692.761mil|Location2.X=5867.239mil|Location1.Y=4631.226mil|Location2.Y=4805.704mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad N3-2(5780mil,4718.465mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5692.761mil|Location2.X=5867.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5692.761mil|Location2.X=5867.239mil|Location1.Y=4347.761mil|Location2.Y=4522.239mil|Absolute=True">Hole Size Constraint (173.228mil &gt; 100mil) : Pad N3-1(5780mil,4435mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4446.738mil|Location2.X=4550.35mil|Location1.Y=3599.73mil|Location2.Y=3703.342mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4446.738mil|Location2.X=4550.35mil|Location1.Y=3599.73mil|Location2.Y=3703.342mil|Absolute=True">Hole Size Constraint (102.362mil &gt; 100mil) : Pad Power4-1(4498.544mil,3651.536mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4446.738mil|Location2.X=4550.35mil|Location1.Y=3883.194mil|Location2.Y=3986.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\CyhGit\SEU_Drone_2020\PCB\Drone_Power V2.1\Drone_Powerv2.0.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4446.738mil|Location2.X=4550.35mil|Location1.Y=3883.194mil|Location2.Y=3986.806mil|Absolute=True">Hole Size Constraint (102.362mil &gt; 100mil) : Pad Power4-2(4498.544mil,3935mil)  Multi-Layer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>
