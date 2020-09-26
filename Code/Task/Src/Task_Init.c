@@ -28,7 +28,7 @@ void Task_Init_Config(void const * argument)
 	init_quaternion();
 	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);
 	__HAL_TIM_SET_COMPARE(&htim3,IMU_HEATING_Pin,HEAT_MID);	
-		
+
 	xTaskCreate(Task_Protect, "Task_Protect", 256, NULL, 7, &TaskProtect_Handle);
 	xTaskCreate(Task_CanComm, "Task_CanComm", 256, NULL, 6, &TaskCanComm_Handle);
 	xTaskCreate(Task_Position, "Task_Position", 256, NULL, 5, &TaskPosition_Handle);
@@ -108,21 +108,20 @@ void DMAInit(void *parameters)
 #endif
 
 #ifdef DMA_Judge_USED
-	//SET_BIT(huart3.Instance->CR3, USART_CR3_DMAR);
 	HAL_UART_Receive_DMA(&huart3, (uint8_t*)Judge_Receive_Buffer, REFEREE_DMA_SIZE);
 	__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
 #endif
 
 #ifdef DMA_JetsonTX2_USED
-	SET_BIT(huart6.Instance->CR3, USART_CR3_DMAR);
-  	HAL_DMA_Start_IT(huart6.hdmarx, (uint32_t)&huart6.Instance->DR, (uint32_t)&DataRecFromJetson_Temp, sizeof(JetsonToSTM_Struct) + JetsonCommReservedFrameLEN);
-  	__HAL_UART_ENABLE_IT(&huart6, UART_IT_IDLE);	
+	HAL_UART_Receive_DMA(&huart6, (uint8_t*)JetsonBuffer, 100);
+	__HAL_UART_ENABLE_IT(&huart6, UART_IT_IDLE);
+	__HAL_UART_CLEAR_IDLEFLAG(&huart6);
 #endif
 
 #ifdef DMA_GYRO_USED
 	SET_BIT(huart8.Instance->CR3, USART_CR3_DMAR);
- 	 HAL_DMAEx_MultiBufferStart(huart8.hdmarx, (uint32_t)&huart8.Instance->DR, (uint32_t)&GYROBuffer[0][0], (uint32_t)&GYROBuffer[1][0], PersonalGYRO_rx_len);
- 	 __HAL_UART_ENABLE_IT(&huart8, UART_IT_IDLE);
+	 HAL_DMAEx_MultiBufferStart(huart8.hdmarx, (uint32_t)&huart8.Instance->DR, (uint32_t)&GYROBuffer[0][0], (uint32_t)&GYROBuffer[1][0], PersonalGYRO_rx_len);
+	 __HAL_UART_ENABLE_IT(&huart8, UART_IT_IDLE);
 #endif
 
 #ifdef DMA_TOF_USED

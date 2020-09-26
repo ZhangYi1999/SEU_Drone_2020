@@ -16,7 +16,6 @@ void Task_TOF(void *parameters)
 			tof++;
 			TOF_Data_Update();
 			vTaskDelayUntil(&xLastWakeUpTime,20);
-
     }
 
 }

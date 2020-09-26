@@ -162,7 +162,7 @@ extern JetsonFlag_Struct JetsonFlag[JETSONFLAG_LEN];                        /*16
 同时因为算法对图像的处理是有延迟的,当JetSon处理完图像之后,可能这时的云台已经指向另一个角度了
 那如果还用JetSon结算出来的差值角度,显然是不对的,所以我们要将图像被处理时所对应的角度保存起来
 等JetSon结算完成后,再加上当时记录的角度,就得到了最终想要的角度,再赋值给Desire_Angle*/
-																			
+extern uint8_t JetsonBuffer[100];
 extern JetsonToSTM_Struct DataRecFromJetson_Temp, DataRecFromJetson;        /*两个变量克服某些可能覆盖的错误*/
 extern STMToJetson_Struct DataSendToJetson;
 extern STMToJetson_Struct_Gyro DataSendToJetson_gyro;

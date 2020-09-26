@@ -80,7 +80,7 @@ void Referee_IDLECallback(UART_HandleTypeDef *huart)
             RefereeReceive(counter);
         }
         //重新打开DMA接收
-        //memset(Judge_Receive_Buffer,0,counter);                                            //清零接收缓冲区
+        memset(Judge_Receive_Buffer,0,counter);//清零接收缓冲区
 				counter = 0;
 				HAL_UART_Receive_DMA(&huart3, (uint8_t*)Judge_Receive_Buffer, REFEREE_DMA_SIZE);
 				judge3++;

@@ -22,16 +22,37 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 E:\Drone2020Ele\Code\MDK-ARM\Drone.uvprojx
-Project File Date:  08/19/2020
+Project File Date:  09/22/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Program\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Drone'
+compiling Task_Init.c...
+compiling System.c...
+compiling Task_Protect.c...
+compiling Task_Position.c...
+..\Task\Src\Task_Position.c(77): warning:  #550-D: variable "last_pit"  was set but never used
+  	float last_pit = 0,last_yaw = 0;
+..\Task\Src\Task_Position.c(77): warning:  #550-D: variable "last_yaw"  was set but never used
+  	float last_pit = 0,last_yaw = 0;
+..\Task\Src\Task_Position.c: 2 warnings, 0 errors
+compiling Task_JetsonComm.c...
 compiling Task_Judge.c...
+compiling Task_StateMachine.c...
+compiling Task_RC.c...
+compiling Task_CanComm.c...
+compiling Task_LED.c...
+compiling Task_Gimbal.c...
+compiling Task_Shoot.c...
+compiling Task_Debug.c...
+compiling Task_SDIO.c...
+compiling Task_Ui.c...
+compiling stm32f4xx_it.c...
+compiling Task_TOF.c...
 linking...
-Program Size: Code=79838 RO-data=176806 RW-data=748 ZI-data=33164  
+Program Size: Code=75008 RO-data=176812 RW-data=760 ZI-data=33216  
 FromELF: creating hex file...
-"Drone\Drone.axf" - 0 Error(s), 0 Warning(s).
+"Drone\Drone.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -42,19 +63,19 @@ Package Vendor: ARM
    * Component: CORE Version: 5.0.1
 
 Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.13.0.pack
-                Keil.STM32F4xx_DFP.2.13.0
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.14.0.pack
+                Keil.STM32F4xx_DFP.2.14.0
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Drone
   D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
-  D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:08
+Build Time Elapsed:  00:00:51
 </pre>
 </body>
 </html>
